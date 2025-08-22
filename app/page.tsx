@@ -1,19 +1,20 @@
-"use client"
+"use client";
 
-import { SidebarPersonalCard } from "@/components/sidebar-personal-card"
-import { ProjectsCarousel } from "@/components/projects-carousel"
-import { TechStackSection } from "@/components/tech-stack-section"
-import { MilestonesSection } from "@/components/milestones-section"
-import { ExperienceTimeline } from "@/components/experience-timeline"
-import { NavigationDock } from "@/components/navigation-dock"
-import { AnimatedSection } from "@/components/animated-section"
-import { Button } from "@/components/ui/button"
-import { ContactFormModal } from "@/components/contact-form-modal"
-import { Badge } from "@/components/ui/badge"
-import { ProfileInfoModal } from "@/components/profile-info-modal"
-import { profile } from "@/data/profile"
-import { FileText, Mail } from "lucide-react"
-import Link from "next/link"
+import { SidebarPersonalCard } from "@/components/sidebar-personal-card";
+import { ProjectsCarousel } from "@/components/projects-carousel";
+import { TechStackSection } from "@/components/tech-stack-section";
+import { MilestonesSection } from "@/components/milestones-section";
+import { ExperienceTimeline } from "@/components/experience-timeline";
+import { NavigationDock } from "@/components/navigation-dock";
+import { AnimatedSection } from "@/components/animated-section";
+import { Button } from "@/components/ui/button";
+import { ContactFormModal } from "@/components/contact-form-modal";
+import { Badge } from "@/components/ui/badge";
+import { ProfileInfoModal } from "@/components/profile-info-modal";
+import { profile } from "@/data/profile";
+import { FileText, Mail } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -34,25 +35,34 @@ export default function HomePage() {
             {/* Main content sections */}
             <div className="space-y-16">
               <AnimatedSection animation="fade-up" delay={100}>
-                <section id="projects">
+                <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
                   <ProjectsCarousel />
                 </section>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={200}>
-                <section id="tech-stack">
+                <section
+                  id="tech-stack"
+                  className="scroll-mt-24 md:scroll-mt-28"
+                >
                   <TechStackSection />
                 </section>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={300}>
-                <section id="milestones">
+                <section
+                  id="milestones"
+                  className="scroll-mt-24 md:scroll-mt-28"
+                >
                   <MilestonesSection />
                 </section>
               </AnimatedSection>
 
               <AnimatedSection animation="fade-up" delay={400}>
-                <section id="experience">
+                <section
+                  id="experience"
+                  className="scroll-mt-24 md:scroll-mt-28"
+                >
                   <ExperienceTimeline />
                 </section>
               </AnimatedSection>
@@ -63,14 +73,16 @@ export default function HomePage() {
 
       {/* Tablet Layout (768-1279px) */}
       <div className="hidden md:block xl:hidden">
-        <div className="border-b bg-card p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
+        <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 relative">
-                <img
+                <Image
                   src={profile.image || "/developer-headshot.png"}
                   alt="Profile"
-                  className="w-full h-full rounded-full object-cover border border-border"
+                  fill
+                  sizes="48px"
+                  className="rounded-full object-cover border border-border"
                 />
               </div>
               <div>
@@ -81,14 +93,27 @@ export default function HomePage() {
 
             <div className="flex items-center gap-2">
               <ProfileInfoModal />
-              <Button asChild size="sm" variant="outline" className="h-8 px-3 bg-transparent">
-                <Link href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
+                className="h-8 px-3 bg-transparent"
+              >
+                <Link
+                  href={profile.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FileText className="w-3 h-3 mr-1" />
                   CV
                 </Link>
               </Button>
               <ContactFormModal>
-                <Button size="sm" variant="outline" className="h-8 px-3 bg-transparent">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-8 px-3 bg-transparent"
+                >
                   <Mail className="w-3 h-3 mr-1" />
                   Hire
                 </Button>
@@ -100,25 +125,25 @@ export default function HomePage() {
         <main className="p-6 pb-20">
           <div className="max-w-4xl mx-auto space-y-12">
             <AnimatedSection animation="fade-up" delay={100}>
-              <section id="projects">
+              <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
                 <ProjectsCarousel />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={200}>
-              <section id="tech-stack">
+              <section id="tech-stack" className="scroll-mt-24 md:scroll-mt-28">
                 <TechStackSection />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={300}>
-              <section id="milestones">
+              <section id="milestones" className="scroll-mt-24 md:scroll-mt-28">
                 <MilestonesSection />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={400}>
-              <section id="experience">
+              <section id="experience" className="scroll-mt-24 md:scroll-mt-28">
                 <ExperienceTimeline />
               </section>
             </AnimatedSection>
@@ -128,14 +153,16 @@ export default function HomePage() {
 
       {/* Mobile Layout (<768px) */}
       <div className="block md:hidden">
-        <div className="border-b bg-card p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
+        <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
-                <img
+                <Image
                   src={profile.image || "/developer-headshot.png"}
                   alt="Profile"
-                  className="w-full h-full rounded-full object-cover border border-border"
+                  fill
+                  sizes="40px"
+                  className="rounded-full object-cover border border-border"
                 />
               </div>
               <div>
@@ -146,50 +173,55 @@ export default function HomePage() {
 
             <div className="flex gap-1">
               <ProfileInfoModal />
-              <Button asChild size="sm" variant="outline" className="h-7 px-2 bg-transparent">
-                <Link href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
+                className="h-7 px-2 bg-transparent"
+              >
+                <Link
+                  href={profile.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FileText className="w-3 h-3" />
                 </Link>
               </Button>
               <ContactFormModal>
-                <Button size="sm" variant="outline" className="h-7 px-2 bg-transparent">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-7 px-2 bg-transparent"
+                >
                   <Mail className="w-3 h-3" />
                 </Button>
               </ContactFormModal>
             </div>
-          </div>
-
-          <div className="mt-3 flex flex-wrap gap-1">
-            {profile.summaryCards.slice(0, 4).map((card, index) => (
-              <Badge key={index} variant="secondary" className="text-xs px-2 py-0.5">
-                {card.value} {card.label}
-              </Badge>
-            ))}
           </div>
         </div>
 
         <main className="p-4 pb-20">
           <div className="space-y-8">
             <AnimatedSection animation="fade-up" delay={100}>
-              <section id="projects">
+              <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
                 <ProjectsCarousel />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={200}>
-              <section id="tech-stack">
+              <section id="tech-stack" className="scroll-mt-24 md:scroll-mt-28">
                 <TechStackSection />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={300}>
-              <section id="milestones">
+              <section id="milestones" className="scroll-mt-24 md:scroll-mt-28">
                 <MilestonesSection />
               </section>
             </AnimatedSection>
 
             <AnimatedSection animation="fade-up" delay={400}>
-              <section id="experience">
+              <section id="experience" className="scroll-mt-24 md:scroll-mt-28">
                 <ExperienceTimeline />
               </section>
             </AnimatedSection>
@@ -197,5 +229,5 @@ export default function HomePage() {
         </main>
       </div>
     </div>
-  )
+  );
 }
