@@ -1,7 +1,6 @@
 "use client";
 
-import type React from "react";
-
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 import { Code, Award, Briefcase, FolderOpen, Sun, Moon } from "lucide-react";
@@ -12,37 +11,42 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-interface NavigationSection {
-  id: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
-
-const sections: NavigationSection[] = [
-  { id: "projects", label: "Projects", icon: FolderOpen },
-  { id: "tech-stack", label: "Tech Stack", icon: Code },
-  { id: "milestones", label: "Milestones", icon: Award },
-  { id: "experience", label: "Experience", icon: Briefcase },
+const navigationItems = [
+  {
+    id: "projects",
+    icon: FolderOpen,
+    label: "Projects",
+  },
+  {
+    id: "tech-stack",
+    icon: Code,
+    label: "Tech Stack",
+  },
+  {
+    id: "milestones",
+    icon: Award,
+    label: "Milestones",
+  },
+  {
+    id: "experience",
+    icon: Briefcase,
+    label: "Experience",
+  },
 ];
 
-export function NavigationDock() {
-  const activeSection = useScrollSpy(
-    sections.map((s) => s.id),
-    100
-  );
+export const NavigationDock = () => {
+  const sectionIds = navigationItems.map((item) => item.id);
+  const { activeSection, scrollToSection } = useScrollSpy(sectionIds);
   const { theme, setTheme } = useTheme();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      // Use the same offset as scroll-mt classes (96px = 24 * 4, 112px = 28 * 4)
-      const offset = window.innerWidth >= 768 ? 112 : 96;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-    }
+  // Debug: Log active section changes
+  React.useEffect(() => {
+    console.log("Active section changed to:", activeSection);
+  }, [activeSection]);
+
+  const handleNavClick = (sectionId: string) => {
+    console.log("Clicking section:", sectionId); // Debug log
+    scrollToSection(sectionId);
   };
 
   const toggleTheme = () => {
@@ -51,94 +55,99 @@ export function NavigationDock() {
 
   return (
     <>
-      {/* Desktop Navigation Dock - Fixed on right side */}
-      <nav
-        aria-label="Page sections"
-        className="hidden lg:block fixed right-6 top-1/2 -translate-y-1/2 z-50"
-      >
-        <div className="flex flex-col gap-2 bg-card/80 backdrop-blur-sm border rounded-full p-2 shadow-lg">
-          {sections.map((section) => {
-            const Icon = section.icon;
-            const isActive = activeSection === section.id;
+      {/* Desktop Dock - Right side (≥1280px) */}
+      <div className="hidden xl:block fixed right-6 top-1/2 -translate-y-1/2 z-50">
+        <nav className="flex flex-col gap-3 p-3 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
 
             return (
-              <Tooltip key={section.id}>
+              <Tooltip key={item.id} delayDuration={300}>
                 <TooltipTrigger asChild>
                   <Button
                     variant={isActive ? "default" : "ghost"}
                     size="icon"
-                    onClick={() => scrollToSection(section.id)}
-                    className="w-10 h-10 rounded-full"
-                    aria-label={section.label}
-                    aria-current={isActive ? "true" : undefined}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`
+                      relative transition-all duration-200 ease-in-out h-10 w-10
+                      ${
+                        isActive
+                          ? "bg-primary text-primary-foreground shadow-md scale-110"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                      }
+                    `}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="h-5 w-5" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent side="left">{section.label}</TooltipContent>
+                <TooltipContent side="left">{item.label}</TooltipContent>
               </Tooltip>
             );
           })}
 
-          {/* Theme Toggle */}
-          <div className="border-t border-border my-1" />
-          <Tooltip>
+          <div className="w-full h-px bg-border my-2" />
+
+          <Tooltip delayDuration={300}>
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="w-10 h-10 rounded-full"
+                className="h-10 w-10 transition-all duration-200"
                 aria-label="Toggle theme"
               >
-                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
             </TooltipTrigger>
             <TooltipContent side="left">Toggle theme</TooltipContent>
           </Tooltip>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
-      {/* Sub-lg Navigation Dock - Single instance, responsive positioning */}
-      <nav
-        aria-label="Page sections"
-        className="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 md:bottom-6 md:right-6 md:left-auto md:translate-x-0 z-50"
-      >
-        <div className="flex items-center gap-1 bg-card/90 backdrop-blur-sm border rounded-full p-1 shadow-lg">
-          {sections.map((section) => {
-            const Icon = section.icon;
-            const isActive = activeSection === section.id;
+      {/* Mobile/Tablet Dock - Bottom (<1280px) */}
+      <div className="block xl:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <nav className="flex items-center gap-2 p-3 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id;
 
             return (
               <Button
-                key={section.id}
+                key={item.id}
                 variant={isActive ? "default" : "ghost"}
                 size="icon"
-                onClick={() => scrollToSection(section.id)}
-                className="w-9 h-9 rounded-full"
-                aria-label={section.label}
-                aria-current={isActive ? "true" : undefined}
+                onClick={() => handleNavClick(item.id)}
+                className={`
+                  relative transition-all duration-200 ease-in-out h-10 w-10
+                  ${
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-md scale-110"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  }
+                `}
               >
-                <Icon className="w-3.5 h-3.5" />
+                <Icon className="h-5 w-5" />
               </Button>
             );
           })}
 
-          {/* Theme Toggle */}
-          <div className="w-px h-6 bg-border mx-1" />
+          <div className="h-8 w-px bg-border mx-2" />
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-full"
+            className="h-10 w-10 transition-all duration-200"
             aria-label="Toggle theme"
           >
-            <Sun className="h-3.5 w-3.5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-3.5 w-3.5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </>
   );
-}
+};
+
+export default NavigationDock;
