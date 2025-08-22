@@ -12,15 +12,15 @@ export function ExperienceTimeline() {
   })
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 3xl:space-y-8">
       {/* Section Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Professional Experience</h2>
-        <p className="text-muted-foreground">My career journey and professional growth</p>
+      <div className="text-center space-y-2 3xl:space-y-3">
+        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Professional Experience</h2>
+        <p className="text-muted-foreground 3xl:text-lg">My career journey and professional growth</p>
       </div>
 
       {/* Timeline */}
-      <div className="max-w-3xl mx-auto">
+      <div className="w-full">
         {sortedExperience.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground">No experience data available</p>

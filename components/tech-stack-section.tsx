@@ -7,11 +7,11 @@ export function TechStackSection() {
   const categories = Array.from(new Set(profile.techStack.map((tech) => tech.category)))
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 3xl:space-y-8">
       {/* Section Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Tech Stack</h2>
-        <p className="text-muted-foreground">Technologies and tools I work with</p>
+      <div className="text-center space-y-2 3xl:space-y-3">
+        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Tech Stack</h2>
+        <p className="text-muted-foreground 3xl:text-lg">Technologies and tools I work with</p>
       </div>
 
       {/* Tech Stack by Category */}

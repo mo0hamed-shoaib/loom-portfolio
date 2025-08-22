@@ -33,7 +33,7 @@ export default function HomePage() {
         <main className="ml-80 3xl:ml-96 flex-1 p-6 3xl:p-8">
           <div className="max-w-4xl 3xl:max-w-6xl mx-auto">
             {/* Main content sections */}
-            <div className="space-y-16 3xl:space-y-20">
+            <div className="space-y-16 3xl:space-y-20 max-w-3xl 3xl:max-w-4xl mx-auto">
               <AnimatedSection animation="fade-up" delay={100}>
                 <section id="projects" className="scroll-mt-24 md:scroll-mt-28 3xl:scroll-mt-32">
                   <ProjectsCarousel />
@@ -123,7 +123,7 @@ export default function HomePage() {
         </div>
 
         <main className="p-6 pb-20">
-          <div className="max-w-4xl mx-auto space-y-12">
+          <div className="max-w-3xl 3xl:max-w-4xl mx-auto space-y-12">
             <AnimatedSection animation="fade-up" delay={100}>
               <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
                 <ProjectsCarousel />
@@ -201,7 +201,7 @@ export default function HomePage() {
         </div>
 
         <main className="p-4 pb-20">
-          <div className="space-y-8">
+          <div className="max-w-3xl mx-auto space-y-8">
             <AnimatedSection animation="fade-up" delay={100}>
               <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
                 <ProjectsCarousel />

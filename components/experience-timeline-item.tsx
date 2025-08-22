@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -62,28 +61,16 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
         <Card className="hover:shadow-sm transition-shadow">
           <CardContent className="p-6">
             {/* Header */}
-            <div className="flex items-start gap-4 mb-4">
-              {/* Company Logo */}
-              {experience.logo && (
-                <div className="w-12 h-12 relative flex-shrink-0">
-                  <Image
-                    src={experience.logo || "/placeholder.svg"}
-                    alt={`${experience.org} logo`}
-                    fill
-                    className="rounded-lg object-cover border border-border"
-                  />
-                </div>
-              )}
-
+            <div className="mb-4">
               {/* Main Info */}
-              <div className="flex-1 min-w-0">
+              <div className="text-center sm:text-left">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                   <div>
                     <h3 className="text-lg font-semibold leading-tight">{experience.role}</h3>
                     <p className="text-primary font-medium">{experience.org}</p>
                   </div>
-                  <div className="text-sm text-muted-foreground text-right">
-                    <div className="flex items-center gap-1 justify-end">
+                  <div className="text-sm text-muted-foreground text-center sm:text-right">
+                    <div className="flex items-center gap-1 justify-center sm:justify-end">
                       <Calendar className="w-3 h-3" />
                       <span>
                         {formatDate(experience.start)} - {experience.end ? formatDate(experience.end) : "Present"}
@@ -95,7 +82,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
 
                 {/* Location */}
                 {experience.location && (
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground mb-3">
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground mb-3 justify-center sm:justify-start">
                     <MapPin className="w-3 h-3" />
                     <span>{experience.location}</span>
                   </div>
@@ -106,34 +93,18 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                   {experience.bullets.map((bullet, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span>{bullet}</span>
+                      <span className="text-left">{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Tech Stack */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {experience.stack.slice(0, 6).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {experience.stack.length > 6 && (
-                      <Badge variant="outline" className="text-xs">
-                        +{experience.stack.length - 6} more
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-
                 {/* Expand/Collapse Button */}
-                {(experience.keyAchievements || experience.technologies) && (
+                {(experience.keyAchievements || experience.stack.length > 0) && (
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="h-8 px-2 text-xs"
+                    className="h-8 px-2 text-xs mx-auto sm:mx-0"
                   >
                     {isExpanded ? (
                       <>
@@ -167,33 +138,19 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                       </div>
                     )}
 
-                    {/* Technologies Used */}
-                    {experience.technologies && experience.technologies.length > 0 && (
-                      <div>
-                        <h4 className="text-sm font-medium mb-2">Technologies Used</h4>
-                        <div className="flex flex-wrap gap-1.5">
-                          {experience.technologies.map((tech) => (
-                            <Badge key={tech} variant="outline" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* All Tech Stack (if expanded) */}
-                    {experience.stack.length > 6 && (
-                      <div>
-                        <h4 className="text-sm font-medium mb-2">Complete Tech Stack</h4>
-                        <div className="flex flex-wrap gap-1.5">
-                          {experience.stack.map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-xs">
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                                         {/* Tech Stack */}
+                     {experience.stack.length > 0 && (
+                       <div>
+                         <h4 className="text-sm font-medium mb-2">Tech Stack</h4>
+                         <div className="flex flex-wrap gap-1.5">
+                           {experience.stack.map((tech) => (
+                             <Badge key={tech} variant="outline" className="text-xs">
+                               {tech}
+                             </Badge>
+                           ))}
+                         </div>
+                       </div>
+                     )}
                   </div>
                 )}
               </div>

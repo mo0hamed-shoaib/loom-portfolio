@@ -37,11 +37,11 @@ export function MilestonesSection() {
   const tabOptions: MilestoneKind[] = ["all", "cert", "award", "education", "blog", "youtube", "oss"]
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 3xl:space-y-8">
       {/* Section Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Milestones & Achievements</h2>
-        <p className="text-muted-foreground">A collection of my professional achievements and contributions</p>
+      <div className="text-center space-y-2 3xl:space-y-3">
+        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Milestones & Achievements</h2>
+        <p className="text-muted-foreground 3xl:text-lg">A collection of my professional achievements and contributions</p>
       </div>
 
       {/* Tabs */}

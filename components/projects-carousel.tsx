@@ -19,17 +19,17 @@ export function ProjectsCarousel() {
 
   if (projects.length === 0) {
     return (
-      <section className="space-y-6">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight mb-2">Featured Projects</h2>
-          <p className="text-muted-foreground">No projects available</p>
+      <section className="space-y-6 3xl:space-y-8">
+        <div className="text-center space-y-2 3xl:space-y-3">
+          <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Featured Projects</h2>
+          <p className="text-muted-foreground 3xl:text-lg">No projects available</p>
         </div>
       </section>
     )
   }
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 3xl:space-y-8">
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Featured Projects</h2>
@@ -76,7 +76,7 @@ export function ProjectsCarousel() {
       </div>
 
       {/* Current Project */}
-      <div className="max-w-2xl mx-auto transform transition-all duration-300 ease-out">
+      <div className="w-full transform transition-all duration-300 ease-out">
         <ProjectCard project={projects[currentProjectIndex]} />
       </div>
     </section>
