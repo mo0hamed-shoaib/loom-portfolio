@@ -7,7 +7,9 @@ export const useScrollSpy = (sectionIds: string[]) => {
 
   // Simple, reliable scroll offset calculation
   const getScrollOffset = useCallback(() => {
-    return window.innerWidth >= 768 ? 112 : 96; // Match your CSS: md:scroll-mt-28 and scroll-mt-24
+    if (window.innerWidth >= 1920) return 128; // 3xl:scroll-mt-32 (32 * 4 = 128px)
+    if (window.innerWidth >= 768) return 112; // md:scroll-mt-28 (28 * 4 = 112px)
+    return 96; // scroll-mt-24 (24 * 4 = 96px)
   }, []);
 
   // Get the currently visible sections based on layout

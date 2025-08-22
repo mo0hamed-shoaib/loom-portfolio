@@ -31,9 +31,9 @@ export function ProjectsCarousel() {
   return (
     <section className="space-y-6">
       {/* Section Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Featured Projects</h2>
-        <p className="text-muted-foreground">Showcasing some of my recent work and technical achievements</p>
+      <div className="text-center space-y-2 3xl:space-y-3">
+        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Featured Projects</h2>
+        <p className="text-muted-foreground 3xl:text-lg">Showcasing some of my recent work and technical achievements</p>
       </div>
 
       {/* Project Navigation with Progress Bar */}
@@ -43,17 +43,17 @@ export function ProjectsCarousel() {
           size="icon"
           onClick={prevProject}
           disabled={projects.length <= 1}
-          className="w-10 h-10 bg-transparent transition-transform hover:scale-105"
+          className="w-10 h-10 3xl:w-12 3xl:h-12 bg-transparent transition-transform hover:scale-105"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-4 h-4 3xl:w-5 3xl:h-5" />
         </Button>
 
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground whitespace-nowrap">
+        <div className="flex items-center gap-3 3xl:gap-4">
+          <span className="text-sm 3xl:text-base text-muted-foreground whitespace-nowrap">
             {currentProjectIndex + 1} of {projects.length}
           </span>
           {projects.length > 1 && (
-            <div className="w-32 h-1 bg-muted rounded-full overflow-hidden">
+            <div className="w-32 3xl:w-40 h-1 3xl:h-1.5 bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-300 ease-out"
                 style={{
@@ -69,9 +69,9 @@ export function ProjectsCarousel() {
           size="icon"
           onClick={nextProject}
           disabled={projects.length <= 1}
-          className="w-10 h-10 bg-transparent transition-transform hover:scale-105"
+          className="w-10 h-10 3xl:w-12 3xl:h-12 bg-transparent transition-transform hover:scale-105"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4 3xl:w-5 3xl:h-5" />
         </Button>
       </div>
 

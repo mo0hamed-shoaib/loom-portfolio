@@ -25,17 +25,17 @@ export default function HomePage() {
       {/* Desktop Layout (≥1280px) */}
       <div className="hidden xl:flex">
         {/* Sidebar */}
-        <aside className="fixed left-0 top-0 h-screen w-80 border-r bg-card p-6 overflow-y-auto">
+        <aside className="fixed left-0 top-0 h-screen w-80 3xl:w-96 border-r bg-card p-6 3xl:p-8 overflow-y-auto">
           <SidebarPersonalCard />
         </aside>
 
         {/* Main Content */}
-        <main className="ml-80 flex-1 p-6">
-          <div className="max-w-4xl mx-auto">
+        <main className="ml-80 3xl:ml-96 flex-1 p-6 3xl:p-8">
+          <div className="max-w-4xl 3xl:max-w-6xl mx-auto">
             {/* Main content sections */}
-            <div className="space-y-16">
+            <div className="space-y-16 3xl:space-y-20">
               <AnimatedSection animation="fade-up" delay={100}>
-                <section id="projects" className="scroll-mt-24 md:scroll-mt-28">
+                <section id="projects" className="scroll-mt-24 md:scroll-mt-28 3xl:scroll-mt-32">
                   <ProjectsCarousel />
                 </section>
               </AnimatedSection>
@@ -43,7 +43,7 @@ export default function HomePage() {
               <AnimatedSection animation="fade-up" delay={200}>
                 <section
                   id="tech-stack"
-                  className="scroll-mt-24 md:scroll-mt-28"
+                  className="scroll-mt-24 md:scroll-mt-28 3xl:scroll-mt-32"
                 >
                   <TechStackSection />
                 </section>
@@ -52,7 +52,7 @@ export default function HomePage() {
               <AnimatedSection animation="fade-up" delay={300}>
                 <section
                   id="milestones"
-                  className="scroll-mt-24 md:scroll-mt-28"
+                  className="scroll-mt-24 md:scroll-mt-28 3xl:scroll-mt-32"
                 >
                   <MilestonesSection />
                 </section>
@@ -61,7 +61,7 @@ export default function HomePage() {
               <AnimatedSection animation="fade-up" delay={400}>
                 <section
                   id="experience"
-                  className="scroll-mt-24 md:scroll-mt-28"
+                  className="scroll-mt-24 md:scroll-mt-28 3xl:scroll-mt-32"
                 >
                   <ExperienceTimeline />
                 </section>

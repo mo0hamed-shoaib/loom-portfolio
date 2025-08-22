@@ -56,8 +56,8 @@ export const NavigationDock = () => {
   return (
     <>
       {/* Desktop Dock - Right side (≥1280px) */}
-      <div className="hidden xl:block fixed right-6 top-1/2 -translate-y-1/2 z-50">
-        <nav className="flex flex-col gap-3 p-3 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
+      <div className="hidden xl:block fixed right-6 3xl:right-8 top-1/2 -translate-y-1/2 z-50">
+        <nav className="flex flex-col gap-3 3xl:gap-4 p-3 3xl:p-4 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -70,7 +70,7 @@ export const NavigationDock = () => {
                     size="icon"
                     onClick={() => handleNavClick(item.id)}
                     className={`
-                      relative transition-all duration-200 ease-in-out h-10 w-10
+                      relative transition-all duration-200 ease-in-out h-10 w-10 3xl:h-12 3xl:w-12
                       ${
                         isActive
                           ? "bg-primary text-primary-foreground shadow-md scale-110"
@@ -78,7 +78,7 @@ export const NavigationDock = () => {
                       }
                     `}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-5 w-5 3xl:h-6 3xl:w-6" />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent side="left">{item.label}</TooltipContent>
@@ -94,11 +94,11 @@ export const NavigationDock = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="h-10 w-10 transition-all duration-200"
+                className="h-10 w-10 3xl:h-12 3xl:w-12 transition-all duration-200"
                 aria-label="Toggle theme"
               >
-                <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Sun className="h-5 w-5 3xl:h-6 3xl:w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-5 w-5 3xl:h-6 3xl:w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
             </TooltipTrigger>
             <TooltipContent side="left">Toggle theme</TooltipContent>
