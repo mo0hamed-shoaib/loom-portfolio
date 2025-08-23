@@ -15,7 +15,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200">
       <CardContent className="p-0">
         {/* Project Image Carousel */}
         <div className="p-6 3xl:p-8 pb-4 3xl:pb-6">

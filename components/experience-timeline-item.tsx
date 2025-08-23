@@ -58,7 +58,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
 
       {/* Content */}
       <div className="flex-1 pb-8">
-        <Card className="hover:shadow-sm transition-shadow">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200">
           <CardContent className="p-6">
             {/* Header */}
             <div className="mb-4">
