@@ -78,7 +78,7 @@ export const NavigationDock = () => {
                       }
                     `}
                   >
-                    <Icon className="h-5 w-5 3xl:h-6 3xl:w-6" />
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 3xl:h-6 3xl:w-6" />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent side="left">{item.label}</TooltipContent>
@@ -97,8 +97,8 @@ export const NavigationDock = () => {
                 className="h-10 w-10 3xl:h-12 3xl:w-12 transition-all duration-200"
                 aria-label="Toggle theme"
               >
-                <Sun className="h-5 w-5 3xl:h-6 3xl:w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-5 w-5 3xl:h-6 3xl:w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Sun className="h-4 w-4 sm:h-5 sm:w-5 3xl:h-6 3xl:w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 3xl:h-6 3xl:w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
             </TooltipTrigger>
             <TooltipContent side="left">Toggle theme</TooltipContent>
@@ -128,7 +128,7 @@ export const NavigationDock = () => {
                   }
                 `}
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             );
           })}
@@ -141,8 +141,8 @@ export const NavigationDock = () => {
             className="h-10 w-10 transition-all duration-200"
             aria-label="Toggle theme"
           >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            <Sun className="h-4 w-4 sm:h-5 sm:w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
         </nav>
       </div>

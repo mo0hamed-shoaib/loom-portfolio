@@ -27,14 +27,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Title and Role */}
           <div>
             <div className="flex items-start justify-between gap-4 mb-2">
-              <h3 className="text-xl 3xl:text-2xl font-semibold leading-tight">{project.title}</h3>
+              <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold leading-tight">{project.title}</h3>
               <span className="text-sm 3xl:text-base text-muted-foreground whitespace-nowrap">{project.year}</span>
             </div>
             <p className="text-sm 3xl:text-base font-medium text-primary">{project.role}</p>
           </div>
 
           {/* Summary */}
-          <p className="text-muted-foreground 3xl:text-base leading-relaxed">{project.summary}</p>
+          <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{project.summary}</p>
 
           {/* Tech Stack */}
           <div>

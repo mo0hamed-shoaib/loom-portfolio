@@ -86,8 +86,8 @@ export default function HomePage() {
                 />
               </div>
               <div>
-                <h1 className="font-semibold">{profile.name}</h1>
-                <p className="text-sm text-muted-foreground">{profile.title}</p>
+                <h1 className="text-lg sm:text-xl 3xl:text-2xl font-semibold">{profile.name}</h1>
+                <p className="text-sm sm:text-base 3xl:text-lg text-muted-foreground">{profile.title}</p>
               </div>
             </div>
 
@@ -166,8 +166,8 @@ export default function HomePage() {
                 />
               </div>
               <div>
-                <h1 className="font-medium">{profile.name}</h1>
-                <p className="text-xs text-muted-foreground">{profile.title}</p>
+                <h1 className="text-base sm:text-lg font-medium">{profile.name}</h1>
+                <p className="text-xs sm:text-sm text-muted-foreground">{profile.title}</p>
               </div>
             </div>
 
