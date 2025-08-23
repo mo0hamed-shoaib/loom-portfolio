@@ -4,6 +4,7 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { toast } from "sonner"
 import Link from "next/link"
 import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
@@ -62,12 +63,31 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
               {profile.socials.map((social, index) => {
                 const Icon = Icons[social.icon as IconName] || Icons.user
                 const isEmail = social.platform === "Email"
+
+                if (isEmail) {
+                  return (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                      onClick={() => {
+                        navigator.clipboard.writeText(profile.email)
+                        toast("Email address copied to clipboard!")
+                      }}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {social.platform}
+                    </Button>
+                  )
+                }
+
                 return (
                   <Button key={index} variant="outline" size="sm" asChild>
                     <Link
                       href={social.url}
-                      target={isEmail ? undefined : "_blank"}
-                      rel={isEmail ? undefined : "noopener noreferrer"}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
                       <Icon className="w-4 h-4" />

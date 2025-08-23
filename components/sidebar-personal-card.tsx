@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 import { ContactFormModal } from "@/components/contact-form-modal"
 import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
@@ -61,12 +62,30 @@ export function SidebarPersonalCard() {
           const Icon = Icons[social.icon as IconName] || Icons.user
           const isEmail = social.platform === "Email"
 
+          if (isEmail) {
+            return (
+              <Button
+                key={index}
+                variant="outline"
+                size="icon"
+                className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent"
+                aria-label={social.platform}
+                onClick={() => {
+                  navigator.clipboard.writeText(profile.email)
+                  toast("Email address copied to clipboard!")
+                }}
+              >
+                <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
+              </Button>
+            )
+          }
+
           return (
             <Button key={index} variant="outline" size="icon" asChild className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent">
               <Link
                 href={social.url}
-                target={isEmail ? undefined : "_blank"}
-                rel={isEmail ? undefined : "noopener noreferrer"}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.platform}
               >
                 <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
