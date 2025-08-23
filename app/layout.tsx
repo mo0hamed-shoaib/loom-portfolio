@@ -7,10 +7,26 @@ import "./globals.css"
 import { Toaster } from "@/components/ui/sonner"
 import { siteConfig } from "@/data/site.config"
 
-export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-  generator: "v0.app",
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    generator: "v0.app",
+    icons: {
+      icon: [
+        { 
+          url: "/favicon-dark.svg", 
+          type: "image/svg+xml", 
+          media: "(prefers-color-scheme: light)" 
+        },
+        { 
+          url: "/favicon-light.svg", 
+          type: "image/svg+xml", 
+          media: "(prefers-color-scheme: dark)" 
+        },
+      ],
+    },
+  }
 }
 
 export default function RootLayout({
