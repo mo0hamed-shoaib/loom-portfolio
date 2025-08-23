@@ -1,6 +1,73 @@
 import type { Project } from "@/lib/schemas"
 
 export const projects: Project[] = [
+    // ==============================Rootly==============================
+    {
+      slug: "rootly-note-management-app",
+      title: "Rootly Notes Management App",
+      year: "2025",
+      role: "Full-Stack Developer",
+      summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a quick review session — all in a sleek, responsive UI.",
+      stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
+      media: [
+        {
+          src: "/projects/rootly/rootly-0.png",
+          type: "image",
+          alt: "Rootly Notes Home Light",
+        },
+        {
+          src: "/projects/rootly/rootly-1.png",
+          type: "image",
+          alt: "Rootly Notes Home",
+        },
+        {
+          src: "/projects/rootly/rootly-2.png",
+          type: "image",
+          alt: "Rootly Notes",
+        },
+        {
+          src: "/projects/rootly/rootly-3.png",
+          type: "image",
+          alt: "Rootly Notes Code Snippet",
+        },
+        {
+          src: "/projects/rootly/rootly-4.png",
+          type: "image",
+          alt: "Rootly Add Notes",
+        },
+        {
+          src: "/projects/rootly/rootly-5.png",
+          type: "image",
+          alt: "Rootly Courses",
+        },
+        
+        {
+          src: "/projects/rootly/rootly-6.png",
+          type: "image",
+          alt: "Rootly Daily Entries",
+        },
+        {
+          src: "/projects/rootly/rootly-7.png",
+          type: "image",
+          alt: "Rootly Review",
+        },
+        {
+          src: "/projects/rootly/rootly-8.png",
+          type: "image",
+          alt: "Rootly Light Orange",
+        },
+        {
+          src: "/projects/rootly/rootly-9.png",
+          type: "image",
+          alt: "Rootly Light Green",
+        },
+      ],
+      links: {
+        demo: "https://rootly-notes.vercel.app/",
+        source: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
+      },
+      highlights: ["One platform to manage everything about your learning", "Tracking your learning progress with seamless dashboard and review system", "Export your notes to PDF"],
+    },
   // ==============================Naafe==============================
   {
     slug: "service-exchange-platform",
@@ -71,67 +138,61 @@ export const projects: Project[] = [
       ],
     },
   },
-  // ==============================Rootly==============================
+  // ==============================NoirKit==============================
   {
-    slug: "rootly-note-management-app",
-    title: "Rootly Notes Management App",
+    slug: "noirkit-portfolio-manager",
+    title: "NoirKit Portfolio Manager",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a quick review session — all in a sleek, responsive UI.",
+    summary: "Manage your complete professional presence through an intuitive dashboard, from projects and tech stacks to achievements and custom contact forms, and mobile-optimized experience.",
     stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
     media: [
       {
-        src: "/projects/rootly/rootly-1.png",
+        src: "/projects/noirkit/noirkit-1.png",
         type: "image",
-        alt: "Rootly Notes Home",
+        alt: "NoirKit Portfolio",
       },
       {
-        src: "/projects/rootly/rootly-2.png",
+        src: "/projects/noirkit/noirkit-2.png",
         type: "image",
-        alt: "Rootly Notes",
+        alt: "NoirKit Portfolio",
       },
       {
-        src: "/projects/rootly/rootly-3.png",
+        src: "/projects/noirkit/noirkit-3.png",
         type: "image",
-        alt: "Rootly Notes Code Snippet",
+        alt: "NoirKit Dashboard Personal Info",
       },
       {
-        src: "/projects/rootly/rootly-4.png",
+        src: "/projects/noirkit/noirkit-4.png",
         type: "image",
-        alt: "Rootly Add Notes",
+        alt: "NoirKit Dashboard Projects",
       },
       {
-        src: "/projects/rootly/rootly-5.png",
+        src: "/projects/noirkit/noirkit-5.png",
         type: "image",
-        alt: "Rootly Courses",
-      },
-      
-      {
-        src: "/projects/rootly/rootly-6.png",
-        type: "image",
-        alt: "Rootly Daily Entries",
+        alt: "NoirKit Dashboard Tech Stack",
       },
       {
-        src: "/projects/rootly/rootly-7.png",
+        src: "/projects/noirkit/noirkit-6.png",
         type: "image",
-        alt: "Rootly Review",
+        alt: "NoirKit Dashboard Contact Form",
       },
       {
-        src: "/projects/rootly/rootly-8.png",
+        src: "/projects/noirkit/noirkit-7.png",
         type: "image",
-        alt: "Rootly Light Orange",
+        alt: "NoirKit Loading Screen",
       },
       {
-        src: "/projects/rootly/rootly-9.png",
+        src: "/projects/noirkit/noirkit-8.png",
         type: "image",
-        alt: "Rootly Light Green",
+        alt: "NoirKit Welcome Page",
       },
     ],
     links: {
-      demo: "https://rootly-notes.vercel.app/",
-      source: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
+      demo: "https://mohamedgamal-noir.vercel.app/",
+      source: "https://github.com/mo0hamed-shoaib/noirkit-portfolio-manager",
     },
-    highlights: ["One platform to manage everything about your learning", "Tracking your learning progress with seamless dashboard and review system", "Export your notes to PDF"],
+    highlights: ["Complete Portfolio Manager from Dashboard", "Drag & Drop Reordering", "Data Backup & Restore"],
   },
   // ==============================Yolo==============================
   {
