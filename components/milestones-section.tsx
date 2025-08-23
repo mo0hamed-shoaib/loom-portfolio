@@ -2,11 +2,33 @@
 
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Badge } from "@/components/ui/badge"
 import { MilestoneCard } from "@/components/milestone-card"
 import { milestones } from "@/data/milestones"
 import type { Milestone } from "@/lib/schemas"
+import {
+  LayoutGrid,
+  Award,
+  Trophy,
+  GraduationCap,
+  FileText,
+  Youtube,
+  Calendar,
+} from "lucide-react"
+import { Icons } from "@/components/icons"
 
 type MilestoneKind = "all" | "cert" | "award" | "education" | "blog" | "youtube" | "oss" | "other"
+
+const tabIcons: Record<MilestoneKind, React.ElementType> = {
+  all: LayoutGrid,
+  cert: Award,
+  award: Trophy,
+  education: GraduationCap,
+  blog: FileText,
+  youtube: Youtube,
+  oss: Icons.github,
+  other: Calendar,
+}
 
 export function MilestonesSection() {
   const [activeTab, setActiveTab] = useState<MilestoneKind>("all")
@@ -19,12 +41,12 @@ export function MilestonesSection() {
   const getTabLabel = (kind: MilestoneKind) => {
     const labels = {
       all: "All",
-      cert: "Certifications",
+      cert: "Certs",
       award: "Awards",
       education: "Education",
       blog: "Blogs",
       youtube: "YouTube",
-      oss: "Open Source",
+      oss: "OSS",
       other: "Other",
     }
     return labels[kind]
@@ -46,18 +68,29 @@ export function MilestonesSection() {
 
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as MilestoneKind)} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7 h-auto p-1">
-          {tabOptions.map((kind) => (
-            <TabsTrigger
-              key={kind}
-              value={kind}
-              className="text-xs px-2 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
-              <span className="hidden sm:inline">{getTabLabel(kind)}</span>
-              <span className="sm:hidden">{getTabLabel(kind).slice(0, 4)}</span>
-              <span className="ml-1 text-xs opacity-70">({getTabCount(kind)})</span>
-            </TabsTrigger>
-          ))}
+        <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 h-auto p-1">
+          {tabOptions.map((kind) => {
+            const Icon = tabIcons[kind]
+            const count = getTabCount(kind)
+            if (count === 0) return null // Don't show tab if there are no items
+
+            return (
+              <TabsTrigger
+                key={kind}
+                value={kind}
+                className="text-xs px-2 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center justify-center gap-1.5"
+              >
+                <Icon className="w-3.5 h-3.5" />
+                <span>{getTabLabel(kind)}</span>
+                <Badge
+                  variant={activeTab === kind ? "default" : "secondary"}
+                  className="px-1.5 py-0.5 text-xs h-4"
+                >
+                  {count}
+                </Badge>
+              </TabsTrigger>
+            )
+          })}
         </TabsList>
 
         {tabOptions.map((kind) => (
