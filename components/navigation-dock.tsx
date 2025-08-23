@@ -57,7 +57,7 @@ export const NavigationDock = () => {
     <>
       {/* Desktop Dock - Right side (≥1280px) */}
       <div className="hidden xl:block fixed right-6 3xl:right-8 top-1/2 -translate-y-1/2 z-50">
-        <nav className="flex flex-col gap-3 3xl:gap-4 p-3 3xl:p-4 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
+        <nav className="flex flex-col gap-3 3xl:gap-4 p-3 3xl:p-4 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg animate-slide-in-from-right">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -108,7 +108,7 @@ export const NavigationDock = () => {
 
       {/* Mobile/Tablet Dock - Bottom (<1280px) */}
       <div className="block xl:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <nav className="flex items-center gap-2 p-3 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg">
+        <nav className="flex items-center gap-2 p-3 bg-background/95 backdrop-blur-sm border rounded-2xl shadow-lg animate-slide-in-from-bottom">
           {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
