@@ -101,7 +101,6 @@ export const ProfileSchema = z.object({
       name: z.string(),
       category: z.string(),
       icon: z.string(),
-      proficiency: z.number().min(1).max(5),
     }),
   ),
 })

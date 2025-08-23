@@ -1,49 +1,49 @@
 import type { Profile } from "@/lib/schemas"
 
 export const profile: Profile = {
-  name: "John Doe",
-  title: "Senior Full-Stack Developer",
-  location: "San Francisco, CA",
-  bio: "Passionate full-stack developer with 8+ years of experience building scalable web applications. I love creating exceptional user experiences and solving complex technical challenges.",
-  image: "/developer-headshot.png",
-  cvUrl: "/john-doe-cv.pdf",
-  email: "john@johndoe.dev",
+  name: "Mohamed Gamal",
+  title: "Full-Stack Developer",
+  location: "Cairo, Egypt",
+  bio: "Full-Stack MERN Developer with a Computer Science degree and 6-month intensive training at ITI. Experienced in building scalable projects, admin dashboards, and RESTful APIs using React.js, Node.js, and MongoDB. Passionate about clean code, modern UI/UX, and creating scalable solutions. Ready to collaborate and build impactful applications.",
+  image: "/pfp.jpg",
+  cvUrl: "https://drive.google.com/file/d/1nfcMd59kVoCY_bHreTh7Dg0a8AaNL5r_/view?usp=sharing",
+  email: "mohamed.g.shoaib@gmail.com",
   socials: [
     {
       platform: "GitHub",
-      url: "https://github.com/johndoe",
+      url: "https://github.com/mo0hamed-shoaib",
       icon: "github",
     },
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/johndoe",
+      url: "https://www.linkedin.com/in/mohamed-g-shoaib/",
       icon: "linkedin",
     },
     {
       platform: "Twitter",
-      url: "https://twitter.com/johndoe",
+      url: "https://x.com/mo0hamed_gamal",
       icon: "twitter",
     },
     {
       platform: "Email",
-      url: "mailto:john@johndoe.dev",
+      url: "mailto:mohamed.g.shoaib@gmail.com",
       icon: "mail",
     },
   ],
   summaryCards: [
     {
       label: "Years Experience",
-      value: "8+",
+      value: "1+",
       icon: "calendar",
     },
     {
       label: "Projects Completed",
-      value: "50+",
+      value: "10+",
       icon: "code",
     },
     {
       label: "GitHub Commits",
-      value: "2.5k+",
+      value: "700+",
       icon: "git-commit",
     },
     {
