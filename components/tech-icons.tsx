@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { useTheme } from "next-themes"
 
 interface TechIconProps {
@@ -17,192 +18,137 @@ const sizeClasses = {
 
 // Tech icon mappings with theme-aware variants
 const techIcons: Record<string, { light: string; dark?: string }> = {
-  // Frontend
-  react: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-  },
-  nextjs: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+  // Programming Languages
+  javascript: { 
+    light: "/icons/programming-languages/javascript.svg",
+    dark: "/icons/programming-languages/javascript.svg"
   },
   typescript: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+    light: "/icons/programming-languages/typescript.svg",
+    dark: "/icons/programming-languages/typescript.svg"
   },
-  tailwind: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-plain.svg"
+
+  // Frontend
+  react: { 
+    light: "/icons/frontend/react.svg",
+    dark: "/icons/frontend/react.svg"
   },
-  javascript: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+  redux: { 
+    light: "/icons/frontend/redux.svg",
+    dark: "/icons/frontend/redux.svg"
   },
   html: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+    light: "/icons/frontend/html.svg",
+    dark: "/icons/frontend/html.svg"
   },
   css: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+    light: "/icons/frontend/css.svg",
+    dark: "/icons/frontend/css.svg"
   },
-  vue: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+  tailwind: { 
+    light: "/icons/frontend/tailwind.svg",
+    dark: "/icons/frontend/tailwind.svg"
   },
-  angular: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg"
-  },
-  svelte: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg"
+  bootstrap: { 
+    light: "/icons/frontend/bootstrap.svg",
+    dark: "/icons/frontend/bootstrap.svg"
   },
 
   // Backend
   nodejs: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
-  },
-  python: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-  },
-  postgresql: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
-  },
-  mongodb: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
-  },
-  mysql: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-  },
-  redis: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg"
-  },
-  graphql: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg"
+    light: "/icons/backend/nodejs.svg",
+    dark: "/icons/backend/nodejs.svg"
   },
   express: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+    light: "/icons/backend/express.svg",
+    dark: "/icons/backend/express.svg"
   },
-  django: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+  api: { 
+    light: "/icons/backend/api.svg",
+    dark: "/icons/backend/api.svg"
   },
-  flask: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg"
-  },
-  fastapi: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+  jwt: { 
+    light: "/icons/backend/jwt.svg",
+    dark: "/icons/backend/jwt.svg"
   },
 
-  // DevOps & Tools
-  docker: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+  // Database
+  mongodb: { 
+    light: "/icons/database/mongodb.svg",
+    dark: "/icons/database/mongodb.svg"
   },
-  aws: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg"
+  mongoose: { 
+    light: "/icons/database/mongoose.svg",
+    dark: "/icons/database/mongoose.svg"
   },
-  vercel: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
+
+  // Tools & Workflow
+  git: { 
+    light: "/icons/tools/git.svg",
+    dark: "/icons/tools/git.svg"
   },
   github: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+    light: "/icons/tools/github.svg",
+    dark: "/icons/tools/github.svg"
   },
-  gitlab: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg"
+  postman: { 
+    light: "/icons/tools/postman.svg",
+    dark: "/icons/tools/postman.svg"
   },
-  kubernetes: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg"
-  },
-  jenkins: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg"
-  },
-  terraform: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg"
-  },
-  nginx: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg"
-  },
-  apache: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apache/apache-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apache/apache-original.svg"
+  npm: { 
+    light: "/icons/tools/npm.svg",
+    dark: "/icons/tools/npm.svg"
   },
 
-  // Testing & Quality
-  jest: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg"
+  // Soft Skills (using generic icons)
+  communication: { 
+    light: "/icons/soft-skills/communication.svg",
+    dark: "/icons/soft-skills/communication.svg"
   },
-  cypress: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypress/cypress-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypress/cypress-plain.svg"
+  teamwork: { 
+    light: "/icons/soft-skills/teamwork.svg",
+    dark: "/icons/soft-skills/teamwork.svg"
   },
-  playwright: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg"
+  "problem-solving": { 
+    light: "/icons/soft-skills/problem-solving.svg",
+    dark: "/icons/soft-skills/problem-solving.svg"
   },
-  eslint: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg"
-  },
-  prettier: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prettier/prettier-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prettier/prettier-original.svg"
+  "time-management": { 
+    light: "/icons/soft-skills/time-management.svg",
+    dark: "/icons/soft-skills/time-management.svg"
   },
 
-  // Other
-  firebase: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg"
+  // Concepts (using generic icons)
+  "data-structures": { 
+    light: "/icons/concepts/data-structures.svg",
+    dark: "/icons/concepts/data-structures.svg"
   },
-  supabase: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"
+  algorithms: { 
+    light: "/icons/concepts/algorithms.svg",
+    dark: "/icons/concepts/algorithms.svg"
   },
-  stripe: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stripe/stripe-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stripe/stripe-original.svg"
+  oop: { 
+    light: "/icons/concepts/oop.svg",
+    dark: "/icons/concepts/oop.svg"
   },
-  prisma: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg"
+  "software-engineering": { 
+    light: "/icons/concepts/software-engineering.svg",
+    dark: "/icons/concepts/software-engineering.svg"
   },
-  trpc: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trpc/trpc-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trpc/trpc-original.svg"
-  },
-  socketio: { 
-    light: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
-    dark: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg"
+  "clean-code": { 
+    light: "/icons/concepts/clean-code.svg",
+    dark: "/icons/concepts/clean-code.svg"
   },
 }
 
 export function TechIcon({ name, icon, size = "md", className = "" }: TechIconProps) {
   const { theme } = useTheme()
+  const [imageError, setImageError] = useState(false)
   const iconKey = icon?.toLowerCase() || name.toLowerCase()
   const iconConfig = techIcons[iconKey]
 
-  // If we have a specific icon configuration
-  if (iconConfig) {
+  // If we have a specific icon configuration and no image error
+  if (iconConfig && !imageError) {
     const iconUrl = theme === 'dark' && iconConfig.dark ? iconConfig.dark : iconConfig.light
     
     return (
@@ -210,7 +156,12 @@ export function TechIcon({ name, icon, size = "md", className = "" }: TechIconPr
         src={iconUrl}
         alt={`${name} icon`}
         className={`${sizeClasses[size]} ${className}`}
-        loading="lazy"
+        style={{ 
+          width: size === "sm" ? "16px" : size === "md" ? "24px" : "32px",
+          height: size === "sm" ? "16px" : size === "md" ? "24px" : "32px",
+          display: "block"
+        }}
+        onError={() => setImageError(true)}
       />
     )
   }
@@ -224,3 +175,4 @@ export function TechIcon({ name, icon, size = "md", className = "" }: TechIconPr
     </div>
   )
 }
+

@@ -1,10 +1,19 @@
 "use client"
 
-import { TechStackCard } from "@/components/tech-stack-card"
+import { InfiniteCarousel } from "@/components/infinite-carousel"
+import { TechStackItem } from "@/components/tech-stack-item"
 import { profile } from "@/data/profile"
 
 export function TechStackSection() {
   const categories = Array.from(new Set(profile.techStack.map((tech) => tech.category)))
+
+  // Different speeds and directions for visual variety
+  const carouselConfigs = [
+    { speed: "slow" as const, direction: "left" as const },
+    { speed: "normal" as const, direction: "right" as const },
+    { speed: "fast" as const, direction: "left" as const },
+    { speed: "normal" as const, direction: "right" as const },
+  ]
 
   return (
     <section className="space-y-8 3xl:space-y-12">
@@ -18,8 +27,9 @@ export function TechStackSection() {
 
       {/* Tech Stack by Category */}
       <div className="space-y-8 3xl:space-y-12">
-        {categories.map((category) => {
+        {categories.map((category, index) => {
           const categoryTechs = profile.techStack.filter((tech) => tech.category === category)
+          const config = carouselConfigs[index % carouselConfigs.length]
 
           return (
             <div key={category} className="space-y-4 3xl:space-y-6">
@@ -33,16 +43,31 @@ export function TechStackSection() {
                 </span>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 3xl:gap-6">
-                {categoryTechs.map((tech) => (
-                                   <TechStackCard
-                   key={tech.name}
-                   name={tech.name}
-                   icon={tech.icon}
-                   category={tech.category}
-                 />
-                ))}
-              </div>
+              {categoryTechs.length >= 4 ? (
+                <InfiniteCarousel
+                  speed={config.speed}
+                  direction={config.direction}
+                  className="py-2"
+                >
+                  {categoryTechs.map((tech) => (
+                    <TechStackItem
+                      key={tech.name}
+                      name={tech.name}
+                      icon={tech.icon}
+                    />
+                  ))}
+                </InfiniteCarousel>
+              ) : (
+                <div className="flex gap-4 py-2 overflow-x-auto">
+                  {categoryTechs.map((tech) => (
+                    <TechStackItem
+                      key={tech.name}
+                      name={tech.name}
+                      icon={tech.icon}
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           )
         })}

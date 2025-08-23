@@ -5,6 +5,7 @@ import { ProjectsCarousel } from "@/components/projects-carousel";
 import { TechStackSection } from "@/components/tech-stack-section";
 import { MilestonesSection } from "@/components/milestones-section";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+
 import { NavigationDock } from "@/components/navigation-dock";
 import { AnimatedSection } from "@/components/animated-section";
 import { Button } from "@/components/ui/button";
@@ -135,6 +136,8 @@ export default function HomePage() {
                 <TechStackSection />
               </section>
             </AnimatedSection>
+
+
 
             <AnimatedSection animation="fade-up" delay={300}>
               <section id="milestones" className="scroll-mt-24 md:scroll-mt-28">

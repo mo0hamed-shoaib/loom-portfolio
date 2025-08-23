@@ -53,22 +53,45 @@ export const profile: Profile = {
     },
   ],
   techStack: [
+    // Programming Languages
+    { name: "JavaScript", category: "Programming Languages", icon: "javascript" },
+    { name: "TypeScript", category: "Programming Languages", icon: "typescript" },
+
     // Frontend
-    { name: "React", category: "Frontend", icon: "react", proficiency: 5 },
-    { name: "Next.js", category: "Frontend", icon: "nextjs", proficiency: 5 },
-    { name: "TypeScript", category: "Frontend", icon: "typescript", proficiency: 5 },
-    { name: "Tailwind CSS", category: "Frontend", icon: "tailwind", proficiency: 5 },
+    { name: "React", category: "Frontend", icon: "react" },
+    { name: "Redux", category: "Frontend", icon: "redux" },
+    { name: "HTML5", category: "Frontend", icon: "html" },
+    { name: "CSS3", category: "Frontend", icon: "css" },
+    { name: "Tailwind CSS", category: "Frontend", icon: "tailwind" },
+    { name: "Bootstrap", category: "Frontend", icon: "bootstrap" },
 
     // Backend
-    { name: "Node.js", category: "Backend", icon: "nodejs", proficiency: 5 },
-    { name: "Python", category: "Backend", icon: "python", proficiency: 4 },
-    { name: "PostgreSQL", category: "Backend", icon: "postgresql", proficiency: 4 },
-    { name: "MongoDB", category: "Backend", icon: "mongodb", proficiency: 4 },
+    { name: "Node.js", category: "Backend", icon: "nodejs" },
+    { name: "Express", category: "Backend", icon: "express" },
+    { name: "REST API", category: "Backend", icon: "api" },
+    { name: "JWT", category: "Backend", icon: "jwt" },
 
-    // DevOps
-    { name: "Docker", category: "DevOps", icon: "docker", proficiency: 4 },
-    { name: "AWS", category: "DevOps", icon: "aws", proficiency: 4 },
-    { name: "Vercel", category: "DevOps", icon: "vercel", proficiency: 5 },
-    { name: "GitHub Actions", category: "DevOps", icon: "github", proficiency: 4 },
+    // Database
+    { name: "MongoDB", category: "Database", icon: "mongodb" },
+    { name: "Mongoose", category: "Database", icon: "mongoose" },
+
+    // Tools & Workflow
+    { name: "Git", category: "Tools & Workflow", icon: "git" },
+    { name: "GitHub", category: "Tools & Workflow", icon: "github" },
+    { name: "Postman", category: "Tools & Workflow", icon: "postman" },
+    { name: "npm", category: "Tools & Workflow", icon: "npm" },
+
+    // Soft Skills
+    { name: "Communication", category: "Soft Skills", icon: "communication" },
+    { name: "Teamwork", category: "Soft Skills", icon: "teamwork" },
+    { name: "Problem Solving", category: "Soft Skills", icon: "problem-solving" },
+    { name: "Time Management", category: "Soft Skills", icon: "time-management" },
+
+    // Concepts
+    { name: "Data Structures", category: "Concepts", icon: "data-structures" },
+    { name: "Algorithms", category: "Concepts", icon: "algorithms" },
+    { name: "OOP", category: "Concepts", icon: "oop" },
+    { name: "Software Engineering", category: "Concepts", icon: "software-engineering" },
+    { name: "Clean Code", category: "Concepts", icon: "clean-code" },
   ],
 }
