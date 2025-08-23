@@ -1,9 +1,10 @@
 import type { Project } from "@/lib/schemas"
 
 export const projects: Project[] = [
+  // ==============================Naafe==============================
   {
     slug: "service-exchange-platform",
-    title: "Naafe",
+    title: "Naafe Service Exchange Platform",
     year: "2025",
     role: "Full-Stack Developer",
     summary: "Nafee’ is a smart platform connecting users with trusted local service providers through AI-powered matching, schedules, and verified profiles.",
@@ -70,10 +71,10 @@ export const projects: Project[] = [
       ],
     },
   },
-  // ================================================================
+  // ==============================Rootly==============================
   {
     slug: "rootly-note-management-app",
-    title: "Rootly Notes",
+    title: "Rootly Notes Management App",
     year: "2025",
     role: "Full-Stack Developer",
     summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a quick review session — all in a sleek, responsive UI.",
@@ -132,7 +133,7 @@ export const projects: Project[] = [
     },
     highlights: ["One platform to manage everything about your learning", "Tracking your learning progress with seamless dashboard and review system", "Export your notes to PDF"],
   },
-  // ================================================================
+  // ==============================Yolo==============================
   {
     slug: "social-media-platform",
     title: "Yolo Social Media Platform",
@@ -165,7 +166,7 @@ export const projects: Project[] = [
     },
     highlights: ["Complete Authentication System with JWT", "Post and Comment System", "Image upload and storage"],
   },
-  // ================================================================
+  // ==============================GameHaven==============================
   {
     slug: "game-store-backend",
     title: "GameHaven Store Backend System",
@@ -197,10 +198,10 @@ export const projects: Project[] = [
     },
     highlights: ["Clean architecture and modular code", "Full CRUD operations", "Authentication and Authorization with JWT"],
   },
-  // ================================================================
+  // ==============================MishMish==============================
   {
     slug: "ecommerce-platform",
-    title: "MishMish Store",
+    title: "MishMish Ecommerce Store",
     year: "2025",
     role: "Full-Stack Developer",
     summary: "A cutting-edge e-commerce platform that combines the power of Angular 19 with the elegant design of Flowbite UI components. Built with modern web standards and best practices.",
@@ -231,5 +232,164 @@ export const projects: Project[] = [
       source: "https://github.com/mo0hamed-shoaib/mishmish-ecommerce-angular",
     },
     highlights: ["Clean architecture and modular code", "Best Practices with Angular 19", "Authentication and Authorization with JWT"],
+  },
+  // ==============================Rovera==============================
+  {
+    slug: "rovera-dashboard",
+    title: "Rovera Car Rental Management System",
+    year: "2025",
+    role: "Full-Stack Developer",
+    summary: "A modern web-based car rental management system that provides a comprehensive solution for managing car rentals, bookings, and user administration.",
+    stack: ["javascript", "html", "css", "bootstrap"],
+    media: [
+      {
+        src: "/projects/rovera/rovera-1.png",
+        type: "image",
+        alt: "Rovera Dashboard Homepage",
+      },
+      {
+        src: "/projects/rovera/rovera-2.png",
+        type: "image",
+        alt: "Rovera Dashboard Cars",
+      },
+    ],
+    links: {
+      demo: "https://car-rental-admin-dashboard.vercel.app/",
+      source: "https://github.com/mo0hamed-shoaib/car-rental-admin-dashboard",
+    },
+    highlights: ["Modern UI/UX", "Responsive Design", "Admin Dashboard"],
+  },
+  // ==============================SageAI==============================
+  {
+    slug: "sageai-assistant",
+    title: "SageAI Assistant",
+    year: "2025",
+    role: "Full-Stack Developer",
+    summary: "A stunning, modern AI assistant built with React, Vite, and Tailwind CSS. Features a beautiful theme toggle, image generation, and file attachments.",
+    stack: ["react", "javascript", "nodejs", "express", "mongodb", "tailwind"],
+    media: [
+      {
+        src: "/projects/sageai/sage-ai-1.png",
+        type: "image",
+        alt: "SageAI Assistant Homepage",
+      },
+      {
+        src: "/projects/sageai/sage-ai-2.png",
+        type: "image",
+        alt: "SageAI Assistant Chat Interface",
+      },
+      {
+        src: "/projects/sageai/sage-ai-3.png",
+        type: "image",
+        alt: "SageAI Assistant Light Mode",
+      },
+      {
+        src: "/projects/sageai/sage-ai-4.png",
+        type: "image",
+        alt: "SageAI Assistant Image Generation",
+      },
+      {
+        src: "/projects/sageai/sage-ai-5.png",
+        type: "image",
+        alt: "SageAI Assistant Image Generation Result",
+      },
+    ],
+    links: {
+      demo: "https://sage-ai-assistant-eight.vercel.app/",
+      source: "https://github.com/mo0hamed-shoaib/sage-ai",
+    },
+    highlights: ["Intelligent Chat using Groq's Llama 3.3 70B", "Image Generation using Stable Diffusion models", "File Analysis using OpenAI Assistant API"],
+  },
+  // ==============================Grill King==============================
+  {
+    slug: "grill-king-homepage",
+    title: "Grill King Homepage",
+    year: "2025",
+    role: "Frontend Developer",
+    summary: "A modern, responsive website for Grill King restaurant built with HTML, CSS, and Bootstrap 5. The website features an RTL (Right-to-Left) layout and is optimized for Arabic content.",
+    stack: ["javascript", "html", "css", "bootstrap"],
+    media: [
+      {
+        src: "/projects/grillking/grill-1.png",
+        type: "image",
+        alt: "Grill King Homepage",
+      },
+      {
+        src: "/projects/grillking/grill-2.png",
+        type: "image",
+        alt: "Grill King About Us",
+      },
+    ],
+    links: {
+      demo: "https://grill-king-restaurant.vercel.app/",
+      source: "https://github.com/mo0hamed-shoaib/Grill-King-Restaurant",
+    },
+    highlights: ["Modern UI/UX", "Responsive Design", "RTL Layout"],
+  },
+  // ==============================ShopMi==============================
+  {
+    slug: "shopime-ecommerce",
+    title: "Shopime Ecommerce Store",
+    year: "2025",
+    role: "Full-Stack Developer",
+    summary: "A modern e-commerce platform built with Next.js, featuring shopping cart, wishlist, Facebook & Google OAuth authentication, and complete order management with responsive design.",
+    stack: ["nextjs", "react", "typescript", "tailwind"],
+    media: [
+      {
+        src: "/projects/shopime/shopi-1.png",
+        type: "image",
+        alt: "Shopime Products",
+      },
+      {
+        src: "/projects/shopime/shopi-2.png",
+        type: "image",
+        alt: "Shopime Cart",
+      },
+      {
+        src: "/projects/shopime/shopi-3.png",
+        type: "image",
+        alt: "Shopime Wishlist",
+      },
+      {
+        src: "/projects/shopime/shopi-4.png",
+        type: "image",
+        alt: "Shopime Login",
+      },
+      {
+        src: "/projects/shopime/shopi-5.png",
+        type: "image",
+        alt: "Shopime Profile",
+      },
+    ],
+    links: {
+      source: "https://github.com/mo0hamed-shoaib/nextjs-shopime-ecommerce",
+    },
+    highlights: ["Core E-commerce Features", "Optimized Next.js 14 App Router architecture", "Full TypeScript implementation"],
+  },
+  // ==============================Bankist==============================
+  {
+    slug: "bankist-dashboard",
+    title: "Bankist Banking Dashboard",
+    year: "2025",
+    role: "Frontend Developer",
+    summary: "A Bank dashboard management interface built during Jonas Schmedtmann's JavaScript course. To login use: jd | 2222 (User & Pass)",
+    stack: ["javascript", "html", "css"],
+    media: [
+      {
+        src: "/projects/bankist/bankist-1.png",
+        type: "image",
+        alt: "Bankist Dashboard",
+      },
+      {
+        src: "/projects/bankist/bankist-2.png",
+        type: "image",
+        alt: "Bankist Dashboard",
+      },
+    ],
+    links: {
+      demo: "https://precious-gecko-308d8b.netlify.app/",
+      source: "https://github.com/mo0hamed-shoaib/Bankist-Dashboard",
+    },
+    highlights: ["Local Language Auto Detection", "Validation & Error Handling", "Timeout Session Handling"],
   },
 ]
