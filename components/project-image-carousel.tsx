@@ -30,7 +30,7 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
   if (project.media.length === 0) {
     return (
       <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-        <p className="text-muted-foreground">No images available</p>
+        <p className="text-secondary-foreground">No images available</p>
       </div>
     )
   }
@@ -43,7 +43,7 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
   if (!currentImage) {
     return (
       <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-        <p className="text-muted-foreground">Image not available</p>
+        <p className="text-secondary-foreground">Image not available</p>
       </div>
     )
   }
@@ -81,7 +81,7 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
           </Button>
 
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1">
-            <span className="text-xs text-muted-foreground">
+            <span className="text-xs text-secondary-foreground">
               {safeImageIndex + 1}/{project.media.length}
             </span>
             <Progress 

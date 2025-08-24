@@ -61,7 +61,7 @@ export function GitHubStats() {
       <div className="space-y-3 3xl:space-y-4">
         <h3 className="text-sm 3xl:text-base font-semibold text-center">GitHub Activity</h3>
         <div className="text-center py-4">
-          <p className="text-xs 3xl:text-sm text-muted-foreground">
+          <p className="text-xs 3xl:text-sm text-secondary-foreground">
             {error || 'Unable to load GitHub statistics'}
           </p>
         </div>

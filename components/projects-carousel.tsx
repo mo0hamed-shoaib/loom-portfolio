@@ -34,7 +34,7 @@ export function ProjectsCarousel() {
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <h2 className="typography-h2">Projects</h2>
-        <p className="typography-lead">Showcasing some of my recent work and technical achievements</p>
+        <p className="text-xl text-secondary-foreground">Showcasing some of my recent work and technical achievements</p>
       </div>
 
       {/* Project Navigation with Progress Bar */}
@@ -50,7 +50,7 @@ export function ProjectsCarousel() {
         </Button>
 
         <div className="flex items-center gap-3 3xl:gap-4">
-          <span className="typography-small text-muted-foreground whitespace-nowrap">
+          <span className="typography-small text-foreground whitespace-nowrap">
             {currentProjectIndex + 1} of {projects.length}
           </span>
           {projects.length > 1 && (

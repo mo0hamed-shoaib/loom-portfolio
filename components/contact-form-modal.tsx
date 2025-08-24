@@ -89,7 +89,7 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle className="typography-h2">Get in Touch</DialogTitle>
-          <DialogDescription className="typography-lead">
+          <DialogDescription className="text-xl text-secondary-foreground">
             I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
           </DialogDescription>
         </DialogHeader>

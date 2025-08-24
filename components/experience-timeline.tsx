@@ -16,7 +16,7 @@ export function ExperienceTimeline() {
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <h2 className="typography-h2">Experience</h2>
-        <p className="typography-lead">My career journey and professional growth</p>
+        <p className="text-xl text-secondary-foreground">My career journey and professional growth</p>
       </div>
 
       {/* Timeline */}

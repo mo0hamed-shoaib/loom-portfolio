@@ -42,7 +42,7 @@ export function MilestonesSection() {
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <h2 className="typography-h2">Milestones & Achievements</h2>
-        <p className="typography-lead">A collection of my professional achievements and contributions</p>
+        <p className="text-xl text-secondary-foreground">A collection of my professional achievements and contributions</p>
       </div>
 
       {/* Tabs */}

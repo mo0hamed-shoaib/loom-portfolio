@@ -75,13 +75,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className="flex-1 min-w-0">
               <h3 className="typography-h3 line-clamp-2">{project.title}</h3>
               <div className="flex items-center gap-2 mt-1">
-                <span className="typography-small text-muted-foreground whitespace-nowrap">{project.year}</span>
+                <span className="typography-small text-foreground whitespace-nowrap">{project.year}</span>
               </div>
             </div>
           </div>
 
           {/* Project Summary */}
-          <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed mb-4 line-clamp-3">{project.summary}</p>
+          <p className="font-mono-technical text-sm 3xl:text-base text-foreground leading-relaxed mb-4 line-clamp-3">{project.summary}</p>
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-1.5 mb-4">
@@ -112,7 +112,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <h4 className="typography-small font-medium mb-2">Key Features</h4>
               <ul className="space-y-2">
                 {project.highlights.slice(0, 3).map((highlight, index) => (
-                  <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                  <li key={index} className="flex items-start gap-2 typography-small text-foreground">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
                     <span className="font-mono-technical">{highlight}</span>
                   </li>

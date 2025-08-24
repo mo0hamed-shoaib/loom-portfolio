@@ -189,7 +189,7 @@ export function TechIcon({ name, icon, size = "md", className = "" }: TechIconPr
   // Fallback: use a generic code icon
   return (
     <div className={`${sizeClasses[size]} ${className} bg-muted rounded flex items-center justify-center`}>
-      <span className="text-xs font-mono text-muted-foreground">
+      <span className="text-xs font-mono text-secondary-foreground">
         {name.charAt(0).toUpperCase()}
       </span>
     </div>

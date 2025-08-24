@@ -33,7 +33,7 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
         <div className="space-y-4">
           <div>
             <h4 className="text-sm font-medium mb-2">Location</h4>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 text-sm text-secondary-foreground">
               <MapPin className="w-4 h-4" />
               <span>{profile.location}</span>
             </div>

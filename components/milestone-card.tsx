@@ -51,7 +51,7 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
               <Icon className="w-4 h-4" />
             </div>
                     <div className="text-right">
-          <p className="text-xs sm:text-sm 3xl:text-base text-muted-foreground">{formatDate(milestone.date)}</p>
+          <p className="text-xs sm:text-sm 3xl:text-base text-foreground">{formatDate(milestone.date)}</p>
         </div>
           </div>
 
@@ -62,13 +62,13 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
 
           {/* Description */}
           {milestone.description && (
-            <p className="font-mono-technical text-xs sm:text-sm 3xl:text-base text-muted-foreground line-clamp-3 leading-relaxed">{milestone.description}</p>
+            <p className="font-mono-technical text-xs sm:text-sm 3xl:text-base text-foreground line-clamp-3 leading-relaxed">{milestone.description}</p>
           )}
 
           {/* Key achievements preview */}
           {milestone.keyAchievements && milestone.keyAchievements.length > 0 && (
             <div className="pt-1">
-              <p className="font-mono-technical text-xs text-muted-foreground">
+              <p className="font-mono-technical text-xs text-foreground">
                 {milestone.keyAchievements[0]}
                 {milestone.keyAchievements.length > 1 && ` +${milestone.keyAchievements.length - 1} more`}
               </p>

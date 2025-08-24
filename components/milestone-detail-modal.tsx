@@ -63,7 +63,7 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
             <div className="space-y-4">
               {renderYouTubeEmbed(milestone.videoId)}
               {milestone.description && (
-                <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+                <p className="text-foreground leading-relaxed">{milestone.description}</p>
               )}
             </div>
           )}
@@ -84,7 +84,7 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
           {/* Description */}
           {milestone.description && milestone.kind !== "youtube" && (
             <div>
-              <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+              <p className="text-foreground leading-relaxed">{milestone.description}</p>
             </div>
           )}
 
@@ -94,7 +94,7 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
               <Separator />
               <div>
                 <h3 className="text-lg font-semibold mb-3">Article Content</h3>
-                <div className="prose prose-sm max-w-none text-muted-foreground">
+                <div className="prose prose-sm max-w-none text-foreground">
                   <p className="leading-relaxed">{milestone.content}</p>
                 </div>
               </div>
@@ -107,9 +107,9 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
               <h4 className="typography-h4 mb-2">Key Achievements</h4>
               <ul className="space-y-2">
                 {milestone.keyAchievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                  <li key={index} className="flex items-start gap-2 typography-small text-foreground">
                     <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span className="text-muted-foreground">{achievement}</span>
+                    <span className="text-foreground">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -122,7 +122,7 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
               <Separator />
               <div>
                 <h3 className="text-lg font-semibold mb-3">Additional Notes</h3>
-                <p className="text-muted-foreground leading-relaxed">{milestone.note}</p>
+                <p className="text-foreground leading-relaxed">{milestone.note}</p>
               </div>
             </>
           )}

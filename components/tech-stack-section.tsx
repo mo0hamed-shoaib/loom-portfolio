@@ -20,7 +20,7 @@ export function TechStackSection() {
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <h2 className="typography-h2">Tech Stack</h2>
-        <p className="typography-lead">
+        <p className="text-xl text-secondary-foreground">
           Technologies and tools I work with
         </p>
       </div>
