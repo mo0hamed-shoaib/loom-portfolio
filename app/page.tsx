@@ -27,12 +27,12 @@ export default function HomePage() {
       {/* Desktop Layout (≥1280px) */}
       <div className="hidden xl:flex">
         {/* Sidebar */}
-        <aside className="fixed left-0 top-0 h-screen w-80 3xl:w-96 border-r bg-card p-6 3xl:p-8 overflow-y-auto">
+        <aside className="fixed left-0 top-0 h-screen w-80 xl:w-[400px] 2xl:w-[480px] 3xl:w-[560px] border-r bg-card p-6 xl:p-8 overflow-y-auto">
           <SidebarPersonalCard />
         </aside>
 
         {/* Main Content */}
-        <main className="ml-80 3xl:ml-96 flex-1 p-6 3xl:p-8">
+        <main className="ml-80 xl:ml-[400px] 2xl:ml-[480px] 3xl:ml-[560px] flex-1 p-6 xl:p-8">
           <div className="max-w-4xl 3xl:max-w-6xl mx-auto">
             {/* Main content sections */}
             <div className="space-y-16 3xl:space-y-20 max-w-3xl 3xl:max-w-4xl mx-auto">
