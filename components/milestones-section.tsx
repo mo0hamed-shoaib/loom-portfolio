@@ -84,7 +84,7 @@ export function MilestonesSection() {
                 <span className="text-base">{getTabLabel(kind)}</span>
                 <Badge
                   variant={activeTab === kind ? "default" : "secondary"}
-                  className="px-1 py-0.5 text-sm h-4"
+                  className="px-1.5 py-0.5 text-xs h-5 min-w-[1.25rem] flex items-center justify-center"
                 >
                   {count}
                 </Badge>

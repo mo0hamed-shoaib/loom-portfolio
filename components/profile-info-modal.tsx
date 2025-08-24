@@ -87,9 +87,8 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4 mr-2" />
                       {social.platform}
                     </Link>
                   </Button>

@@ -9,6 +9,11 @@ import { ContactFormModal } from "@/components/contact-form-modal"
 import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
 import { Logo } from "@/components/logo"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export function SidebarPersonalCard() {
   const MapPinIcon = Icons["map-pin"]
@@ -69,33 +74,47 @@ export function SidebarPersonalCard() {
 
           if (isEmail) {
             return (
-              <Button
-                key={index}
-                variant="outline"
-                size="icon"
-                className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent"
-                aria-label={social.platform}
-                onClick={() => {
-                  navigator.clipboard.writeText(profile.email)
-                  toast("Email address copied to clipboard!")
-                }}
-              >
-                <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
-              </Button>
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent"
+                    aria-label={social.platform}
+                    onClick={() => {
+                      navigator.clipboard.writeText(profile.email)
+                      toast("Email address copied to clipboard!")
+                    }}
+                  >
+                    <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Copy email address</p>
+                </TooltipContent>
+              </Tooltip>
             )
           }
 
           return (
-            <Button key={index} variant="outline" size="icon" asChild className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent">
-              <Link
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.platform}
-              >
-                <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
-              </Link>
-            </Button>
+            <Tooltip key={index}>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="w-9 h-9 3xl:w-11 3xl:h-11 bg-transparent"
+                  asChild
+                  aria-label={social.platform}
+                >
+                  <Link href={social.url} target="_blank" rel="noopener noreferrer">
+                    <Icon className="w-4 h-4 3xl:w-5 3xl:h-5" />
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Visit my {social.platform}</p>
+              </TooltipContent>
+            </Tooltip>
           )
         })}
       </div>
