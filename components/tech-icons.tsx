@@ -33,6 +33,14 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     light: "/icons/frontend/react.svg",
     dark: "/icons/frontend/react.svg"
   },
+  nextjs: { 
+    light: "/icons/frontend/nextjs.svg",
+    dark: "/icons/frontend/nextjs.svg"
+  },
+  angular: { 
+    light: "/icons/frontend/angular.svg",
+    dark: "/icons/frontend/angular.svg"
+  },
   redux: { 
     light: "/icons/frontend/redux.svg",
     dark: "/icons/frontend/redux.svg"
@@ -80,6 +88,10 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
   mongoose: { 
     light: "/icons/database/mongoose.svg",
     dark: "/icons/database/mongoose.svg"
+  },
+  supabase: { 
+    light: "/icons/database/supabase.svg",
+    dark: "/icons/database/supabase.svg"
   },
 
   // Tools & Workflow

@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -11,6 +12,38 @@ import type { Project } from "@/lib/schemas"
 
 interface ProjectCardProps {
   project: Project
+}
+
+// Tech stack icon mapping
+const getTechIcon = (tech: string): string | null => {
+  const iconMap: Record<string, string> = {
+    // Programming Languages
+    javascript: "/icons/programming-languages/javascript.svg",
+    typescript: "/icons/programming-languages/typescript.svg",
+    
+    // Frontend
+    react: "/icons/frontend/react.svg",
+    angular: "/icons/frontend/angular.svg",
+    nextjs: "/icons/frontend/nextjs.svg",
+    redux: "/icons/frontend/redux.svg",
+    html: "/icons/frontend/html.svg",
+    css: "/icons/frontend/css.svg",
+    tailwind: "/icons/frontend/tailwind.svg",
+    bootstrap: "/icons/frontend/bootstrap.svg",
+    
+    // Backend
+    nodejs: "/icons/backend/nodejs.svg",
+    express: "/icons/backend/express.svg",
+    api: "/icons/backend/api.svg",
+    jwt: "/icons/backend/jwt.svg",
+    
+    // Database
+    mongodb: "/icons/database/mongodb.svg",
+    mongoose: "/icons/database/mongoose.svg",
+    supabase: "/icons/database/supabase.svg",
+  }
+  
+  return iconMap[tech.toLowerCase()] || null
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
@@ -40,11 +73,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div>
             <h4 className="text-sm 3xl:text-base font-medium mb-2">Tech Stack</h4>
             <div className="flex flex-wrap gap-1.5 3xl:gap-2">
-              {project.stack.map((tech) => (
-                <Badge key={tech} variant="secondary" className="text-xs 3xl:text-sm">
-                  {tech}
-                </Badge>
-              ))}
+              {project.stack.map((tech) => {
+                const iconPath = getTechIcon(tech)
+                return (
+                  <Badge key={tech} variant="secondary" className="text-xs 3xl:text-sm flex items-center gap-1.5">
+                    {iconPath && (
+                      <Image
+                        src={iconPath}
+                        alt={tech}
+                        width={12}
+                        height={12}
+                        className="w-3 h-3 3xl:w-3.5 3xl:h-3.5"
+                      />
+                    )}
+                    {tech}
+                  </Badge>
+                )
+              })}
             </div>
           </div>
 

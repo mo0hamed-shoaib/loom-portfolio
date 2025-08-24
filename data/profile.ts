@@ -59,6 +59,8 @@ export const profile: Profile = {
 
     // Frontend
     { name: "React", category: "Frontend", icon: "react" },
+    { name: "Next.js", category: "Frontend", icon: "nextjs" },
+    { name: "Angular", category: "Frontend", icon: "angular" },
     { name: "Redux", category: "Frontend", icon: "redux" },
     { name: "HTML5", category: "Frontend", icon: "html" },
     { name: "CSS3", category: "Frontend", icon: "css" },
@@ -74,6 +76,7 @@ export const profile: Profile = {
     // Database
     { name: "MongoDB", category: "Database", icon: "mongodb" },
     { name: "Mongoose", category: "Database", icon: "mongoose" },
+    { name: "Supabase", category: "Database", icon: "supabase" },
 
     // Tools & Workflow
     { name: "Git", category: "Tools & Workflow", icon: "git" },
