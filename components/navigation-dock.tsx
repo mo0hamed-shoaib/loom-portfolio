@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 import { Code, Award, Briefcase, FolderOpen, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -69,6 +70,8 @@ export const NavigationDock = () => {
                     variant={isActive ? "default" : "ghost"}
                     size="icon"
                     onClick={() => handleNavClick(item.id)}
+                    aria-label={`Navigate to ${item.label} section`}
+                    aria-current={isActive ? "page" : undefined}
                     className={`
                       relative transition-all duration-200 ease-in-out h-10 w-10
                       ${
@@ -86,7 +89,7 @@ export const NavigationDock = () => {
             );
           })}
 
-          <div className="w-full h-px bg-border my-2" />
+          <Separator orientation="horizontal" className="my-2" />
 
           <Tooltip delayDuration={300}>
             <TooltipTrigger asChild>
@@ -95,7 +98,7 @@ export const NavigationDock = () => {
                 size="icon"
                 onClick={toggleTheme}
                 className="h-10 w-10 transition-all duration-200"
-                aria-label="Toggle theme"
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
               >
                 <Sun className="h-4 w-4 sm:h-5 sm:w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -119,6 +122,8 @@ export const NavigationDock = () => {
                 variant={isActive ? "default" : "ghost"}
                 size="icon"
                 onClick={() => handleNavClick(item.id)}
+                aria-label={`Navigate to ${item.label} section`}
+                aria-current={isActive ? "page" : undefined}
                 className={`
                   relative transition-all duration-200 ease-in-out h-10 w-10
                   ${
@@ -133,13 +138,13 @@ export const NavigationDock = () => {
             );
           })}
 
-          <div className="h-8 w-px bg-border mx-2" />
+          <Separator orientation="vertical" className="h-8 mx-2" />
           <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
             className="h-10 w-10 transition-all duration-200"
-            aria-label="Toggle theme"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
           >
             <Sun className="h-4 w-4 sm:h-5 sm:w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
