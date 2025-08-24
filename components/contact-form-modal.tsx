@@ -28,7 +28,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { AlertCircle, CheckCircle } from "lucide-react"
+import { AlertCircle, CheckCircle, Mail } from "lucide-react"
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -88,90 +88,95 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Let's work together</DialogTitle>
-          <DialogDescription>Send me a message and I'll get back to you as soon as possible.</DialogDescription>
+          <DialogTitle className="typography-h2">Get in Touch</DialogTitle>
+          <DialogDescription className="typography-lead">
+            I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+          </DialogDescription>
         </DialogHeader>
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            {/* Status Alerts */}
-            {submitStatus === 'success' && (
-              <Alert>
-                <CheckCircle className="h-4 w-4" />
-                <AlertDescription>
-                  Your message has been sent successfully! I'll get back to you soon.
-                </AlertDescription>
-              </Alert>
-            )}
-            
-            {submitStatus === 'error' && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
-                  Failed to send message. Please check your connection and try again.
-                </AlertDescription>
-              </Alert>
-            )}
-            <div className="grid grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-mono-technical">Name *</FormLabel>
-                    <FormControl>
-                      <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="font-mono-technical">Email *</FormLabel>
-                    <FormControl>
-                      <Input type="email" {...field} disabled={isSubmitting} className="font-mono-technical" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="font-mono-technical">Name *</FormLabel>
+                  <FormControl>
+                    <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="font-mono-technical">Email *</FormLabel>
+                  <FormControl>
+                    <Input type="email" {...field} disabled={isSubmitting} className="font-mono-technical" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             <FormField
               control={form.control}
               name="subject"
               render={({ field }) => (
-                              <FormItem>
-                <FormLabel className="font-mono-technical">Subject *</FormLabel>
-                <FormControl>
-                  <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+                <FormItem>
+                  <FormLabel className="font-mono-technical">Subject *</FormLabel>
+                  <FormControl>
+                    <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="message"
               render={({ field }) => (
-                              <FormItem>
-                <FormLabel className="font-mono-technical">Message *</FormLabel>
-                <FormControl>
-                  <Textarea rows={4} {...field} disabled={isSubmitting} className="font-mono-technical" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
+                <FormItem>
+                  <FormLabel className="font-mono-technical">Message *</FormLabel>
+                  <FormControl>
+                    <Textarea rows={4} {...field} disabled={isSubmitting} className="font-mono-technical" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
             />
-            <div className="flex gap-3 pt-4">
-              <Button type="button" variant="outline" onClick={() => setOpen(false)} disabled={isSubmitting}>
-                Cancel
-              </Button>
-              <Button type="submit" disabled={isSubmitting} className="flex-1">
-                {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                {isSubmitting ? "Sending..." : "Send Message"}
+
+            {submitStatus !== 'idle' && (
+              <Alert variant={submitStatus === 'success' ? 'default' : 'destructive'}>
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  {submitStatus === 'success' 
+                    ? "Your message has been sent successfully! I'll get back to you soon."
+                    : "Failed to send message. Please check your connection and try again."
+                  }
+                </AlertDescription>
+              </Alert>
+            )}
+
+            <div className="flex justify-end gap-2">
+              <Button type="submit" disabled={isSubmitting} className="font-mono-technical">
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Mail className="mr-2 h-4 w-4" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </div>
           </form>

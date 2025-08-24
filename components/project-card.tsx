@@ -70,50 +70,50 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Project Details */}
         <div className="p-6 3xl:p-8 pt-2 3xl:pt-4 space-y-4 3xl:space-y-6">
-          {/* Title and Role */}
-          <div>
-            <div className="flex items-start justify-between gap-4 mb-2">
-              <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold leading-tight">{project.title}</h3>
-              <span className="text-sm 3xl:text-base text-muted-foreground whitespace-nowrap">{project.year}</span>
+          {/* Project Header */}
+          <div className="flex items-start justify-between gap-3 mb-3">
+            <div className="flex-1 min-w-0">
+              <h3 className="typography-h3 line-clamp-2">{project.title}</h3>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="typography-small text-muted-foreground whitespace-nowrap">{project.year}</span>
+              </div>
             </div>
-            <p className="text-sm 3xl:text-base font-medium text-primary">{project.role}</p>
           </div>
 
-          {/* Summary */}
-          <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed">{project.summary}</p>
+          {/* Project Summary */}
+          <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed mb-4 line-clamp-3">{project.summary}</p>
 
           {/* Tech Stack */}
-          <div>
-            <h4 className="text-sm 3xl:text-base font-medium mb-2">Tech Stack</h4>
-            <div className="flex flex-wrap gap-1.5 3xl:gap-2">
-              {project.stack.map((tech) => {
-                const iconPath = mounted ? getTechIcon(tech, resolvedTheme || 'light') : null
-                return (
-                  <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5">
-                    {iconPath && (
-                      <Image
-                        src={iconPath}
-                        alt={tech}
-                        width={20}
-                        height={20}
-                        className="w-5 h-5 3xl:w-6 3xl:h-6"
-                      />
-                    )}
-                    {tech}
-                  </Badge>
-                )
-              })}
-            </div>
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.stack.slice(0, 4).map((tech) => (
+              <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5">
+                {getTechIcon(tech, resolvedTheme || 'light') && (
+                  <Image
+                    src={getTechIcon(tech, resolvedTheme || 'light')!}
+                    alt={`${tech} icon`}
+                    width={12}
+                    height={12}
+                    className="w-3 h-3"
+                  />
+                )}
+                {tech}
+              </Badge>
+            ))}
+            {project.stack.length > 4 && (
+              <Badge variant="outline" className="text-xs 3xl:text-sm">
+                +{project.stack.length - 4} more
+              </Badge>
+            )}
           </div>
 
-          {/* Key Achievements */}
+          {/* Key Features */}
           {project.highlights && project.highlights.length > 0 && (
-            <div>
-              <h4 className="text-sm 3xl:text-base font-medium mb-2">Key Achievements</h4>
-              <ul className="space-y-1 3xl:space-y-1.5">
-                {project.highlights.map((highlight, index) => (
-                  <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
-                    <span className="w-1 h-1 3xl:w-1.5 3xl:h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+            <div className="mb-4">
+              <h4 className="typography-small font-medium mb-2">Key Features</h4>
+              <ul className="space-y-2">
+                {project.highlights.slice(0, 3).map((highlight, index) => (
+                  <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                    <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
                     <span className="font-mono-technical">{highlight}</span>
                   </li>
                 ))}

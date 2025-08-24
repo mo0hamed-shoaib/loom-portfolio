@@ -19,35 +19,30 @@ export function TechStackSection() {
     <section className="space-y-8 3xl:space-y-12">
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
-        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Tech Stack</h2>
-        <p className="text-sm sm:text-base 3xl:text-lg text-muted-foreground">
+        <h2 className="typography-h2">Tech Stack</h2>
+        <p className="typography-lead">
           Technologies and tools I work with
         </p>
       </div>
 
       {/* Tech Stack by Category */}
       <div className="space-y-8 3xl:space-y-12">
-        {categories.map((category, index) => {
+        {categories.map((category) => {
           const categoryTechs = profile.techStack.filter((tech) => tech.category === category)
-          const config = carouselConfigs[index % carouselConfigs.length]
+          const carouselConfig = carouselConfigs[categories.indexOf(category) % carouselConfigs.length]
 
           return (
             <div key={category} className="space-y-4 3xl:space-y-6">
-              <div className="flex items-center gap-3">
-                <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold text-foreground">
-                  {category}
-                </h3>
-                <div className="flex-1 h-px bg-border" />
-                <span className="text-sm text-muted-foreground">
-                  {categoryTechs.length} {categoryTechs.length === 1 ? 'technology' : 'technologies'}
-                </span>
+              <div className="flex items-center justify-between">
+                <h3 className="typography-h3">{category}</h3>
+                <span className="typography-muted">{categoryTechs.length} technologies</span>
               </div>
               
+              {/* Use carousel only if there are enough items, otherwise show static layout */}
               {categoryTechs.length >= 4 ? (
                 <InfiniteCarousel
-                  speed={config.speed}
-                  direction={config.direction}
-                  className="py-2"
+                  speed={carouselConfig.speed}
+                  direction={carouselConfig.direction}
                 >
                   {categoryTechs.map((tech) => (
                     <TechStackItem

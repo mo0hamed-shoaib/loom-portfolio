@@ -75,10 +75,10 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                 <div className="text-left w-full">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
                     <div>
-                      <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold leading-tight">{experience.role}</h3>
-                      <p className="text-sm sm:text-base 3xl:text-lg text-primary font-medium">{experience.org}</p>
+                      <h3 className="typography-h3">{experience.role}</h3>
+                      <p className="typography-lead font-medium">{experience.org}</p>
                     </div>
-                    <div className="text-sm 3xl:text-base text-muted-foreground text-center sm:text-right flex-shrink-0">
+                    <div className="typography-small text-muted-foreground text-center sm:text-right flex-shrink-0">
                       <div className="flex items-center gap-1 justify-center sm:justify-end">
                         <Calendar className="w-3 h-3" />
                         <span>
@@ -89,7 +89,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                     </div>
                   </div>
                   {experience.location && (
-                    <div className="flex items-center gap-1 text-sm 3xl:text-base text-muted-foreground justify-center sm:justify-start">
+                    <div className="flex items-center gap-1 typography-small text-muted-foreground justify-center sm:justify-start">
                       <MapPin className="w-3 h-3" />
                       <span>{experience.location}</span>
                     </div>
@@ -98,24 +98,29 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-6">
                 <div className="space-y-4">
-                  {/* Main Responsibilities */}
-                  <ul className="space-y-1">
-                    {experience.bullets.map((bullet, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
-                        <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="font-mono-technical text-left">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Key Responsibilities */}
+                  {experience.bullets && experience.bullets.length > 0 && (
+                    <div>
+                      <h4 className="typography-h4 mb-2">Key Responsibilities</h4>
+                      <ul className="space-y-2">
+                        {experience.bullets.map((bullet, index) => (
+                          <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                            <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
+                            <span className="font-mono-technical">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* Key Achievements */}
                   {experience.keyAchievements && experience.keyAchievements.length > 0 && (
                     <div>
-                      <h4 className="text-sm 3xl:text-base font-medium mb-2">Key Achievements</h4>
-                      <ul className="space-y-1">
+                      <h4 className="typography-h4 mb-2">Key Achievements</h4>
+                      <ul className="space-y-2">
                         {experience.keyAchievements.map((achievement, index) => (
-                          <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
-                            <span className="w-1 h-1 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                          <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                            <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
                             <span className="font-mono-technical">{achievement}</span>
                           </li>
                         ))}
@@ -124,10 +129,10 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                   )}
 
                   {/* Tech Stack */}
-                  {experience.stack.length > 0 && (
+                  {experience.stack && experience.stack.length > 0 && (
                     <div>
-                      <h4 className="text-sm 3xl:text-base font-medium mb-2">Tech Stack</h4>
-                      <div className="flex flex-wrap gap-1.5">
+                      <h4 className="typography-h4 mb-2">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-2">
                         {experience.stack.map((tech) => (
                           <Badge key={tech} variant="outline" className="font-mono-technical text-xs 3xl:text-sm">
                             {tech}

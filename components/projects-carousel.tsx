@@ -18,23 +18,23 @@ export function ProjectsCarousel() {
     setCurrentProjectIndex((prev) => (prev - 1 + projects.length) % projects.length)
   }
 
-  if (projects.length === 0) {
+  if (!projects || projects.length === 0) {
     return (
-      <section className="space-y-6 3xl:space-y-8">
+      <section className="space-y-8 3xl:space-y-12">
         <div className="text-center space-y-2 3xl:space-y-3">
-          <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Featured Projects</h2>
-          <p className="text-muted-foreground 3xl:text-lg">No projects available</p>
+          <h2 className="typography-h2">Projects</h2>
+          <p className="typography-lead">No projects available</p>
         </div>
       </section>
     )
   }
 
   return (
-    <section className="space-y-6 3xl:space-y-8">
+    <section className="space-y-8 3xl:space-y-12">
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
-        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Featured Projects</h2>
-        <p className="text-muted-foreground 3xl:text-lg">Showcasing some of my recent work and technical achievements</p>
+        <h2 className="typography-h2">Projects</h2>
+        <p className="typography-lead">Showcasing some of my recent work and technical achievements</p>
       </div>
 
       {/* Project Navigation with Progress Bar */}
@@ -50,7 +50,7 @@ export function ProjectsCarousel() {
         </Button>
 
         <div className="flex items-center gap-3 3xl:gap-4">
-          <span className="text-sm 3xl:text-base text-muted-foreground whitespace-nowrap">
+          <span className="typography-small text-muted-foreground whitespace-nowrap">
             {currentProjectIndex + 1} of {projects.length}
           </span>
           {projects.length > 1 && (

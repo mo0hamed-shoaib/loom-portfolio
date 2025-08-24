@@ -26,16 +26,14 @@ export function TechStackItem({ name, icon, className = "" }: TechStackItemProps
               className="text-foreground"
             />
           </div>
-          <span className="font-mono-technical font-medium text-sm sm:text-base whitespace-nowrap group-hover:text-primary transition-colors">
-            {name}
-          </span>
+          <span className="font-mono-technical font-medium typography-small whitespace-nowrap group-hover:text-primary transition-colors">{name}</span>
         </div>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">{name}</h4>
-            <p className="text-sm text-muted-foreground">
+            <h4 className="typography-h4">{name}</h4>
+            <p className="typography-muted">
               {getTechDescription(name)}
             </p>
           </div>

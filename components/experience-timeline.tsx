@@ -12,31 +12,31 @@ export function ExperienceTimeline() {
   })
 
   return (
-    <section className="space-y-6 3xl:space-y-8">
+    <section className="space-y-8 3xl:space-y-12">
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
-        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Professional Experience</h2>
-        <p className="text-muted-foreground 3xl:text-lg">My career journey and professional growth</p>
+        <h2 className="typography-h2">Experience</h2>
+        <p className="typography-lead">My career journey and professional growth</p>
       </div>
 
       {/* Timeline */}
-      <div className="w-full">
-        {sortedExperience.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No experience data available</p>
-          </div>
-        ) : (
-          <div className="space-y-0">
-            {sortedExperience.map((exp, index) => (
+      {sortedExperience.length > 0 ? (
+        <div className="relative">
+          <div className="space-y-8">
+            {sortedExperience.map((experience, index) => (
               <ExperienceTimelineItem
-                key={`${exp.org}-${exp.role}-${index}`}
-                experience={exp}
+                key={`${experience.role}-${experience.org}-${index}`}
+                experience={experience}
                 isLast={index === sortedExperience.length - 1}
               />
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="typography-muted">No experience data available</p>
+        </div>
+      )}
     </section>
   )
 }

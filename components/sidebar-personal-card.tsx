@@ -40,8 +40,8 @@ export function SidebarPersonalCard() {
           </AvatarFallback>
         </Avatar>
         <div className="space-y-0.5">
-          <h1 className="text-xl 3xl:text-2xl font-semibold tracking-tight">{profile.name}</h1>
-          <p className="text-base 3xl:text-lg text-muted-foreground">{profile.title}</p>
+          <h1 className="typography-h1">{profile.name}</h1>
+          <p className="typography-lead">{profile.title}</p>
           <div className="flex items-center justify-center gap-1 text-sm 3xl:text-base text-muted-foreground">
             <MapPinIcon className="w-4 h-4 3xl:w-5 3xl:h-5" />
             <span>{profile.location}</span>
@@ -51,7 +51,7 @@ export function SidebarPersonalCard() {
 
       {/* Bio */}
       <div className="text-center">
-        <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{profile.bio}</p>
+        <p className="typography-p text-muted-foreground leading-relaxed">{profile.bio}</p>
       </div>
 
       {/* GitHub Stats */}

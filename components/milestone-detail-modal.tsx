@@ -103,20 +103,17 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
 
           {/* Key Achievements */}
           {milestone.keyAchievements && milestone.keyAchievements.length > 0 && (
-            <>
-              <Separator />
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Key Achievements</h3>
-                <ul className="space-y-2">
-                  {milestone.keyAchievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </>
+            <div>
+              <h4 className="typography-h4 mb-2">Key Achievements</h4>
+              <ul className="space-y-2">
+                {milestone.keyAchievements.map((achievement, index) => (
+                  <li key={index} className="flex items-start gap-2 typography-small text-muted-foreground">
+                    <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-muted-foreground">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
 
           {/* Additional Note */}

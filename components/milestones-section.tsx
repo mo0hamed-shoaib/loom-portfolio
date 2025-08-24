@@ -41,8 +41,8 @@ export function MilestonesSection() {
     <section className="space-y-6 3xl:space-y-8">
       {/* Section Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
-        <h2 className="text-3xl 3xl:text-4xl font-bold tracking-tight">Milestones & Achievements</h2>
-        <p className="text-muted-foreground 3xl:text-lg">A collection of my professional achievements and contributions</p>
+        <h2 className="typography-h2">Milestones & Achievements</h2>
+        <p className="typography-lead">A collection of my professional achievements and contributions</p>
       </div>
 
       {/* Tabs */}
@@ -79,7 +79,7 @@ export function MilestonesSection() {
             </div>
             {filterMilestones(kind).length === 0 && (
               <div className="text-center py-12">
-                <p className="text-muted-foreground">No {getTabLabel(kind).toLowerCase()} found</p>
+                <p className="typography-muted">No {getTabLabel(kind).toLowerCase()} found</p>
               </div>
             )}
           </TabsContent>

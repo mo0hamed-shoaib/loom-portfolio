@@ -57,7 +57,7 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
 
           {/* Title */}
           <div>
-            <h3 className="font-semibold text-sm sm:text-base 3xl:text-lg leading-tight line-clamp-2">{milestone.title}</h3>
+            <h3 className="typography-h4 leading-tight line-clamp-2">{milestone.title}</h3>
           </div>
 
           {/* Description */}

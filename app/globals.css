@@ -13,6 +13,47 @@
   font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 }
 
+/* Standardized Typography Classes */
+.typography-h1 {
+  @apply scroll-m-20 text-4xl font-extrabold tracking-tight text-balance;
+}
+
+.typography-h2 {
+  @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+}
+
+.typography-h3 {
+  @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+
+.typography-h4 {
+  @apply scroll-m-20 text-xl font-semibold tracking-tight;
+}
+
+.typography-p {
+  @apply leading-7 [&:not(:first-child)]:mt-6;
+}
+
+.typography-lead {
+  @apply text-muted-foreground text-xl;
+}
+
+.typography-large {
+  @apply text-lg font-semibold;
+}
+
+.typography-small {
+  @apply text-sm leading-none font-medium;
+}
+
+.typography-muted {
+  @apply text-muted-foreground text-sm;
+}
+
+.typography-inline-code {
+  @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+}
+
 /* Infinite Carousel Animations */
 @keyframes scroll {
   0% {
@@ -84,7 +125,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.4 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -120,7 +161,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: oklch(0.6 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
