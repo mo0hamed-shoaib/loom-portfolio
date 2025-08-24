@@ -7,11 +7,11 @@ import { profile } from "@/data/profile"
 export function TechStackSection() {
   const categories = Array.from(new Set(profile.techStack.map((tech) => tech.category)))
 
-  // Different speeds and directions for visual variety
+  // Balanced speeds and directions for visual variety
   const carouselConfigs = [
     { speed: "slow" as const, direction: "left" as const },
     { speed: "normal" as const, direction: "right" as const },
-    { speed: "fast" as const, direction: "left" as const },
+    { speed: "slow" as const, direction: "left" as const },
     { speed: "normal" as const, direction: "right" as const },
   ]
 

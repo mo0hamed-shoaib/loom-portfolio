@@ -12,9 +12,9 @@ interface InfiniteCarouselProps {
 }
 
 const speeds = {
-  slow: 80,
+  slow: 60,
   normal: 40,
-  fast: 20,
+  fast: 25,
 }
 
 export function InfiniteCarousel({
@@ -25,6 +25,7 @@ export function InfiniteCarousel({
   pauseOnHover = true,
 }: InfiniteCarouselProps) {
   const [isPaused, setIsPaused] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   
@@ -83,6 +84,19 @@ export function InfiniteCarousel({
     }
   }, [children, speed, direction])
 
+  // Handle visibility change to restart animation when tab becomes visible
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden)
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [])
+
   const handleMouseEnter = () => {
     if (pauseOnHover) setIsPaused(true)
   }
@@ -105,7 +119,7 @@ export function InfiniteCarousel({
           animationDuration: animationDuration,
           animationTimingFunction: 'linear',
           animationIterationCount: 'infinite',
-          animationPlayState: isPaused ? 'paused' : 'running',
+          animationPlayState: (isPaused || !isVisible) ? 'paused' : 'running',
         }}
       >
         {Array.from({ length: numCopies }).map((_, i) => (
