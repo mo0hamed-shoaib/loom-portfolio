@@ -68,7 +68,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
 
       {/* Content */}
       <div className="flex-1 pb-8">
-        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="p-6 hover:no-underline">
