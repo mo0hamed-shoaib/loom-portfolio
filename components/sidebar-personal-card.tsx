@@ -46,14 +46,11 @@ export function SidebarPersonalCard() {
         <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{profile.bio}</p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-2 3xl:gap-3">
+      <div className="grid grid-cols-2 gap-2 3xl:gap-3">
         {profile.summaryCards.map((card, index) => {
-          const Icon = Icons[card.icon as IconName] || Icons.user
-
           return (
-            <div key={index} className="flex items-center gap-1.5 3xl:gap-2 px-2 3xl:px-3 py-1 3xl:py-1.5 rounded-md bg-muted/50">
-              <Icon className="w-3.5 h-3.5 3xl:w-4 3xl:h-4 text-muted-foreground" />
-              <div className="flex items-baseline gap-1">
+            <div key={index} className="flex items-center justify-center px-2 3xl:px-3 py-1 3xl:py-1.5 rounded-md bg-muted/50 min-w-0">
+              <div className="flex items-baseline gap-1 min-w-0">
                 <span className="text-sm 3xl:text-base font-semibold">{card.value}</span>
                 <span className="text-xs 3xl:text-sm text-muted-foreground">{card.label}</span>
               </div>

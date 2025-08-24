@@ -41,12 +41,10 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
           {/* Summary Stats */}
           <div>
             <h4 className="text-sm font-medium mb-2">Summary</h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {profile.summaryCards.map((card, index) => {
-                const Icon = Icons[card.icon as IconName] || Icons.user
                 return (
-                  <div key={index} className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-muted/50">
-                    <Icon className="w-3.5 h-3.5 text-muted-foreground" />
+                  <div key={index} className="flex items-center justify-center px-2 py-1 rounded-md bg-muted/50">
                     <div className="flex items-baseline gap-1">
                       <span className="text-sm font-semibold">{card.value}</span>
                       <span className="text-xs text-muted-foreground">{card.label}</span>
