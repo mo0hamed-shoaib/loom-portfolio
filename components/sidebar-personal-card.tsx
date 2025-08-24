@@ -103,8 +103,8 @@ export function SidebarPersonalCard() {
       </div>
 
       {/* Action Buttons */}
-      <div className="space-y-1.5 3xl:space-y-2">
-        <Button asChild className="w-full bg-transparent 3xl:h-12" variant="outline">
+      <div className="flex gap-2">
+        <Button asChild className="flex-1 bg-transparent h-9" variant="outline">
           <Link href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
             <FileTextIcon className="w-4 h-4 3xl:w-5 3xl:h-5 mr-2" />
             View CV
@@ -112,7 +112,7 @@ export function SidebarPersonalCard() {
         </Button>
 
         <ContactFormModal>
-          <Button className="w-full 3xl:h-12">
+          <Button className="flex-1 h-9">
             <Icons.mail className="w-4 h-4 3xl:w-5 3xl:h-5 mr-2" />
             Hire Me
           </Button>
