@@ -26,7 +26,7 @@ export function TechStackItem({ name, icon, className = "" }: TechStackItemProps
               className="text-foreground"
             />
           </div>
-          <span className="font-medium text-sm sm:text-base whitespace-nowrap group-hover:text-primary transition-colors">
+          <span className="font-mono-technical font-medium text-sm sm:text-base whitespace-nowrap group-hover:text-primary transition-colors">
             {name}
           </span>
         </div>

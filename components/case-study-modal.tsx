@@ -40,7 +40,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
             <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold mb-3">Technology Stack</h3>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
-                <Badge key={tech} variant="secondary">
+                <Badge key={tech} variant="secondary" className="font-mono-technical">
                   {tech}
                 </Badge>
               ))}
@@ -52,7 +52,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
           {/* Problem */}
           <div>
             <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold mb-3">Problem</h3>
-            <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.problem}</p>
+            <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.problem}</p>
           </div>
 
           <Separator />
@@ -60,7 +60,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
           {/* Solution */}
           <div>
             <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold mb-3">Solution</h3>
-            <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.solution}</p>
+            <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.solution}</p>
           </div>
 
           <Separator />
@@ -68,7 +68,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
           {/* Architecture */}
           <div>
             <h3 className="text-lg sm:text-xl 3xl:text-2xl font-semibold mb-3">Architecture</h3>
-            <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.architecture}</p>
+            <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed">{caseStudyDetails.architecture}</p>
           </div>
 
           {/* Challenges */}
@@ -81,7 +81,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
                   {caseStudyDetails.challenges.map((challenge, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm 3xl:text-base text-muted-foreground">{challenge}</span>
+                      <span className="font-mono-technical text-sm 3xl:text-base text-muted-foreground">{challenge}</span>
                     </li>
                   ))}
                 </ul>
@@ -99,7 +99,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
                   {caseStudyDetails.results.map((result, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm 3xl:text-base text-muted-foreground">{result}</span>
+                      <span className="font-mono-technical text-sm 3xl:text-base text-muted-foreground">{result}</span>
                     </li>
                   ))}
                 </ul>
@@ -117,7 +117,7 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
                   {project.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm 3xl:text-base text-muted-foreground">{highlight}</span>
+                      <span className="font-mono-technical text-sm 3xl:text-base text-muted-foreground">{highlight}</span>
                     </li>
                   ))}
                 </ul>

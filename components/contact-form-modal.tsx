@@ -117,9 +117,9 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name *</FormLabel>
+                    <FormLabel className="font-mono-technical">Name *</FormLabel>
                     <FormControl>
-                      <Input {...field} disabled={isSubmitting} />
+                      <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -130,9 +130,9 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email *</FormLabel>
+                    <FormLabel className="font-mono-technical">Email *</FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} disabled={isSubmitting} />
+                      <Input type="email" {...field} disabled={isSubmitting} className="font-mono-technical" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -143,26 +143,26 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
               control={form.control}
               name="subject"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Subject *</FormLabel>
-                  <FormControl>
-                    <Input {...field} disabled={isSubmitting} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+                              <FormItem>
+                <FormLabel className="font-mono-technical">Subject *</FormLabel>
+                <FormControl>
+                  <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
               )}
             />
             <FormField
               control={form.control}
               name="message"
               render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message *</FormLabel>
-                  <FormControl>
-                    <Textarea rows={4} {...field} disabled={isSubmitting} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
+                              <FormItem>
+                <FormLabel className="font-mono-technical">Message *</FormLabel>
+                <FormControl>
+                  <Textarea rows={4} {...field} disabled={isSubmitting} className="font-mono-technical" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
               )}
             />
             <div className="flex gap-3 pt-4">

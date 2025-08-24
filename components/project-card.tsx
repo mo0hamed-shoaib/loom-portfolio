@@ -80,7 +80,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Summary */}
-          <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{project.summary}</p>
+          <p className="font-mono-technical text-sm 3xl:text-base text-muted-foreground leading-relaxed">{project.summary}</p>
 
           {/* Tech Stack */}
           <div>
@@ -89,7 +89,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {project.stack.map((tech) => {
                 const iconPath = mounted ? getTechIcon(tech, resolvedTheme || 'light') : null
                 return (
-                  <Badge key={tech} variant="secondary" className="text-xs 3xl:text-sm flex items-center gap-1.5">
+                  <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5">
                     {iconPath && (
                       <Image
                         src={iconPath}
@@ -114,7 +114,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.highlights.map((highlight, index) => (
                   <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
                     <span className="w-1 h-1 3xl:w-1.5 3xl:h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span>{highlight}</span>
+                    <span className="font-mono-technical">{highlight}</span>
                   </li>
                 ))}
               </ul>

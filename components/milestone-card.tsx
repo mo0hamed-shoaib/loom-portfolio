@@ -62,13 +62,13 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
 
           {/* Description */}
           {milestone.description && (
-            <p className="text-xs sm:text-sm 3xl:text-base text-muted-foreground line-clamp-3 leading-relaxed">{milestone.description}</p>
+            <p className="font-mono-technical text-xs sm:text-sm 3xl:text-base text-muted-foreground line-clamp-3 leading-relaxed">{milestone.description}</p>
           )}
 
           {/* Key achievements preview */}
           {milestone.keyAchievements && milestone.keyAchievements.length > 0 && (
             <div className="pt-1">
-              <p className="text-xs text-muted-foreground">
+              <p className="font-mono-technical text-xs text-muted-foreground">
                 {milestone.keyAchievements[0]}
                 {milestone.keyAchievements.length > 1 && ` +${milestone.keyAchievements.length - 1} more`}
               </p>

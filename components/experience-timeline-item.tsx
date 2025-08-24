@@ -103,7 +103,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                     {experience.bullets.map((bullet, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
                         <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-left">{bullet}</span>
+                        <span className="font-mono-technical text-left">{bullet}</span>
                       </li>
                     ))}
                   </ul>
@@ -116,7 +116,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                         {experience.keyAchievements.map((achievement, index) => (
                           <li key={index} className="flex items-start gap-2 text-sm 3xl:text-base text-muted-foreground">
                             <span className="w-1 h-1 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                            <span>{achievement}</span>
+                            <span className="font-mono-technical">{achievement}</span>
                           </li>
                         ))}
                       </ul>
@@ -129,7 +129,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                       <h4 className="text-sm 3xl:text-base font-medium mb-2">Tech Stack</h4>
                       <div className="flex flex-wrap gap-1.5">
                         {experience.stack.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs 3xl:text-sm">
+                          <Badge key={tech} variant="outline" className="font-mono-technical text-xs 3xl:text-sm">
                             {tech}
                           </Badge>
                         ))}

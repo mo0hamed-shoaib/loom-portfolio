@@ -7,7 +7,7 @@ export const projects: Project[] = [
       title: "Rootly Notes Management App",
       year: "2025",
       role: "Full-Stack Developer",
-      summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a quick review session — all in a sleek, responsive UI.",
+      summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a review session & result system.",
       stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
       media: [
         {
