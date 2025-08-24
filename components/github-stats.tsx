@@ -82,7 +82,7 @@ export function GitHubStats() {
       
       {/* Stats Cards */}
       <div className="grid grid-cols-2 gap-1 2xl:gap-2 3xl:gap-3">
-        <Card className="p-1 2xl:p-2 3xl:p-3">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
               <GitCommit className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-primary" />
@@ -92,7 +92,7 @@ export function GitHubStats() {
           </CardContent>
         </Card>
 
-        <Card className="p-1 2xl:p-2 3xl:p-3">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
               <GitBranch className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-primary" />
@@ -102,7 +102,7 @@ export function GitHubStats() {
           </CardContent>
         </Card>
 
-        <Card className="p-1 2xl:p-2 3xl:p-3">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
               <Flame className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-orange-500" />
@@ -112,7 +112,7 @@ export function GitHubStats() {
           </CardContent>
         </Card>
 
-        <Card className="p-1 2xl:p-2 3xl:p-3">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
               <Calendar className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-green-500" />
