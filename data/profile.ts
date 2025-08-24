@@ -75,7 +75,6 @@ export const profile: Profile = {
 
     // Database
     { name: "MongoDB", category: "Database", icon: "mongodb" },
-    { name: "Mongoose", category: "Database", icon: "mongoose" },
     { name: "Supabase", category: "Database", icon: "supabase" },
 
     // Tools & Workflow

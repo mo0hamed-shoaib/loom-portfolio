@@ -43,7 +43,6 @@ const getTechIcon = (tech: string, theme: string): string | null => {
     
     // Database
     mongodb: "/icons/database/mongodb.svg",
-    mongoose: "/icons/database/mongoose.svg",
     supabase: "/icons/database/supabase.svg",
     
     // Tools

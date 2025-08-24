@@ -85,10 +85,6 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     light: "/icons/database/mongodb.svg",
     dark: "/icons/database/mongodb.svg"
   },
-  mongoose: { 
-    light: "/icons/database/mongoose.svg",
-    dark: "/icons/database/mongoose.svg"
-  },
   supabase: { 
     light: "/icons/database/supabase.svg",
     dark: "/icons/database/supabase.svg"
