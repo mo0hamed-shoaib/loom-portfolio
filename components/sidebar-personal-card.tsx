@@ -7,6 +7,7 @@ import { toast } from "sonner"
 import { ContactFormModal } from "@/components/contact-form-modal"
 import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
+import { Logo } from "@/components/logo"
 
 export function SidebarPersonalCard() {
   const MapPinIcon = Icons["map-pin"]
@@ -14,6 +15,12 @@ export function SidebarPersonalCard() {
 
   return (
     <div className="w-full max-w-sm space-y-3 3xl:space-y-4">
+      {/* Logo Header */}
+      <div className="flex items-center justify-center gap-2 3xl:gap-3">
+        <Logo size="sm" />
+        <h2 className="text-lg 3xl:text-xl font-semibold tracking-tight">Loom</h2>
+      </div>
+
       {/* Profile Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
         <div className="relative mx-auto w-20 h-20 3xl:w-24 3xl:h-24">

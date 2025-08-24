@@ -13,9 +13,10 @@ import { ContactFormModal } from "@/components/contact-form-modal";
 import { Badge } from "@/components/ui/badge";
 import { ProfileInfoModal } from "@/components/profile-info-modal";
 import { profile } from "@/data/profile";
-import { FileText, Mail } from "lucide-react";
+import { FileText, Mail, Info } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { Logo } from "@/components/logo";
 
 export default function HomePage() {
   return (
@@ -77,6 +78,7 @@ export default function HomePage() {
         <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
+              <Logo size="sm" />
               <div className="w-12 h-12 relative">
                 <Image
                   src={profile.image || "/developer-headshot.png"}
@@ -93,7 +95,16 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-center gap-2">
-              <ProfileInfoModal />
+              <ProfileInfoModal>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="h-8 px-3 bg-transparent"
+                >
+                  <Info className="w-3 h-3 mr-1" />
+                  Info
+                </Button>
+              </ProfileInfoModal>
               <Button
                 asChild
                 size="sm"
@@ -159,6 +170,7 @@ export default function HomePage() {
         <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
+              <Logo size="sm" />
               <div className="w-10 h-10 relative">
                 <Image
                   src={profile.image || "/developer-headshot.png"}
@@ -175,30 +187,16 @@ export default function HomePage() {
             </div>
 
             <div className="flex gap-1">
-              <ProfileInfoModal />
-              <Button
-                asChild
-                size="sm"
-                variant="outline"
-                className="h-7 px-2 bg-transparent"
-              >
-                <Link
-                  href={profile.cvUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FileText className="w-3 h-3" />
-                </Link>
-              </Button>
-              <ContactFormModal>
+              <ProfileInfoModal>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="h-7 px-2 bg-transparent"
+                  className="h-7 px-3 bg-transparent"
                 >
-                  <Mail className="w-3 h-3" />
+                  <Info className="w-3 h-3 mr-1" />
+                  Info
                 </Button>
-              </ContactFormModal>
+              </ProfileInfoModal>
             </div>
           </div>
         </div>

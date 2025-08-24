@@ -8,7 +8,8 @@ import { toast } from "sonner"
 import Link from "next/link"
 import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
-import { MapPin } from "lucide-react"
+import { MapPin, FileText, Mail } from "lucide-react"
+import { ContactFormModal } from "@/components/contact-form-modal"
 
 interface ProfileInfoModalProps {
   children?: React.ReactNode
@@ -96,6 +97,26 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
                   </Button>
                 )
               })}
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div>
+            <h4 className="text-sm font-medium mb-2">Actions</h4>
+            <div className="flex gap-2">
+              <Button asChild variant="outline" className="flex-1">
+                <Link href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
+                  <FileText className="w-4 h-4 mr-2" />
+                  View CV
+                </Link>
+              </Button>
+              
+              <ContactFormModal>
+                <Button className="flex-1">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Hire Me
+                </Button>
+              </ContactFormModal>
             </div>
           </div>
         </div>
