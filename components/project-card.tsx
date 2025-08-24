@@ -87,7 +87,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.stack.slice(0, 4).map((tech) => (
               <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5">
-                {getTechIcon(tech, resolvedTheme || 'light') && (
+                {mounted && getTechIcon(tech, resolvedTheme || 'light') && (
                   <Image
                     src={getTechIcon(tech, resolvedTheme || 'light')!}
                     alt={`${tech} icon`}
