@@ -16,9 +16,8 @@ export function SidebarPersonalCard() {
   return (
     <div className="w-full max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-xl space-y-3 3xl:space-y-4">
       {/* Logo Header */}
-      <div className="flex items-center justify-center gap-2 3xl:gap-3">
-        <Logo size="sm" />
-        <h2 className="text-lg 3xl:text-xl font-semibold tracking-tight">Loom</h2>
+      <div className="flex items-center justify-center">
+        <Logo size="md" className="xl:w-14 xl:h-14 2xl:w-16 2xl:h-16 3xl:w-20 3xl:h-20" />
       </div>
 
       {/* Profile Header */}

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 interface LogoProps {
   className?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
 export function Logo({ className = '', size = 'md' }: LogoProps) {
@@ -40,11 +40,13 @@ function getSizeClasses(size: string) {
     case 'sm':
       return 'w-6 h-6'
     case 'md':
-      return 'w-8 h-8'
+      return 'w-10 h-10'
     case 'lg':
       return 'w-12 h-12'
+    case 'xl':
+      return 'w-16 h-16'
     default:
-      return 'w-8 h-8'
+      return 'w-10 h-10'
   }
 }
 
@@ -53,10 +55,12 @@ function getLogoSize(size: string) {
     case 'sm':
       return 24
     case 'md':
-      return 32
+      return 40
     case 'lg':
       return 48
+    case 'xl':
+      return 64
     default:
-      return 32
+      return 40
   }
 }

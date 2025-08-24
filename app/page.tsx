@@ -78,7 +78,7 @@ export default function HomePage() {
         <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <Logo size="sm" />
+              <Logo size="lg" />
               <div className="w-12 h-12 relative">
                 <Image
                   src={profile.image || "/developer-headshot.png"}
@@ -170,7 +170,7 @@ export default function HomePage() {
         <div className="border-b p-4 sticky top-0 z-40 backdrop-blur-sm bg-card/95">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <Logo size="sm" />
+              <Logo size="md" />
               <div className="w-10 h-10 relative">
                 <Image
                   src={profile.image || "/developer-headshot.png"}
