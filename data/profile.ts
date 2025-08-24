@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "Mohamed Gamal",
   title: "Full-Stack Developer",
   location: "Cairo, Egypt",
-  bio: "Full-Stack MERN Developer with a Computer Science degree and 6-month intensive training at ITI. Experienced in building scalable projects, admin dashboards, and RESTful APIs using React.js, Node.js, and MongoDB. Passionate about clean code, modern UI/UX, and creating scalable solutions. Ready to collaborate and build impactful applications.",
+  bio: "Frontend Developer with a strong MERN foundation and a Computer Science degree. Trained at the Information Technology Institute (ITI), I now focus on building modern, responsive interfaces with React.js and Tailwind CSS. Passionate about clean code, smooth user experiences, and impactful solutions.",
   image: "/pfp.jpg",
   cvUrl: "https://drive.google.com/file/d/1nfcMd59kVoCY_bHreTh7Dg0a8AaNL5r_/view?usp=sharing",
   email: "mohamed.g.shoaib@gmail.com",
