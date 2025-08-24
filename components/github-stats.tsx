@@ -45,11 +45,11 @@ export function GitHubStats() {
 
   if (loading) {
     return (
-      <div className="space-y-3 3xl:space-y-4">
-        <h3 className="text-sm 3xl:text-base font-semibold text-center">GitHub Activity</h3>
-        <div className="grid grid-cols-2 gap-2 3xl:gap-3">
+      <div className="space-y-2 2xl:space-y-3 3xl:space-y-4">
+        <h3 className="text-xs 2xl:text-base 3xl:text-lg font-semibold text-center">GitHub Activity</h3>
+        <div className="grid grid-cols-2 gap-1.5 2xl:gap-2 3xl:gap-3">
           {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-16 bg-muted/50 rounded-lg animate-pulse" />
+            <div key={i} className="h-12 2xl:h-16 3xl:h-20 bg-muted/50 rounded-lg animate-pulse" />
           ))}
         </div>
       </div>
@@ -58,10 +58,10 @@ export function GitHubStats() {
 
   if (error || !stats) {
     return (
-      <div className="space-y-3 3xl:space-y-4">
-        <h3 className="text-sm 3xl:text-base font-semibold text-center">GitHub Activity</h3>
-        <div className="text-center py-4">
-          <p className="text-xs 3xl:text-sm text-secondary-foreground">
+      <div className="space-y-2 2xl:space-y-3 3xl:space-y-4">
+        <h3 className="text-xs 2xl:text-base 3xl:text-lg font-semibold text-center">GitHub Activity</h3>
+        <div className="text-center py-2 2xl:py-3 3xl:py-4">
+          <p className="text-xs 2xl:text-base 3xl:text-lg text-secondary-foreground">
             {error || 'Unable to load GitHub statistics'}
           </p>
         </div>
@@ -77,48 +77,48 @@ export function GitHubStats() {
   }
 
   return (
-    <div className="space-y-2 3xl:space-y-3">
-      <h3 className="text-sm 3xl:text-base font-semibold">GitHub Activity</h3>
+    <div className="space-y-1.5 2xl:space-y-2 3xl:space-y-3">
+      <h3 className="text-xs 2xl:text-base 3xl:text-lg font-semibold">GitHub Activity</h3>
       
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 gap-1.5 3xl:gap-2">
-        <Card className="p-1.5 3xl:p-2">
+      <div className="grid grid-cols-2 gap-1 2xl:gap-2 3xl:gap-3">
+        <Card className="p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
-              <GitCommit className="w-4 h-4 3xl:w-5 3xl:h-5 text-primary" />
-              <span className="text-xs 3xl:text-sm font-medium">Commits</span>
+              <GitCommit className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-primary" />
+              <span className="text-xs 2xl:text-base 3xl:text-lg font-medium">Commits</span>
             </div>
-            <p className="text-lg 3xl:text-xl font-bold">{formatNumber(stats.totalCommits)}</p>
+            <p className="text-sm 2xl:text-xl 3xl:text-2xl font-bold">{formatNumber(stats.totalCommits)}</p>
           </CardContent>
         </Card>
 
-        <Card className="p-1.5 3xl:p-2">
+        <Card className="p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
-              <GitBranch className="w-4 h-4 3xl:w-5 3xl:h-5 text-primary" />
-              <span className="text-xs 3xl:text-sm font-medium">Repos</span>
+              <GitBranch className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-primary" />
+              <span className="text-xs 2xl:text-base 3xl:text-lg font-medium">Repos</span>
             </div>
-            <p className="text-lg 3xl:text-xl font-bold">{stats.publicRepos}</p>
+            <p className="text-sm 2xl:text-xl 3xl:text-2xl font-bold">{stats.publicRepos}</p>
           </CardContent>
         </Card>
 
-        <Card className="p-1.5 3xl:p-2">
+        <Card className="p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
-              <Flame className="w-4 h-4 3xl:w-5 3xl:h-5 text-orange-500" />
-              <span className="text-xs 3xl:text-sm font-medium">Streak</span>
+              <Flame className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-orange-500" />
+              <span className="text-xs 2xl:text-base 3xl:text-lg font-medium">Streak</span>
             </div>
-            <p className="text-lg 3xl:text-xl font-bold">{stats.contributionStreak}</p>
+            <p className="text-sm 2xl:text-xl 3xl:text-2xl font-bold">{stats.contributionStreak}</p>
           </CardContent>
         </Card>
 
-        <Card className="p-1.5 3xl:p-2">
+        <Card className="p-1 2xl:p-2 3xl:p-3">
           <CardContent className="p-0 space-y-0.5">
             <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4 3xl:w-5 3xl:h-5 text-green-500" />
-              <span className="text-xs 3xl:text-sm font-medium">Total</span>
+              <Calendar className="w-3 h-3 2xl:w-5 2xl:h-5 3xl:w-6 3xl:h-6 text-green-500" />
+              <span className="text-xs 2xl:text-base 3xl:text-lg font-medium">Total</span>
             </div>
-            <p className="text-lg 3xl:text-xl font-bold">{formatNumber(stats.totalContributions)}</p>
+            <p className="text-sm 2xl:text-xl 3xl:text-2xl font-bold">{formatNumber(stats.totalContributions)}</p>
           </CardContent>
         </Card>
       </div>
