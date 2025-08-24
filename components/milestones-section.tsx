@@ -68,7 +68,7 @@ export function MilestonesSection() {
 
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as MilestoneKind)} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 h-auto p-1">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-7 h-auto p-1 gap-1">
           {tabOptions.map((kind) => {
             const Icon = tabIcons[kind]
             const count = getTabCount(kind)
@@ -78,13 +78,13 @@ export function MilestonesSection() {
               <TabsTrigger
                 key={kind}
                 value={kind}
-                className="text-xs px-2 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center justify-center gap-1.5"
+                className="text-xs px-1.5 sm:px-2 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center justify-center gap-1 sm:gap-1.5"
               >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{getTabLabel(kind)}</span>
+                <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="text-xs">{getTabLabel(kind)}</span>
                 <Badge
                   variant={activeTab === kind ? "default" : "secondary"}
-                  className="px-1.5 py-0.5 text-xs h-4"
+                  className="px-1 py-0.5 text-xs h-4"
                 >
                   {count}
                 </Badge>
