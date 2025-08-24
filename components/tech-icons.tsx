@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 
 interface TechIconProps {
@@ -34,8 +34,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/frontend/react.svg"
   },
   nextjs: { 
-    light: "/icons/frontend/nextjs.svg",
-    dark: "/icons/frontend/nextjs.svg"
+    light: "/icons/frontend/nextjs-dark.svg",
+    dark: "/icons/frontend/nextjs-light.svg"
   },
   angular: { 
     light: "/icons/frontend/angular.svg",
@@ -68,16 +68,16 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/backend/nodejs.svg"
   },
   express: { 
-    light: "/icons/backend/express.svg",
-    dark: "/icons/backend/express.svg"
+    light: "/icons/backend/express-dark.svg",
+    dark: "/icons/backend/express-light.svg"
   },
   api: { 
     light: "/icons/backend/api.svg",
     dark: "/icons/backend/api.svg"
   },
   jwt: { 
-    light: "/icons/backend/jwt.svg",
-    dark: "/icons/backend/jwt.svg"
+    light: "/icons/backend/jwt-dark.svg",
+    dark: "/icons/backend/jwt-light.svg"
   },
 
   // Database
@@ -100,8 +100,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/tools/git.svg"
   },
   github: { 
-    light: "/icons/tools/github.svg",
-    dark: "/icons/tools/github.svg"
+    light: "/icons/tools/github-dark.svg",
+    dark: "/icons/tools/github-light.svg"
   },
   postman: { 
     light: "/icons/tools/postman.svg",
@@ -118,8 +118,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/soft-skills/communication.svg"
   },
   teamwork: { 
-    light: "/icons/soft-skills/teamwork.svg",
-    dark: "/icons/soft-skills/teamwork.svg"
+    light: "/icons/soft-skills/teamwork-dark.svg",
+    dark: "/icons/soft-skills/teamwork-light.svg"
   },
   "problem-solving": { 
     light: "/icons/soft-skills/problem-solving.svg",
@@ -154,14 +154,27 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
 }
 
 export function TechIcon({ name, icon, size = "md", className = "" }: TechIconProps) {
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const [imageError, setImageError] = useState(false)
   const iconKey = icon?.toLowerCase() || name.toLowerCase()
   const iconConfig = techIcons[iconKey]
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Don't render theme-dependent content until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div className={`${sizeClasses[size]} ${className} bg-muted rounded animate-pulse`} />
+    )
+  }
+
   // If we have a specific icon configuration and no image error
   if (iconConfig && !imageError) {
-    const iconUrl = theme === 'dark' && iconConfig.dark ? iconConfig.dark : iconConfig.light
+    const currentTheme = resolvedTheme || theme || 'light'
+    const iconUrl = currentTheme === 'dark' && iconConfig.dark ? iconConfig.dark : iconConfig.light
     
     return (
       <img 

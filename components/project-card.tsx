@@ -9,13 +9,17 @@ import { ExternalLink, Github, FileText } from "lucide-react"
 import { ProjectImageCarousel } from "@/components/project-image-carousel"
 import { CaseStudyModal } from "@/components/case-study-modal"
 import type { Project } from "@/lib/schemas"
+import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
 
 interface ProjectCardProps {
   project: Project
 }
 
 // Tech stack icon mapping
-const getTechIcon = (tech: string): string | null => {
+const getTechIcon = (tech: string, theme: string): string | null => {
+  const isDark = theme === 'dark'
+  
   const iconMap: Record<string, string> = {
     // Programming Languages
     javascript: "/icons/programming-languages/javascript.svg",
@@ -24,7 +28,7 @@ const getTechIcon = (tech: string): string | null => {
     // Frontend
     react: "/icons/frontend/react.svg",
     angular: "/icons/frontend/angular.svg",
-    nextjs: "/icons/frontend/nextjs.svg",
+    nextjs: isDark ? "/icons/frontend/nextjs-light.svg" : "/icons/frontend/nextjs-dark.svg",
     redux: "/icons/frontend/redux.svg",
     html: "/icons/frontend/html.svg",
     css: "/icons/frontend/css.svg",
@@ -33,20 +37,30 @@ const getTechIcon = (tech: string): string | null => {
     
     // Backend
     nodejs: "/icons/backend/nodejs.svg",
-    express: "/icons/backend/express.svg",
+    express: isDark ? "/icons/backend/express-light.svg" : "/icons/backend/express-dark.svg",
     api: "/icons/backend/api.svg",
-    jwt: "/icons/backend/jwt.svg",
+    jwt: isDark ? "/icons/backend/jwt-light.svg" : "/icons/backend/jwt-dark.svg",
     
     // Database
     mongodb: "/icons/database/mongodb.svg",
     mongoose: "/icons/database/mongoose.svg",
     supabase: "/icons/database/supabase.svg",
+    
+    // Tools
+    github: isDark ? "/icons/tools/github-light.svg" : "/icons/tools/github-dark.svg",
   }
   
   return iconMap[tech.toLowerCase()] || null
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200">
       <CardContent className="p-0">
@@ -74,16 +88,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <h4 className="text-sm 3xl:text-base font-medium mb-2">Tech Stack</h4>
             <div className="flex flex-wrap gap-1.5 3xl:gap-2">
               {project.stack.map((tech) => {
-                const iconPath = getTechIcon(tech)
+                const iconPath = mounted ? getTechIcon(tech, resolvedTheme || 'light') : null
                 return (
                   <Badge key={tech} variant="secondary" className="text-xs 3xl:text-sm flex items-center gap-1.5">
                     {iconPath && (
                       <Image
                         src={iconPath}
                         alt={tech}
-                        width={12}
-                        height={12}
-                        className="w-3 h-3 3xl:w-3.5 3xl:h-3.5"
+                        width={20}
+                        height={20}
+                        className="w-5 h-5 3xl:w-6 3xl:h-6"
                       />
                     )}
                     {tech}
