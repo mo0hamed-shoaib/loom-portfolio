@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { ProjectCard } from "@/components/project-card"
 import { projects } from "@/data/projects"
@@ -53,14 +54,10 @@ export function ProjectsCarousel() {
             {currentProjectIndex + 1} of {projects.length}
           </span>
           {projects.length > 1 && (
-            <div className="w-32 3xl:w-40 h-1 3xl:h-1.5 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-primary rounded-full transition-all duration-300 ease-out"
-                style={{
-                  width: `${((currentProjectIndex + 1) / projects.length) * 100}%`,
-                }}
-              />
-            </div>
+            <Progress 
+              value={((currentProjectIndex + 1) / projects.length) * 100} 
+              className="w-32 3xl:w-40 h-1 3xl:h-1.5" 
+            />
           )}
         </div>
 

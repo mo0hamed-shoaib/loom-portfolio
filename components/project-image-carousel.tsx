@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import type { Project } from "@/lib/schemas"
 
@@ -83,14 +84,10 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
             <span className="text-xs text-muted-foreground">
               {safeImageIndex + 1}/{project.media.length}
             </span>
-            <div className="w-16 h-1 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-primary rounded-full transition-all duration-300 ease-out"
-                style={{
-                  width: `${((safeImageIndex + 1) / project.media.length) * 100}%`,
-                }}
-              />
-            </div>
+            <Progress 
+              value={((safeImageIndex + 1) / project.media.length) * 100} 
+              className="w-16 h-1" 
+            />
           </div>
         </>
       )}
