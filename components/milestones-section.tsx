@@ -6,29 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { MilestoneCard } from "@/components/milestone-card"
 import { milestones } from "@/data/milestones"
 import type { Milestone } from "@/lib/schemas"
-import {
-  LayoutGrid,
-  Award,
-  Trophy,
-  GraduationCap,
-  FileText,
-  Youtube,
-  Calendar,
-} from "lucide-react"
-import { Icons } from "@/components/icons"
 
 type MilestoneKind = "all" | "cert" | "award" | "education" | "blog" | "youtube" | "oss" | "other"
-
-const tabIcons: Record<MilestoneKind, React.ElementType> = {
-  all: LayoutGrid,
-  cert: Award,
-  award: Trophy,
-  education: GraduationCap,
-  blog: FileText,
-  youtube: Youtube,
-  oss: Icons.github,
-  other: Calendar,
-}
 
 export function MilestonesSection() {
   const [activeTab, setActiveTab] = useState<MilestoneKind>("all")
@@ -68,9 +47,8 @@ export function MilestonesSection() {
 
       {/* Tabs */}
       <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as MilestoneKind)} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-7 h-auto p-1 gap-1">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-7 h-auto p-1.5 gap-2 sm:gap-3 bg-muted/50">
           {tabOptions.map((kind) => {
-            const Icon = tabIcons[kind]
             const count = getTabCount(kind)
             if (count === 0) return null // Don't show tab if there are no items
 
@@ -78,13 +56,12 @@ export function MilestonesSection() {
               <TabsTrigger
                 key={kind}
                 value={kind}
-                className="text-base px-1.5 sm:px-2 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center justify-center gap-1 sm:gap-1.5"
+                className="relative text-sm sm:text-base px-2 sm:px-3 py-2.5 sm:py-3 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm data-[state=active]:border data-[state=active]:border-border/50 flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg transition-all duration-200 hover:bg-muted/80 data-[state=active]:hover:bg-background min-w-0"
               >
-                <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                <span className="text-base">{getTabLabel(kind)}</span>
+                <span className="font-medium text-sm sm:text-base text-center leading-tight">{getTabLabel(kind)}</span>
                 <Badge
                   variant={activeTab === kind ? "default" : "secondary"}
-                  className="px-1.5 py-0.5 text-xs h-5 min-w-[1.25rem] flex items-center justify-center"
+                  className="px-1.5 py-0.5 text-xs h-5 min-w-[1.25rem] flex items-center justify-center flex-shrink-0 font-medium"
                 >
                   {count}
                 </Badge>
