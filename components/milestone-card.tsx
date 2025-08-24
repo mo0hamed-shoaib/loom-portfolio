@@ -44,7 +44,7 @@ export function MilestoneCard({ milestone }: MilestoneCardProps) {
 
   return (
     <MilestoneDetailModal milestone={milestone}>
-      <Card className="cursor-pointer border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 h-full">
+      <Card className="cursor-pointer border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 h-full p-0">
         <CardContent className="p-4 space-y-3">
           <div className="flex items-start justify-between gap-3">
             <div className={`p-2 rounded-lg ${colorClass}`}>

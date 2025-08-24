@@ -61,15 +61,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [])
 
   return (
-    <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200">
-      <CardContent className="p-0">
+    <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0">
+      <CardContent className="p-6 3xl:p-8">
         {/* Project Image Carousel */}
-        <div className="p-6 3xl:p-8 pb-4 3xl:pb-6">
+        <div className="pb-4 3xl:pb-6">
           <ProjectImageCarousel project={project} />
         </div>
 
         {/* Project Details */}
-        <div className="p-6 3xl:p-8 pt-2 3xl:pt-4 space-y-4 3xl:space-y-6">
+        <div className="pt-2 3xl:pt-4 space-y-4 3xl:space-y-6">
           {/* Project Header */}
           <div className="flex items-start justify-between gap-3 mb-3">
             <div className="flex-1 min-w-0">
