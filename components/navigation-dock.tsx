@@ -38,12 +38,18 @@ const navigationItems = [
 export const NavigationDock = () => {
   const sectionIds = navigationItems.map((item) => item.id);
   const { activeSection, scrollToSection } = useScrollSpy(sectionIds);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
   // Debug: Log active section changes
   React.useEffect(() => {
     console.log("Active section changed to:", activeSection);
   }, [activeSection]);
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleNavClick = (sectionId: string) => {
     console.log("Clicking section:", sectionId); // Debug log
@@ -53,6 +59,9 @@ export const NavigationDock = () => {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  // Use resolvedTheme for consistent aria-label, fallback to "light" for SSR
+  const currentTheme = mounted ? resolvedTheme : "light";
 
   return (
     <>
@@ -98,7 +107,7 @@ export const NavigationDock = () => {
                 size="icon"
                 onClick={toggleTheme}
                 className="h-10 w-10 transition-all duration-200"
-                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+                aria-label={`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} theme`}
               >
                 <Sun className="h-4 w-4 sm:h-5 sm:w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -144,7 +153,7 @@ export const NavigationDock = () => {
             size="icon"
             onClick={toggleTheme}
             className="h-10 w-10 transition-all duration-200"
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+            aria-label={`Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} theme`}
           >
             <Sun className="h-4 w-4 sm:h-5 sm:w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-4 w-4 sm:h-5 sm:w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
