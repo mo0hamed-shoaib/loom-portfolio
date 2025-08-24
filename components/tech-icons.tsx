@@ -119,8 +119,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/soft-skills/teamwork-light.svg"
   },
   "problem-solving": { 
-    light: "/icons/soft-skills/problem-solving.svg",
-    dark: "/icons/soft-skills/problem-solving.svg"
+    light: "/icons/soft-skills/problem-solving-light.svg",
+    dark: "/icons/soft-skills/problem-solving-dark.svg"
   },
   "time-management": { 
     light: "/icons/soft-skills/time-management.svg",
@@ -129,8 +129,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
 
   // Concepts (using generic icons)
   "data-structures": { 
-    light: "/icons/concepts/data-structures.svg",
-    dark: "/icons/concepts/data-structures.svg"
+    light: "/icons/concepts/data-structures-light.svg",
+    dark: "/icons/concepts/data-structures-dark.svg"
   },
   algorithms: { 
     light: "/icons/concepts/algorithms.svg",
@@ -145,8 +145,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
     dark: "/icons/concepts/software-engineering.svg"
   },
   "clean-code": { 
-    light: "/icons/concepts/clean-code.svg",
-    dark: "/icons/concepts/clean-code.svg"
+    light: "/icons/concepts/clean-code-light.svg",
+    dark: "/icons/concepts/clean-code-dark.svg"
   },
 }
 
