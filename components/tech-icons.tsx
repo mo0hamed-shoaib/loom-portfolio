@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 interface TechIconProps {
   name: string
@@ -173,15 +174,13 @@ export function TechIcon({ name, icon, size = "md", className = "" }: TechIconPr
     const iconUrl = currentTheme === 'dark' && iconConfig.dark ? iconConfig.dark : iconConfig.light
     
     return (
-      <img 
+      <Image 
         src={iconUrl}
         alt={`${name} icon`}
+        width={size === "sm" ? 16 : size === "md" ? 24 : 32}
+        height={size === "sm" ? 16 : size === "md" ? 24 : 32}
         className={`${sizeClasses[size]} ${className}`}
-        style={{ 
-          width: size === "sm" ? "16px" : size === "md" ? "24px" : "32px",
-          height: size === "sm" ? "16px" : size === "md" ? "24px" : "32px",
-          display: "block"
-        }}
+        loading="lazy"
         onError={() => setImageError(true)}
       />
     )
