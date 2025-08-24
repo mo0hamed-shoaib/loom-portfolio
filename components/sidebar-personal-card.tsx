@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { toast } from "sonner"
 import { ContactFormModal } from "@/components/contact-form-modal"
 import { Icons, type IconName } from "@/components/icons"
@@ -22,15 +23,16 @@ export function SidebarPersonalCard() {
 
       {/* Profile Header */}
       <div className="text-center space-y-2 3xl:space-y-3">
-        <div className="relative mx-auto w-20 h-20 3xl:w-24 3xl:h-24">
-          <Image
+        <Avatar className="mx-auto w-20 h-20 3xl:w-24 3xl:h-24">
+          <AvatarImage
             src={profile.image || "/placeholder.svg"}
             alt={profile.name}
-            fill
-            className="rounded-full object-cover border-2 border-border"
-            priority
+            className="object-cover"
           />
-        </div>
+          <AvatarFallback className="text-lg 3xl:text-xl font-semibold">
+            {profile.name.split(' ').map(n => n[0]).join('')}
+          </AvatarFallback>
+        </Avatar>
         <div className="space-y-0.5">
           <h1 className="text-xl 3xl:text-2xl font-semibold tracking-tight">{profile.name}</h1>
           <p className="text-base 3xl:text-lg text-muted-foreground">{profile.title}</p>
