@@ -14,7 +14,7 @@ export function SidebarPersonalCard() {
   const FileTextIcon = Icons["file-text"]
 
   return (
-    <div className="w-full max-w-sm space-y-3 3xl:space-y-4">
+    <div className="w-full max-w-sm xl:max-w-md 2xl:max-w-lg 3xl:max-w-xl space-y-3 3xl:space-y-4">
       {/* Logo Header */}
       <div className="flex items-center justify-center gap-2 3xl:gap-3">
         <Logo size="sm" />
