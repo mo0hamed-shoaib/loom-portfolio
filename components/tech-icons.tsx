@@ -111,8 +111,8 @@ const techIcons: Record<string, { light: string; dark?: string }> = {
 
   // Soft Skills (using generic icons)
   communication: { 
-    light: "/icons/soft-skills/communication.svg",
-    dark: "/icons/soft-skills/communication.svg"
+    light: "/icons/soft-skills/communication-light.svg",
+    dark: "/icons/soft-skills/communication-dark.svg"
   },
   teamwork: { 
     light: "/icons/soft-skills/teamwork-dark.svg",
