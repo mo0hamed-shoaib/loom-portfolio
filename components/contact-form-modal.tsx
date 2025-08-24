@@ -27,6 +27,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AlertCircle, CheckCircle } from "lucide-react"
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -43,6 +45,7 @@ interface ContactFormModalProps {
 
 export function ContactFormModal({ children }: ContactFormModalProps) {
   const [open, setOpen] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(formSchema),
@@ -54,20 +57,26 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
     },
   })
 
-  const { isSubmitting } = form.formState
+  const { isSubmitting, errors } = form.formState
 
   const onSubmit = async (values: ContactFormData) => {
     try {
+      setSubmitStatus('idle')
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
+      setSubmitStatus('success')
       toast.success("Message sent!", {
         description: "Thank you for your message. I'll get back to you soon.",
       })
 
       form.reset()
-      setOpen(false)
+      setTimeout(() => {
+        setOpen(false)
+        setSubmitStatus('idle')
+      }, 1500)
     } catch (error) {
+      setSubmitStatus('error')
       toast.error("Error", {
         description: "Failed to send message. Please try again.",
       })
@@ -84,6 +93,24 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            {/* Status Alerts */}
+            {submitStatus === 'success' && (
+              <Alert>
+                <CheckCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Your message has been sent successfully! I'll get back to you soon.
+                </AlertDescription>
+              </Alert>
+            )}
+            
+            {submitStatus === 'error' && (
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Failed to send message. Please check your connection and try again.
+                </AlertDescription>
+              </Alert>
+            )}
             <div className="grid grid-cols-2 gap-4">
               <FormField
                 control={form.control}
