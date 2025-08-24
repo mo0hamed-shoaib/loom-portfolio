@@ -10,6 +10,7 @@ import { Icons, type IconName } from "@/components/icons"
 import { profile } from "@/data/profile"
 import { MapPin, FileText, Mail } from "lucide-react"
 import { ContactFormModal } from "@/components/contact-form-modal"
+import { GitHubStats } from "@/components/github-stats"
 
 interface ProfileInfoModalProps {
   children?: React.ReactNode
@@ -38,22 +39,8 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
             </div>
           </div>
 
-          {/* Summary Stats */}
-          <div>
-            <h4 className="text-sm font-medium mb-2">Summary</h4>
-            <div className="grid grid-cols-2 gap-2">
-              {profile.summaryCards.map((card, index) => {
-                return (
-                  <div key={index} className="flex items-center justify-center px-2 py-1 rounded-md bg-muted/50">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-sm font-semibold">{card.value}</span>
-                      <span className="text-xs text-muted-foreground">{card.label}</span>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
+          {/* GitHub Stats */}
+          <GitHubStats />
 
           {/* Social Links */}
           <div>

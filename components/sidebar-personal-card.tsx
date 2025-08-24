@@ -14,6 +14,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { GitHubStats } from "@/components/github-stats"
 
 export function SidebarPersonalCard() {
   const MapPinIcon = Icons["map-pin"]
@@ -53,18 +54,8 @@ export function SidebarPersonalCard() {
         <p className="text-sm 3xl:text-base text-muted-foreground leading-relaxed">{profile.bio}</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 3xl:gap-3">
-        {profile.summaryCards.map((card, index) => {
-          return (
-            <div key={index} className="flex items-center justify-center px-2 3xl:px-3 py-1 3xl:py-1.5 rounded-md bg-muted/50 min-w-0">
-              <div className="flex items-baseline gap-1 min-w-0">
-                <span className="text-sm 3xl:text-base font-semibold">{card.value}</span>
-                <span className="text-xs 3xl:text-sm text-muted-foreground">{card.label}</span>
-              </div>
-            </div>
-          )
-        })}
-      </div>
+      {/* GitHub Stats */}
+      <GitHubStats />
 
       {/* Social Links */}
       <div className="flex justify-center gap-2 3xl:gap-3">
