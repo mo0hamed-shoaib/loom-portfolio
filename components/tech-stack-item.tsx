@@ -39,7 +39,7 @@ export function TechStackItem({ name, icon, className = "" }: TechStackItemProps
               {getTechDescription(name)}
             </p>
           </div>
-          <div className="p-2 rounded-md bg-muted/50">
+          <div className="flex items-center justify-center">
             <TechIcon 
               name={name} 
               icon={icon} 
