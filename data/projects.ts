@@ -7,7 +7,7 @@ export const projects: Project[] = [
       title: "Rootly Notes Management App",
       year: "2025",
       role: "Full-Stack Developer",
-      summary: "Elegant, data-driven learning tracker to Capture Q&A notes, organize by courses, log daily study time and mood, and practice with a review session & result system.",
+      summary: "Elegant, data-driven learning tracker that centralizes note-taking, course organization, progress tracking, and active recall through structured review sessions with performance analytics.",
       stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
       media: [
         {
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     title: "Naafe Service Exchange Platform",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "Nafee' is a smart platform connecting users with trusted local service providers through AI-powered matching, schedules, and verified profiles.",
+    summary: "Smart platform connecting users with trusted local service providers through AI-powered matching algorithms, secure escrow payments, verified profiles, and intelligent scheduling systems.",
     stack: ["react", "typescript", "mongodb", "nodejs", "express", "tailwind"],
     media: [
       {
@@ -160,7 +160,7 @@ export const projects: Project[] = [
     title: "NoirKit Portfolio Manager",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "Manage your complete professional presence through an intuitive dashboard, from projects and tech stacks to achievements and custom contact forms, and mobile-optimized experience.",
+    summary: "Comprehensive portfolio management platform with animated canvas backgrounds, interactive setup guides, drag-and-drop reordering, and real-time synchronization between dashboard and public views.",
     stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
     media: [
       {
@@ -233,7 +233,7 @@ export const projects: Project[] = [
     title: "Yolo Social Media Platform",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "Yolo is a cutting-edge social media platform that brings people together through seamless UI/UX and ease of use. Built as part of a comprehensive bootcamp assignment at ITI.",
+    summary: "Full-stack social media platform built with MERN stack featuring user authentication, post creation, real-time interactions, likes, comments, and streamlined content sharing experience.",
     stack: ["react", "javascript", "nodejs", "express", "mongodb", "tailwind"],
     media: [
       {
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     title: "GameHaven Store Backend System",
     year: "2025",
     role: "Node.js Backend Developer",
-    summary: "A RESTful API for GameHaven marketplace, a digital video game marketplace. Features include user authentication, game management, shopping cart functionality, order processing, and review system.",
+    summary: "Comprehensive RESTful API for digital video game marketplace with user authentication, game catalog management, shopping cart functionality, order processing, and review systems.",
     stack: ["nodejs", "express", "mongodb"],
     media: [
       {
@@ -332,7 +332,7 @@ export const projects: Project[] = [
     title: "MishMish Ecommerce Store",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "A cutting-edge e-commerce platform that combines the power of Angular 19 with the elegant design of Flowbite UI components. Built with modern web standards and best practices.",
+    summary: "Cutting-edge e-commerce platform built with Angular 19 and TypeScript, featuring modern web standards, Flowbite UI components, and comprehensive shopping experience with responsive design.",
     stack: ["angular", "typescript", "html", "css", "tailwind"],
     media: [
       {
@@ -384,7 +384,7 @@ export const projects: Project[] = [
     title: "Rovera Car Rental Management System",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "A modern web-based car rental management system that provides a comprehensive solution for managing car rentals, bookings, and user administration.",
+    summary: "Comprehensive web-based car rental management system with modern admin dashboard, booking management, vehicle tracking, customer administration, and responsive design for business operations.",
     stack: ["javascript", "html", "css", "bootstrap"],
     media: [
       {
@@ -427,7 +427,7 @@ export const projects: Project[] = [
     title: "SageAI Assistant",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "A stunning, modern AI assistant built with React, Vite, and Tailwind CSS. Features a beautiful theme toggle, image generation, and file attachments.",
+    summary: "Multi-modal AI assistant integrating Groq's Llama 3.3 70B for intelligent chat, Stable Diffusion for image generation, and OpenAI Assistant API for file analysis with beautiful interface.",
     stack: ["react", "javascript", "nodejs", "express", "mongodb", "tailwind"],
     media: [
       {
@@ -485,7 +485,7 @@ export const projects: Project[] = [
     title: "Grill King Homepage",
     year: "2025",
     role: "Frontend Developer",
-    summary: "A modern, responsive website for Grill King restaurant built with HTML, CSS, and Bootstrap 5. The website features an RTL (Right-to-Left) layout and is optimized for Arabic content.",
+    summary: "Modern, responsive restaurant website with full RTL layout support, optimized for Arabic content, featuring Bootstrap 5 components and cultural adaptation for Arabic-speaking customers.",
     stack: ["javascript", "html", "css", "bootstrap"],
     media: [
       {
@@ -528,7 +528,7 @@ export const projects: Project[] = [
     title: "Shopime Ecommerce Store",
     year: "2025",
     role: "Full-Stack Developer",
-    summary: "A modern e-commerce platform built with Next.js, featuring shopping cart, wishlist, Facebook & Google OAuth authentication, and complete order management with responsive design.",
+    summary: "Modern e-commerce platform built with Next.js 14 App Router, featuring shopping cart functionality, wishlist management, social authentication, and complete order processing system.",
     stack: ["nextjs", "react", "typescript", "tailwind"],
     media: [
       {
@@ -585,7 +585,7 @@ export const projects: Project[] = [
     title: "Bankist Banking Dashboard",
     year: "2025",
     role: "Frontend Developer",
-    summary: "A Bank dashboard management interface built during Jonas Schmedtmann's JavaScript course. To login use: jd | 2222 (User & Pass)",
+    summary: "Comprehensive banking dashboard with secure financial operations, automatic language detection, robust validation systems, and session timeout management for enhanced security.",
     stack: ["javascript", "html", "css"],
     media: [
       {
