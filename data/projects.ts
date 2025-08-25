@@ -26,16 +26,6 @@ export const projects: Project[] = [
           alt: "Rootly Notes",
         },
         {
-          src: "/projects/rootly/rootly-3.png",
-          type: "image",
-          alt: "Rootly Notes Code Snippet",
-        },
-        {
-          src: "/projects/rootly/rootly-4.png",
-          type: "image",
-          alt: "Rootly Add Notes",
-        },
-        {
           src: "/projects/rootly/rootly-5.png",
           type: "image",
           alt: "Rootly Courses",
@@ -52,14 +42,9 @@ export const projects: Project[] = [
           alt: "Rootly Review",
         },
         {
-          src: "/projects/rootly/rootly-8.png",
-          type: "image",
-          alt: "Rootly Light Orange",
-        },
-        {
           src: "/projects/rootly/rootly-9.png",
           type: "image",
-          alt: "Rootly Light Green",
+          alt: "Rootly Blue",
         },
       ],
       links: {
@@ -169,11 +154,6 @@ export const projects: Project[] = [
         alt: "NoirKit Portfolio",
       },
       {
-        src: "/projects/noirkit/noirkit-2.png",
-        type: "image",
-        alt: "NoirKit Portfolio",
-      },
-      {
         src: "/projects/noirkit/noirkit-3.png",
         type: "image",
         alt: "NoirKit Dashboard Personal Info",
@@ -187,21 +167,6 @@ export const projects: Project[] = [
         src: "/projects/noirkit/noirkit-5.png",
         type: "image",
         alt: "NoirKit Dashboard Tech Stack",
-      },
-      {
-        src: "/projects/noirkit/noirkit-6.png",
-        type: "image",
-        alt: "NoirKit Dashboard Contact Form",
-      },
-      {
-        src: "/projects/noirkit/noirkit-7.png",
-        type: "image",
-        alt: "NoirKit Loading Screen",
-      },
-      {
-        src: "/projects/noirkit/noirkit-8.png",
-        type: "image",
-        alt: "NoirKit Welcome Page",
       },
     ],
     links: {
@@ -349,11 +314,6 @@ export const projects: Project[] = [
         src: "/projects/mishmish/mishmish-3.png",
         type: "image",
         alt: "MishMish Light Mode",
-      },
-      {
-        src: "/projects/mishmish/mishmish-4.png",
-        type: "image",
-        alt: "MishMish Categories",
       },
     ],
     links: {
@@ -542,19 +502,9 @@ export const projects: Project[] = [
         alt: "Shopime Cart",
       },
       {
-        src: "/projects/shopime/shopi-3.png",
-        type: "image",
-        alt: "Shopime Wishlist",
-      },
-      {
         src: "/projects/shopime/shopi-4.png",
         type: "image",
         alt: "Shopime Login",
-      },
-      {
-        src: "/projects/shopime/shopi-5.png",
-        type: "image",
-        alt: "Shopime Profile",
       },
     ],
     links: {

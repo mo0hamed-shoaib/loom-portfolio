@@ -19,26 +19,34 @@ export const milestones: Milestone[] = [
 
   // Awards
   {
-    title: "Developer of the Year",
-    date: "2023-12",
+    title: "Designer of the month",
+    date: "2025-05",
     kind: "award",
-    img: "/developer-award-trophy.png",
     description:
-      "Recognized as Developer of the Year at TechCorp for outstanding contributions to product development.",
+      "Recognized as Designer of the month at Naafe for outstanding contributions to product design.",
     keyAchievements: [
-      "Led development of 3 major product features",
-      "Mentored 5 junior developers",
-      "Improved team productivity by 40%",
+      "Designed all the UI/UX for the Naafe app",
+      "Designed the Naafe logo",
+      "Created the branding guidelines",
     ],
   },
 
   // Education
   {
+    title: "Full-Stack MERN Developer Training",
+    date: "2025-07",
+    kind: "education",
+    proofUrl: "https://drive.google.com/file/d/18-7fbodbrCyFqutgqZncntsCsTH68HnV/view",
+    img: "/iti-image.jpg",
+    description: "Trained as a Full-Stack MERN Developer at Information Technology Institute (ITI) in Egypt for 5 months. I learned about the MERN stack, and how to build a full-stack application from scratch.",
+    keyAchievements: ["Learned a lot of new technologies and frameworks", "Developed a business mindset and problem-solving skills", "Made new friends and built a strong network"],
+  },
+  {
     title: "Bachelor of Computer Science",
     date: "2021-06",
     kind: "education",
     proofUrl: "https://drive.google.com/file/d/18-7fbodbrCyFqutgqZncntsCsTH68HnV/view",
-    img: "/university-graduation.png",
+    img: "/grad-image.jpg",
     description: "Graduated from Misr University for Science and Technology, Specialized in Computer Science",
     keyAchievements: ["GPA: 3.11/4.0", "Research in Artificial Intelligence impact on developers", "Graduation project was about Apartments and Hotels Management System"],
   },
