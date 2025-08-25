@@ -68,7 +68,7 @@ export function GitHubStats() {
   if (error || !stats) {
     return (
       <div className="space-y-1.5 2xl:space-y-2 3xl:space-y-3">
-        <h3 className="text-xs 2xl:text-base 3xl:text-lg font-semibold">GitHub Activity</h3>
+        <h3 className="text-sm font-medium mb-2">GitHub Activity</h3>
         <div className="text-center py-2 2xl:py-3 3xl:py-4">
           <p className="text-xs 2xl:text-base 3xl:text-lg text-secondary-foreground">
             {error || 'Unable to load GitHub statistics'}
@@ -87,7 +87,7 @@ export function GitHubStats() {
 
   return (
     <div className="space-y-1.5 2xl:space-y-2 3xl:space-y-3">
-      <h3 className="text-xs 2xl:text-base 3xl:text-lg font-semibold">GitHub Activity</h3>
+      <h3 className="text-sm font-medium mb-2">GitHub Activity</h3>
       
       {/* Stats Cards */}
       <div className="grid grid-cols-2 gap-1 2xl:gap-2 3xl:gap-3">
