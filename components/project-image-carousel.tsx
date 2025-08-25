@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
@@ -13,6 +13,10 @@ interface ProjectImageCarouselProps {
 
 export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [currentX, setCurrentX] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   // Reset currentImageIndex when project changes
   useEffect(() => {
@@ -25,6 +29,39 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + project.media.length) % project.media.length)
+  }
+
+  // Touch/Swipe handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true)
+    setStartX(e.touches[0].clientX)
+    setCurrentX(e.touches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return
+    setCurrentX(e.touches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return
+    
+    const diff = startX - currentX
+    const threshold = 50 // Minimum swipe distance
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // Swiped left - next image
+        nextImage()
+      } else {
+        // Swiped right - previous image
+        prevImage()
+      }
+    }
+
+    setIsDragging(false)
+    setStartX(0)
+    setCurrentX(0)
   }
 
   if (project.media.length === 0) {
@@ -49,17 +86,23 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
   }
 
   return (
-    <div className="relative group">
-      <div className="aspect-video relative overflow-hidden rounded-lg bg-muted">
+    <div className="relative group" ref={carouselRef}>
+      <div 
+        className="aspect-video relative overflow-hidden rounded-lg bg-muted cursor-grab active:cursor-grabbing"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <Image
           src={currentImage.src || "/placeholder.svg"}
           alt={currentImage.alt || `${project.title} screenshot ${safeImageIndex + 1}`}
           fill
-          className="object-cover transition-all duration-300 ease-out"
+          className="object-cover transition-all duration-300 ease-out select-none"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 33vw, 25vw"
           priority={safeImageIndex === 0}
           loading={safeImageIndex === 0 ? "eager" : "lazy"}
           quality={85}
+          draggable={false}
         />
         
         {/* Preload next image for better UX */}
@@ -72,6 +115,7 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
             sizes="1px"
             priority={false}
             loading="lazy"
+            draggable={false}
           />
         )}
       </div>

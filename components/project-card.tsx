@@ -57,10 +57,15 @@ const getTechIcon = (tech: string, theme: string): string | null => {
 export function ProjectCard({ project }: ProjectCardProps) {
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [showFullSummary, setShowFullSummary] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  const toggleSummary = () => {
+    setShowFullSummary(!showFullSummary)
+  }
 
   return (
     <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0 card-hover">
@@ -83,11 +88,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Project Summary */}
-          <p className="font-mono-technical text-sm 3xl:text-base text-foreground leading-relaxed mb-4 line-clamp-3">{project.summary}</p>
+          <div className="mb-4">
+            <p className={`font-mono-technical text-sm 3xl:text-base text-foreground leading-relaxed ${
+              showFullSummary ? '' : 'line-clamp-3'
+            }`}>
+              {project.summary}
+            </p>
+            {project.summary.length > 120 && (
+              <button
+                onClick={toggleSummary}
+                className="text-primary hover:text-primary/80 text-sm font-medium mt-1 transition-colors"
+              >
+                {showFullSummary ? 'See Less' : 'See More'}
+              </button>
+            )}
+          </div>
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-1.5 mb-4">
-            {project.stack.slice(0, 4).map((tech) => (
+            {project.stack.map((tech) => (
               <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5 badge-hover">
                 {mounted && getTechIcon(tech, resolvedTheme || 'light') && (
                   <Image
@@ -101,11 +120,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {tech}
               </Badge>
             ))}
-            {project.stack.length > 4 && (
-              <Badge variant="outline" className="text-xs 3xl:text-sm badge-hover">
-                +{project.stack.length - 4} more
-              </Badge>
-            )}
           </div>
 
           {/* Key Features */}
