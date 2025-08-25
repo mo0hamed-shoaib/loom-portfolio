@@ -16,39 +16,39 @@
 
 /* Standardized Typography Classes */
 .typography-h1 {
-  @apply scroll-m-20 text-4xl font-extrabold tracking-tight text-balance;
+  @apply scroll-m-20 text-4xl font-extrabold tracking-tight text-balance leading-tight;
 }
 
 .typography-h2 {
-  @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+  @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 leading-tight;
 }
 
 .typography-h3 {
-  @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  @apply scroll-m-20 text-2xl font-semibold tracking-tight leading-tight;
 }
 
 .typography-h4 {
-  @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  @apply scroll-m-20 text-xl font-semibold tracking-tight leading-tight;
 }
 
 .typography-p {
-  @apply leading-7 [&:not(:first-child)]:mt-6;
+  @apply leading-7 [&:not(:first-child)]:mt-6 text-balance;
 }
 
 .typography-lead {
-  @apply text-muted-foreground text-xl;
+  @apply text-muted-foreground text-xl leading-relaxed;
 }
 
 .typography-large {
-  @apply text-lg font-semibold;
+  @apply text-lg font-semibold leading-relaxed;
 }
 
 .typography-small {
-  @apply text-sm leading-none font-medium;
+  @apply text-sm leading-relaxed font-medium;
 }
 
 .typography-muted {
-  @apply text-muted-foreground text-sm;
+  @apply text-muted-foreground text-sm leading-relaxed;
 }
 
 .typography-inline-code {
@@ -126,7 +126,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.4 0 0);
+  --muted-foreground: oklch(0.35 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -162,7 +162,7 @@
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.6 0 0);
+  --muted-foreground: oklch(0.65 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
@@ -230,6 +230,57 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Enhanced focus indicators for better accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+  }
+  
+  /* Improved focus indicators for buttons and interactive elements */
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+  }
+  
+  /* Skip to main content link for screen readers */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: var(--radius);
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+  
+  .skip-link:focus {
+    top: 6px;
+  }
+  
+  /* Improved text selection */
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  
+  /* Better focus for form elements */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius);
   }
 }
 
