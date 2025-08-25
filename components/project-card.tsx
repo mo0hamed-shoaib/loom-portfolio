@@ -7,10 +7,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ExternalLink, Github, FileText } from "lucide-react"
 import { ProjectImageCarousel } from "@/components/project-image-carousel"
-import { CaseStudyModal } from "@/components/case-study-modal"
 import type { Project } from "@/lib/schemas"
 import { useTheme } from "next-themes"
-import { useState, useEffect } from "react"
+import { useState, useEffect, lazy, Suspense } from "react"
+
+// Lazy load modals for code splitting
+const CaseStudyModal = lazy(() => import('./case-study-modal').then(module => ({ default: module.CaseStudyModal })))
 
 interface ProjectCardProps {
   project: Project
@@ -142,12 +144,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
 
             {project.caseStudyDetails && (
-              <CaseStudyModal project={project}>
-                <Button variant="outline" size="sm" className="3xl:h-10">
-                  <FileText className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" />
-                  Case Study
-                </Button>
-              </CaseStudyModal>
+              <Suspense fallback={<Button variant="outline" size="sm" className="3xl:h-10" disabled>Loading...</Button>}>
+                <CaseStudyModal project={project}>
+                  <Button variant="outline" size="sm" className="3xl:h-10">
+                    <FileText className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" />
+                    Case Study
+                  </Button>
+                </CaseStudyModal>
+              </Suspense>
             )}
           </div>
         </div>
