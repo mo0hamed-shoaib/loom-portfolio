@@ -37,7 +37,7 @@ export default function HomePage() {
         </aside>
 
         {/* Main Content */}
-        <main id="main-content" className="ml-80 xl:ml-[400px] 2xl:ml-[480px] 3xl:ml-[560px] flex-1 p-6 xl:p-8">
+        <main id="main-content" className="ml-80 xl:ml-[400px] 2xl:ml-[480px] 3xl:ml-[560px] flex-1 p-6 xl:p-8 page-transition">
           <div className="max-w-4xl 3xl:max-w-6xl mx-auto">
             {/* Main content sections */}
             <div className="space-y-16 3xl:space-y-20 max-w-3xl 3xl:max-w-4xl mx-auto">
