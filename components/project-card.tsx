@@ -127,8 +127,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex flex-wrap gap-2 3xl:gap-3 pt-2">
             {project.links?.demo && (
               <Button variant="default" size="sm" asChild className="3xl:h-10">
-                <Link href={project.links.demo} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" />
+                <Link 
+                  href={project.links.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={`View live demo of ${project.title}`}
+                >
+                  <ExternalLink className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" aria-hidden="true" />
                   Live Demo
                 </Link>
               </Button>
@@ -136,8 +141,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
             {project.links?.source && (
               <Button variant="outline" size="sm" asChild className="3xl:h-10">
-                <Link href={project.links.source} target="_blank" rel="noopener noreferrer">
-                  <Github className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" />
+                <Link 
+                  href={project.links.source} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={`View source code for ${project.title} on GitHub`}
+                >
+                  <Github className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" aria-hidden="true" />
                   Source Code
                 </Link>
               </Button>
@@ -146,8 +156,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.caseStudyDetails && (
               <Suspense fallback={<Button variant="outline" size="sm" className="3xl:h-10" disabled>Loading...</Button>}>
                 <CaseStudyModal project={project}>
-                  <Button variant="outline" size="sm" className="3xl:h-10">
-                    <FileText className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" />
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="3xl:h-10"
+                    aria-label={`View detailed case study for ${project.title}`}
+                  >
+                    <FileText className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" aria-hidden="true" />
                     Case Study
                   </Button>
                 </CaseStudyModal>
