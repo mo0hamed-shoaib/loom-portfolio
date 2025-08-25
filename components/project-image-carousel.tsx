@@ -56,8 +56,24 @@ export function ProjectImageCarousel({ project }: ProjectImageCarouselProps) {
           alt={currentImage.alt || `${project.title} screenshot ${safeImageIndex + 1}`}
           fill
           className="object-cover transition-all duration-300 ease-out"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, (max-width: 1920px) 33vw, 25vw"
+          priority={safeImageIndex === 0}
+          loading={safeImageIndex === 0 ? "eager" : "lazy"}
+          quality={85}
         />
+        
+        {/* Preload next image for better UX */}
+        {project.media.length > 1 && (
+          <Image
+            src={project.media[(safeImageIndex + 1) % project.media.length].src}
+            alt=""
+            fill
+            className="hidden"
+            sizes="1px"
+            priority={false}
+            loading="lazy"
+          />
+        )}
       </div>
 
       {/* Navigation arrows - only show if more than 1 image */}
