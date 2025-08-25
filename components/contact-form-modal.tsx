@@ -191,7 +191,13 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
             />
 
             {submitStatus !== 'idle' && (
-              <Alert variant={submitStatus === 'success' ? 'default' : 'destructive'} role="alert">
+              <Alert 
+                variant={submitStatus === 'success' ? 'default' : 'destructive'} 
+                role="alert"
+                className={`animate-in slide-in-from-top-2 duration-300 ${
+                  submitStatus === 'success' ? 'border-green-200 bg-green-50 dark:bg-green-950/20' : ''
+                }`}
+              >
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>
                   {submitStatus === 'success' 
@@ -206,7 +212,7 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="font-mono-technical"
+                className="font-mono-technical btn-interactive"
                 aria-describedby="submit-status"
               >
                 {isSubmitting ? (

@@ -68,7 +68,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
 
       {/* Content */}
       <div className="flex-1 pb-8">
-        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0">
+        <Card className="border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0 card-hover">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="p-6 hover:no-underline">
@@ -101,7 +101,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                   {/* Key Responsibilities */}
                   {experience.bullets && experience.bullets.length > 0 && (
                     <div>
-                      <h4 className="typography-h4 mb-2">Key Responsibilities</h4>
+                      <h4 className="typography-small font-medium mb-2">Key Responsibilities</h4>
                       <ul className="space-y-2">
                         {experience.bullets.map((bullet, index) => (
                           <li key={index} className="flex items-start gap-2 typography-small text-foreground">
@@ -116,7 +116,7 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                   {/* Key Achievements */}
                   {experience.keyAchievements && experience.keyAchievements.length > 0 && (
                     <div>
-                      <h4 className="typography-h4 mb-2">Key Achievements</h4>
+                      <h4 className="typography-small font-medium mb-2">Key Achievements</h4>
                       <ul className="space-y-2">
                         {experience.keyAchievements.map((achievement, index) => (
                           <li key={index} className="flex items-start gap-2 typography-small text-foreground">
@@ -131,10 +131,10 @@ export function ExperienceTimelineItem({ experience, isLast = false }: Experienc
                   {/* Tech Stack */}
                   {experience.stack && experience.stack.length > 0 && (
                     <div>
-                      <h4 className="typography-h4 mb-2">Technologies Used</h4>
-                      <div className="flex flex-wrap gap-2">
+                      <h4 className="typography-small font-medium mb-2">Technologies</h4>
+                      <div className="flex flex-wrap gap-1.5">
                         {experience.stack.map((tech) => (
-                          <Badge key={tech} variant="outline" className="font-mono-technical text-xs 3xl:text-sm">
+                          <Badge key={tech} variant="secondary" className="font-mono-technical text-xs badge-hover">
                             {tech}
                           </Badge>
                         ))}
