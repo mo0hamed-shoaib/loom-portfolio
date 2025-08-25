@@ -95,17 +95,29 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" aria-describedby="form-description">
+            <div id="form-description" className="sr-only">
+              Contact form with required fields: name, email, subject, and message. All fields are required.
+            </div>
+            
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-mono-technical">Name *</FormLabel>
+                  <FormLabel className="font-mono-technical" htmlFor="name">Name *</FormLabel>
                   <FormControl>
-                    <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
+                    <Input 
+                      {...field} 
+                      id="name"
+                      placeholder="Enter your full name"
+                      disabled={isSubmitting} 
+                      className="font-mono-technical"
+                      aria-describedby="name-error"
+                      aria-required="true"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="name-error" />
                 </FormItem>
               )}
             />
@@ -115,11 +127,20 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-mono-technical">Email *</FormLabel>
+                  <FormLabel className="font-mono-technical" htmlFor="email">Email *</FormLabel>
                   <FormControl>
-                    <Input type="email" {...field} disabled={isSubmitting} className="font-mono-technical" />
+                    <Input 
+                      type="email" 
+                      {...field} 
+                      id="email"
+                      placeholder="your.email@example.com"
+                      disabled={isSubmitting} 
+                      className="font-mono-technical"
+                      aria-describedby="email-error"
+                      aria-required="true"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="email-error" />
                 </FormItem>
               )}
             />
@@ -129,11 +150,19 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-mono-technical">Subject *</FormLabel>
+                  <FormLabel className="font-mono-technical" htmlFor="subject">Subject *</FormLabel>
                   <FormControl>
-                    <Input {...field} disabled={isSubmitting} className="font-mono-technical" />
+                    <Input 
+                      {...field} 
+                      id="subject"
+                      placeholder="What would you like to discuss?"
+                      disabled={isSubmitting} 
+                      className="font-mono-technical"
+                      aria-describedby="subject-error"
+                      aria-required="true"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="subject-error" />
                 </FormItem>
               )}
             />
@@ -143,17 +172,26 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-mono-technical">Message *</FormLabel>
+                  <FormLabel className="font-mono-technical" htmlFor="message">Message *</FormLabel>
                   <FormControl>
-                    <Textarea rows={4} {...field} disabled={isSubmitting} className="font-mono-technical" />
+                    <Textarea 
+                      rows={4} 
+                      {...field} 
+                      id="message"
+                      placeholder="Tell me about your project, opportunity, or just say hello! I'm always interested in hearing about new ideas and collaborations."
+                      disabled={isSubmitting} 
+                      className="font-mono-technical"
+                      aria-describedby="message-error"
+                      aria-required="true"
+                    />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage id="message-error" />
                 </FormItem>
               )}
             />
 
             {submitStatus !== 'idle' && (
-              <Alert variant={submitStatus === 'success' ? 'default' : 'destructive'}>
+              <Alert variant={submitStatus === 'success' ? 'default' : 'destructive'} role="alert">
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>
                   {submitStatus === 'success' 
@@ -165,19 +203,27 @@ export function ContactFormModal({ children }: ContactFormModalProps) {
             )}
 
             <div className="flex justify-end gap-2">
-              <Button type="submit" disabled={isSubmitting} className="font-mono-technical">
+              <Button 
+                type="submit" 
+                disabled={isSubmitting} 
+                className="font-mono-technical"
+                aria-describedby="submit-status"
+              >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Mail className="mr-2 h-4 w-4" />
+                    <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
                     Send Message
                   </>
                 )}
               </Button>
+              <div id="submit-status" className="sr-only">
+                {isSubmitting ? "Form is being submitted. Please wait." : "Click to submit the contact form."}
+              </div>
             </div>
           </form>
         </Form>
