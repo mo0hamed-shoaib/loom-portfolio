@@ -63,7 +63,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [])
 
   return (
-    <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0">
+    <Card className="overflow-hidden border-border/50 hover:border-border hover:shadow-sm transition-all duration-200 p-0 card-hover">
       <CardContent className="p-6 3xl:p-8">
         {/* Project Image Carousel */}
         <div className="pb-4 3xl:pb-6">
@@ -88,7 +88,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.stack.slice(0, 4).map((tech) => (
-              <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5">
+              <Badge key={tech} variant="secondary" className="font-mono-technical text-xs 3xl:text-sm flex items-center gap-1.5 badge-hover">
                 {mounted && getTechIcon(tech, resolvedTheme || 'light') && (
                   <Image
                     src={getTechIcon(tech, resolvedTheme || 'light')!}
@@ -102,7 +102,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             ))}
             {project.stack.length > 4 && (
-              <Badge variant="outline" className="text-xs 3xl:text-sm">
+              <Badge variant="outline" className="text-xs 3xl:text-sm badge-hover">
                 +{project.stack.length - 4} more
               </Badge>
             )}
@@ -126,7 +126,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-2 3xl:gap-3 pt-2">
             {project.links?.demo && (
-              <Button variant="default" size="sm" asChild className="3xl:h-10">
+              <Button variant="default" size="sm" asChild className="3xl:h-10 btn-interactive">
                 <Link 
                   href={project.links.demo} 
                   target="_blank" 
@@ -140,7 +140,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
 
             {project.links?.source && (
-              <Button variant="outline" size="sm" asChild className="3xl:h-10">
+              <Button variant="outline" size="sm" asChild className="3xl:h-10 btn-interactive">
                 <Link 
                   href={project.links.source} 
                   target="_blank" 
@@ -159,7 +159,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="3xl:h-10"
+                    className="3xl:h-10 btn-interactive"
                     aria-label={`View detailed case study for ${project.title}`}
                   >
                     <FileText className="w-3 h-3 3xl:w-4 3xl:h-4 mr-1.5" aria-hidden="true" />
