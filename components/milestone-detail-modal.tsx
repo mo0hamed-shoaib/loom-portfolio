@@ -128,12 +128,12 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
           )}
 
           {/* Proof URL */}
-          {milestone.proofUrl && (
+          {milestone.proofUrl && (milestone.kind === "education" || milestone.kind === "oss") && (
             <div className="pt-4">
               <Button asChild>
                 <Link href={milestone.proofUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4 mr-2" />
-                  View Certificate / Proof
+                  {milestone.kind === "oss" ? "View Code Source" : "View Certificate / Proof"}
                 </Link>
               </Button>
             </div>

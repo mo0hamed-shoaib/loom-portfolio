@@ -37,6 +37,7 @@ export const milestones: Milestone[] = [
     title: "Bachelor of Computer Science",
     date: "2021-06",
     kind: "education",
+    proofUrl: "https://drive.google.com/file/d/18-7fbodbrCyFqutgqZncntsCsTH68HnV/view",
     img: "/university-graduation.png",
     description: "Graduated from Misr University for Science and Technology, Specialized in Computer Science",
     keyAchievements: ["GPA: 3.11/4.0", "Research in Artificial Intelligence impact on developers", "Graduation project was about Apartments and Hotels Management System"],
