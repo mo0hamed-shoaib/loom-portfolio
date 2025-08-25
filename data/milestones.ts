@@ -3,20 +3,18 @@ import type { Milestone } from "@/lib/schemas"
 export const milestones: Milestone[] = [
   // Certifications
   {
-    title: "AWS Solutions Architect Professional",
-    date: "2024-01",
+    title: "Military Service Completion",
+    date: "2022-12",
     kind: "cert",
-    proofUrl: "https://aws.amazon.com/verification",
-    img: "/aws-certification-badge.png",
-    description: "Advanced AWS certification demonstrating expertise in designing distributed systems on AWS.",
+    proofUrl: "https://drive.google.com/file/d/181ihs2dl6uRAu1HZ9urP7BovlKVBOA4_/view",
+    description: "Completed my military service as a soldier in the Egyptian Armed Forces (Dec 2021 - Dec 2022).",
   },
   {
-    title: "Google Cloud Professional Developer",
-    date: "2023-08",
+    title: "Graduation Certificate",
+    date: "2021-06",
     kind: "cert",
-    proofUrl: "https://cloud.google.com/certification",
-    img: "/google-cloud-certification.png",
-    description: "Professional-level certification for developing scalable applications on Google Cloud Platform.",
+    proofUrl: "https://drive.google.com/file/d/18-7fbodbrCyFqutgqZncntsCsTH68HnV/view",
+    description: "Certificate of graduation from Misr University for Science and Technology for my Bachelor's degree in Computer Science (Oct 2017 – Jun 2021).",
   },
 
   // Awards
@@ -36,22 +34,38 @@ export const milestones: Milestone[] = [
 
   // Education
   {
-    title: "Master of Science in Computer Science",
-    date: "2018-05",
+    title: "Bachelor of Computer Science",
+    date: "2021-06",
     kind: "education",
     img: "/university-graduation.png",
-    description: "Stanford University - Specialized in Machine Learning and Distributed Systems",
-    keyAchievements: ["GPA: 3.9/4.0", "Research in distributed computing", "Published 2 academic papers"],
+    description: "Graduated from Misr University for Science and Technology, Specialized in Computer Science",
+    keyAchievements: ["GPA: 3.11/4.0", "Research in Artificial Intelligence impact on developers", "Graduation project was about Apartments and Hotels Management System"],
   },
 
   // Open Source
   {
-    title: "React UI Library - 10k+ Stars",
-    date: "2023-06",
+    title: "Rootly Notes Manager",
+    date: "2025-08",
     kind: "oss",
-    proofUrl: "https://github.com/johndoe/react-ui-lib",
-    description: "Created and maintain a popular React UI component library used by thousands of developers.",
-    keyAchievements: ["10,000+ GitHub stars", "500+ contributors", "1M+ weekly downloads"],
+    proofUrl: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
+    description: "Track your learning journey with an elegant, data-driven dashboard, capture notes, organize courses, log study time and moods, and reinforce knowledge through quick practice sessions, all wrapped in a responsive, beautifully designed interface with shad/cn ui.",
+    keyAchievements: ["Deployed and published on LinkedIn", "Applied a new concept in notes management", "Fully built with shadcn/ui"],
+  },
+  {
+    title: "NoirKit Portfolio Manager",
+    date: "2025-07",
+    kind: "oss",
+    proofUrl: "https://github.com/mo0hamed-shoaib/noirkit-portfolio-manager",
+    description: "Manage your complete professional presence through an intuitive dashboard, from projects and tech stacks to achievements and custom contact forms, while visitors enjoy a lightning-fast, mobile-optimized experience with smooth animations throughout.",
+    keyAchievements: ["Deployed and published on LinkedIn", "Fully built with shadcn/ui", "Applied a new concept in portfolio management"],
+  },
+  {
+    title: "HTML Design for a Restaurant Homepage",
+    date: "2025-04",
+    kind: "oss",
+    proofUrl: "https://github.com/mo0hamed-shoaib/Grill-King-Restaurant",
+    description: "A modern, responsive restaurant homepage template with RTL Arabic support, interactive menu cards, customer reviews, and smooth navigation, optimized for mobile and ready to customize for any dining brand.",
+    keyAchievements: ["Got a compliment from the client", "Fully built with HTML, CSS, and JavaScript", "Full RTL support"],
   },
 
   // Blog Posts
@@ -76,20 +90,19 @@ export const milestones: Milestone[] = [
 
   // YouTube Videos
   {
-    title: "Next.js 14 Complete Tutorial",
-    date: "2024-01",
+    title: "How to organize your studying with AI by markmaps and tables",
+    date: "2025-06",
     kind: "youtube",
-    videoId: "dQw4w9WgXcQ",
-    description:
-      "Comprehensive tutorial covering all the new features in Next.js 14, including Server Components and App Router.",
-    keyAchievements: ["500k+ views", "15k+ likes", "Featured by Next.js team"],
+    videoId: "Ucc-8YV65JI",
+    description: "A practical guide for how to organize your studying with AI by using markmaps and tables to generate your own study plan and materials.",
+    keyAchievements: ["Increasing likes and engagement", "Viewers are happy with the content", "Demonstrated the power of AI in studying"],
   },
   {
-    title: "Building a Full-Stack App in 30 Minutes",
-    date: "2023-09",
+    title: "Comparison between ChatGPT, Claude, and Grok",
+    date: "2025-06",
     kind: "youtube",
-    videoId: "dQw4w9WgXcQ",
-    description: "Speed coding session building a complete full-stack application from scratch.",
-    keyAchievements: ["300k+ views", "10k+ likes", "Trending #1 in Tech"],
+    videoId: "IDjzIFWQEpk",
+    description: "A practical comparison and guide for developers to choose the best AI tool for their projects while showing the best use cases for each assistant.",
+    keyAchievements: ["Built an audience", "Growing views", "Recorded and Edited the video"],
   },
 ]
