@@ -128,7 +128,7 @@ export function MilestoneDetailModal({ milestone, children }: MilestoneDetailMod
           )}
 
           {/* Proof URL */}
-          {milestone.proofUrl && (milestone.kind === "education" || milestone.kind === "oss") && (
+          {milestone.proofUrl && (milestone.kind === "education" || milestone.kind === "oss" || milestone.kind === "cert") && (
             <div className="pt-4">
               <Button asChild>
                 <Link href={milestone.proofUrl} target="_blank" rel="noopener noreferrer">
