@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "John Doe - Portfolio",
-  description: "Full-stack developer passionate about creating exceptional digital experiences",
-  url: "https://johndoe.dev",
+  name: "Mohamed Gamal Portfolio",
+  description: "Portfolio of Mohamed Gamal, a Full-Stack MERN Developer",
+  url: "https://mohamedgamal-loom.vercel.app/",
   ogImage: "/og-image.png",
   author: {
-    name: "John Doe",
-    email: "john@johndoe.dev",
-    twitter: "@johndoe",
+    name: "Mohamed Gamal",
+    email: "mohamed.g.shoaib@gmail.com",
+    twitter: "@mo0hamed_gamal",
   },
 } as const
