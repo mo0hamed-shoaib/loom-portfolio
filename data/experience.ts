@@ -14,7 +14,6 @@ export const experience: Experience[] = [
       "Collaborated in Agile teams, practicing Scrum ceremonies, Git version control, and CI/CD pipelines.",
       "Delivered a graduation project (Naafe) that helps local workers find jobs and connect with service seekers with features like job posting, job searching, escrow payments, and chat messaging.",
     ],
-    logo: "/abstract-startup-logo.png",
     keyAchievements: [
       "Completed 12 projects within strict deadlines.",
       "Led a 5-member team in building a MERN-based project, delivering it within a 3-week sprint under Agile methodology.",
@@ -22,10 +21,27 @@ export const experience: Experience[] = [
     ],
   },
   {
+    org: "Self Employed",
+    role: "Data & Operations Supervisor",
+    start: "2023-06",
+    end: "2024-12",
+    location: "Egypt (Remote)",
+    stack: ["Google Sheets", "Microsoft Excel", "Microsoft Word"],
+    bullets: [
+      "Built automated dashboards for real-time account and ops tracking.",
+      "Ensured accuracy across thousands of records with data validation.",
+      "Trained and guided team members on efficient sheet usage.",
+    ],
+    keyAchievements: [
+      "Optimized a large-scale Google Sheets system, cutting manual work by 30%.",
+      "Created a comprehensive training program for new hires, significantly reducing onboarding time.",
+    ],
+  },
+  {
     org: "TELUS International",
     role: "Search Engine Evaluator",
     start: "2019-09",
-    end: "2024-05",
+    end: "2023-05",
     location: "Vancouver, Canada (Remote)",
     stack: ["Reverse Search", "Evaluation"],
     bullets: [
@@ -33,7 +49,6 @@ export const experience: Experience[] = [
       "Corrected Google Maps information for businesses and individuals.",
       "Judged the accuracy of AI responses on Google Assistant.",
     ],
-    logo: "/digital-agency-logo.png",
     keyAchievements: [
       "Achieved 85% rating accuracy.",
       "Earned a monthly bonus for over 15 times.",
