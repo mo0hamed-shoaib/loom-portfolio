@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import {
   Dialog,
   DialogContent,
@@ -93,20 +93,17 @@ export function CaseStudyModal({ project, children }: CaseStudyModalProps) {
 
           {/* Results */}
           {caseStudyDetails.results && caseStudyDetails.results.length > 0 && (
-            <>
-              <div>
-                <h3 className="typography-h3 mb-3">Results</h3>
-                <ul className="space-y-2">
-                  {caseStudyDetails.results.map((result, index) => (
-                    <li key={index} className="flex items-start gap-2 typography-small text-foreground">
-                      <span className="w-1 h-1 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                      <span className="font-mono-technical">{result}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Separator />
-            </>
+            <div>
+              <h3 className="typography-h3 mb-3">Results</h3>
+              <ul className="space-y-2">
+                {caseStudyDetails.results.map((result, index) => (
+                  <li key={index} className="flex items-start gap-2 typography-small text-foreground">
+                    <span className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <span className="font-mono-technical">{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </DialogContent>
