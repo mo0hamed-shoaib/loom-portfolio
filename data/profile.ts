@@ -1,12 +1,13 @@
-import type { Profile } from "@/lib/schemas"
+import type { Profile } from "@/lib/schemas";
 
 export const profile: Profile = {
   name: "Mohamed Gamal",
   title: "Full-Stack Developer",
   location: "Cairo, Egypt",
-  bio: "Frontend Developer with a strong MERN foundation and a Computer Science degree. Trained at the Information Technology Institute (ITI), I now focus on building modern, responsive interfaces with React.js and Tailwind CSS. Passionate about clean code, smooth user experiences, and impactful solutions.",
+  bio: "Frontend Developer specializing in responsive, accessible, and scalable web applications using React.js, Next.js, and modern JavaScript/TypeScript. Trained at the Information Technology Institute (ITI) as a Full-Stack MERN Developer, with a strong foundation in backend development and database design. Experienced in component-driven design, clean code practices, and SaaS-style product development.",
   image: "/pfp.jpg",
-  cvUrl: "https://drive.google.com/file/d/1nfcMd59kVoCY_bHreTh7Dg0a8AaNL5r_/view?usp=sharing",
+  cvUrl:
+    "https://drive.google.com/file/d/1SdR1lbRdBSwbPTj-QF0i8EDO_rdwVey6/view?usp=sharing",
   email: "mohamed.g.shoaib@gmail.com",
   socials: [
     {
@@ -54,8 +55,16 @@ export const profile: Profile = {
   ],
   techStack: [
     // Programming Languages
-    { name: "JavaScript", category: "Programming Languages", icon: "javascript" },
-    { name: "TypeScript", category: "Programming Languages", icon: "typescript" },
+    {
+      name: "JavaScript",
+      category: "Programming Languages",
+      icon: "javascript",
+    },
+    {
+      name: "TypeScript",
+      category: "Programming Languages",
+      icon: "typescript",
+    },
 
     // Frontend
     { name: "React", category: "Frontend", icon: "react" },
@@ -86,14 +95,26 @@ export const profile: Profile = {
     // Soft Skills
     { name: "Communication", category: "Soft Skills", icon: "communication" },
     { name: "Teamwork", category: "Soft Skills", icon: "teamwork" },
-    { name: "Problem Solving", category: "Soft Skills", icon: "problem-solving" },
-    { name: "Time Management", category: "Soft Skills", icon: "time-management" },
+    {
+      name: "Problem Solving",
+      category: "Soft Skills",
+      icon: "problem-solving",
+    },
+    {
+      name: "Time Management",
+      category: "Soft Skills",
+      icon: "time-management",
+    },
 
     // Concepts
     { name: "Data Structures", category: "Concepts", icon: "data-structures" },
     { name: "Algorithms", category: "Concepts", icon: "algorithms" },
     { name: "OOP", category: "Concepts", icon: "oop" },
-    { name: "Software Engineering", category: "Concepts", icon: "software-engineering" },
+    {
+      name: "Software Engineering",
+      category: "Concepts",
+      icon: "software-engineering",
+    },
     { name: "Clean Code", category: "Concepts", icon: "clean-code" },
   ],
-}
+};
