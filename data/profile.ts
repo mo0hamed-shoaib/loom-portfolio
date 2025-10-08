@@ -2,7 +2,7 @@ import type { Profile } from "@/lib/schemas";
 
 export const profile: Profile = {
   name: "Mohamed Gamal",
-  title: "Full-Stack Developer",
+  title: "Frontend Developer",
   location: "Cairo, Egypt",
   bio: "Frontend Developer focused on building responsive, accessible, and scalable web applications using React.js and modern JavaScript. Trained at the Information Technology Institute (ITI) as a Full-Stack MEARN Developer, with a good foundation in backend development. Skilled in component-driven design and clean code practices.",
   image: "/pfp.jpg",
@@ -69,18 +69,15 @@ export const profile: Profile = {
     // Frontend
     { name: "React", category: "Frontend", icon: "react" },
     { name: "Next.js", category: "Frontend", icon: "nextjs" },
-    { name: "Angular", category: "Frontend", icon: "angular" },
-    { name: "Redux", category: "Frontend", icon: "redux" },
     { name: "HTML5", category: "Frontend", icon: "html" },
     { name: "CSS3", category: "Frontend", icon: "css" },
     { name: "Tailwind CSS", category: "Frontend", icon: "tailwind" },
     { name: "Bootstrap", category: "Frontend", icon: "bootstrap" },
+    { name: "Shadcn/ui", category: "Frontend", icon: "nextjs" },
 
     // Backend
     { name: "Node.js", category: "Backend", icon: "nodejs" },
     { name: "Express", category: "Backend", icon: "express" },
-    { name: "REST API", category: "Backend", icon: "api" },
-    { name: "JWT", category: "Backend", icon: "jwt" },
 
     // Database
     { name: "MongoDB", category: "Database", icon: "mongodb" },
@@ -111,7 +108,7 @@ export const profile: Profile = {
     { name: "Algorithms", category: "Concepts", icon: "algorithms" },
     { name: "OOP", category: "Concepts", icon: "oop" },
     {
-      name: "Software Engineering",
+      name: "Responsive Design",
       category: "Concepts",
       icon: "software-engineering",
     },
