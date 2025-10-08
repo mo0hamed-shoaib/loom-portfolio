@@ -1,19 +1,25 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { toast } from "sonner"
-import Link from "next/link"
-import { Icons, type IconName } from "@/components/icons"
-import { profile } from "@/data/profile"
-import { MapPin, FileText, Mail } from "lucide-react"
-import { ContactFormModal } from "@/components/contact-form-modal"
-import { GitHubStats } from "@/components/github-stats"
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { toast } from "sonner";
+import Link from "next/link";
+import { Icons, type IconName } from "@/components/icons";
+import { profile } from "@/data/profile";
+import { MapPin, FileText, Mail } from "lucide-react";
+import { ContactFormModal } from "@/components/contact-form-modal";
+import { GitHubStats } from "@/components/github-stats";
 
 interface ProfileInfoModalProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
@@ -32,6 +38,12 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
         </DialogHeader>
         <div className="space-y-4">
           <div>
+            <h4 className="text-sm font-medium mb-2">Bio</h4>
+            <div className="flex items-center gap-2 text-sm text-secondary-foreground">
+              <span>{profile.bio}</span>
+            </div>
+          </div>
+          <div>
             <h4 className="text-sm font-medium mb-2">Location</h4>
             <div className="flex items-center gap-2 text-sm text-secondary-foreground">
               <MapPin className="w-4 h-4" />
@@ -47,8 +59,8 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
             <h4 className="text-sm font-medium mb-2">Connect</h4>
             <div className="flex flex-wrap gap-2">
               {profile.socials.map((social, index) => {
-                const Icon = Icons[social.icon as IconName] || Icons.user
-                const isEmail = social.platform === "Email"
+                const Icon = Icons[social.icon as IconName] || Icons.user;
+                const isEmail = social.platform === "Email";
 
                 if (isEmail) {
                   return (
@@ -58,14 +70,14 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
                       size="sm"
                       className="flex items-center gap-2"
                       onClick={() => {
-                        navigator.clipboard.writeText(profile.email)
-                        toast("Email address copied to clipboard!")
+                        navigator.clipboard.writeText(profile.email);
+                        toast("Email address copied to clipboard!");
                       }}
                     >
                       <Icon className="w-4 h-4" />
                       {social.platform}
                     </Button>
-                  )
+                  );
                 }
 
                 return (
@@ -79,7 +91,7 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
                       {social.platform}
                     </Link>
                   </Button>
-                )
+                );
               })}
             </div>
           </div>
@@ -89,12 +101,16 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
             <h4 className="text-sm font-medium mb-2">Actions</h4>
             <div className="flex gap-2">
               <Button asChild variant="outline" className="flex-1">
-                <Link href={profile.cvUrl} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={profile.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FileText className="w-4 h-4 mr-2" />
                   View CV
                 </Link>
               </Button>
-              
+
               <ContactFormModal>
                 <Button className="flex-1">
                   <Mail className="w-4 h-4 mr-2" />
@@ -106,5 +122,5 @@ export function ProfileInfoModal({ children }: ProfileInfoModalProps) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
