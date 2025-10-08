@@ -1,11 +1,33 @@
-"use client"
+"use client";
 
-import { InfiniteCarousel } from "@/components/infinite-carousel"
-import { TechStackItem } from "@/components/tech-stack-item"
-import { profile } from "@/data/profile"
+import { InfiniteCarousel } from "@/components/infinite-carousel";
+import { TechStackItem } from "@/components/tech-stack-item";
+import { profile } from "@/data/profile";
 
 export function TechStackSection() {
-  const categories = Array.from(new Set(profile.techStack.map((tech) => tech.category)))
+  // Map certain source categories to a single display category while keeping
+  // the original data untouched. This keeps "Backend" and "Database"
+  // distinct in code but shows them together in the UI.
+  const displayCategory = (c: string) => {
+    // Group backend and database together under a clear label for the UI
+    if (c === "Backend" || c === "Database") return "Backend Familiarity";
+    // Group programming languages and frontend together under a single label
+    if (c === "Programming Languages" || c === "Frontend")
+      return "Languages & Frontend";
+    return c;
+  };
+
+  // Build grouped map and preserve display category order based on first
+  // appearance in the tech stack array.
+  const grouped = profile.techStack.reduce((map, tech) => {
+    const cat = displayCategory(tech.category);
+    const list = map.get(cat) ?? [];
+    list.push(tech);
+    map.set(cat, list);
+    return map;
+  }, new Map<string, typeof profile.techStack>());
+
+  const categories = Array.from(grouped.keys());
 
   // Balanced speeds and directions for visual variety
   const carouselConfigs = [
@@ -13,7 +35,7 @@ export function TechStackSection() {
     { speed: "normal" as const, direction: "right" as const },
     { speed: "slow" as const, direction: "left" as const },
     { speed: "normal" as const, direction: "right" as const },
-  ]
+  ];
 
   return (
     <section className="space-y-8 3xl:space-y-12">
@@ -28,16 +50,21 @@ export function TechStackSection() {
       {/* Tech Stack by Category */}
       <div className="space-y-8 3xl:space-y-12">
         {categories.map((category) => {
-          const categoryTechs = profile.techStack.filter((tech) => tech.category === category)
-          const carouselConfig = carouselConfigs[categories.indexOf(category) % carouselConfigs.length]
+          const categoryTechs = grouped.get(category) ?? [];
+          const carouselConfig =
+            carouselConfigs[
+              categories.indexOf(category) % carouselConfigs.length
+            ];
 
           return (
             <div key={category} className="space-y-4 3xl:space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="typography-h3">{category}</h3>
-                <span className="typography-muted">{categoryTechs.length} technologies</span>
+                <span className="typography-muted">
+                  {categoryTechs.length} technologies
+                </span>
               </div>
-              
+
               {/* Use carousel only if there are enough items, otherwise show static layout */}
               {categoryTechs.length >= 4 ? (
                 <InfiniteCarousel
@@ -64,9 +91,9 @@ export function TechStackSection() {
                 </div>
               )}
             </div>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }
