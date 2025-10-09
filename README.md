@@ -1,37 +1,43 @@
 # 🚀 Mohamed Gamal - Interactive Developer Portfolio
 
 > **A Next-Generation Portfolio That Speaks for Itself**  
-> Built with Next.js 15, TypeScript, and Tailwind CSS - showcasing modern web development at its finest.
+> Built with Next.js 15, TypeScript, Tailwind CSS, and shadcn/ui - showcasing modern web development at its finest.
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.9-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![Shadcn/ui](https://img.shields.io/badge/Shadcn/ui-black?style=for-the-badge&logo=shadcnui)](https://tailwindcss.com/)
 
 ## 🌟 What Makes This Portfolio Special?
 
 ### 🎯 **The Problem It Solves**
+
 Traditional portfolios are **boring, static, and forgettable**. They're like reading a resume on a website. This portfolio breaks that mold by creating an **immersive, interactive experience** that actually showcases your skills through the portfolio itself.
 
 ### ✨ **Core Features That Set It Apart**
 
 #### 🎨 **Adaptive Design System**
+
 - **Responsive Layout**: Desktop sidebar + mobile navigation dock
 - **Dark/Light Mode**: Seamless theme switching with system preference detection
 - **Accessibility First**: WCAG 2.2 compliant with keyboard navigation and screen reader support
 
 #### 🚀 **Interactive Project Showcase**
+
 - **Infinite Carousel**: Smooth, touch-friendly project navigation
 - **Case Study Modals**: Deep-dive into problem-solving approaches
 - **Live GitHub Stats**: Real-time integration with your GitHub activity
 - **Image Galleries**: High-quality project screenshots with lazy loading
 
 #### 📊 **Dynamic Content Management**
+
 - **Type-Safe Data**: Zod schemas ensure data integrity
 - **Modular Architecture**: Easy to update projects, skills, and achievements
 - **Real-time Updates**: No rebuilds needed for content changes
 
 #### 🎭 **Advanced UI/UX Features**
+
 - **Smooth Animations**: Framer Motion-inspired transitions
 - **Scroll Spy Navigation**: Context-aware navigation highlighting
 - **Intersection Observer**: Performance-optimized animations
@@ -40,6 +46,7 @@ Traditional portfolios are **boring, static, and forgettable**. They're like rea
 ## 🛠️ **Tech Stack Deep Dive**
 
 ### **Frontend Excellence**
+
 ```typescript
 // Modern React with TypeScript
 - Next.js 15 (App Router)
@@ -49,6 +56,7 @@ Traditional portfolios are **boring, static, and forgettable**. They're like rea
 ```
 
 ### **UI Component System**
+
 ```typescript
 // Radix UI + Custom Components
 - 25+ Radix UI primitives
@@ -58,6 +66,7 @@ Traditional portfolios are **boring, static, and forgettable**. They're like rea
 ```
 
 ### **Performance & UX**
+
 ```typescript
 // Optimized for Speed
 - Image optimization with Next.js
@@ -69,14 +78,16 @@ Traditional portfolios are **boring, static, and forgettable**. They're like rea
 ## 🎯 **Key Features Breakdown**
 
 ### **1. Smart Navigation System**
+
 ```typescript
 // Adaptive navigation based on screen size
 Desktop: Fixed sidebar with personal card
-Tablet: Sticky header with profile info  
+Tablet: Sticky header with profile info
 Mobile: Bottom navigation dock
 ```
 
 ### **2. Interactive Project Gallery**
+
 ```typescript
 // Carousel with case study integration
 - Infinite scroll navigation
@@ -86,10 +97,11 @@ Mobile: Bottom navigation dock
 ```
 
 ### **3. Dynamic Tech Stack**
+
 ```typescript
 // Categorized skill display
 - Programming Languages
-- Frontend Technologies  
+- Frontend Technologies
 - Backend & APIs
 - Databases
 - Tools & Workflow
@@ -97,6 +109,7 @@ Mobile: Bottom navigation dock
 ```
 
 ### **4. Achievement Timeline**
+
 ```typescript
 // Multi-category milestones
 - Certifications (with proof links)
@@ -110,12 +123,14 @@ Mobile: Bottom navigation dock
 ## 🚀 **Getting Started**
 
 ### **Prerequisites**
+
 ```bash
-Node.js 18+ 
+Node.js 18+
 pnpm (recommended) or npm
 ```
 
 ### **Installation**
+
 ```bash
 # Clone the repository
 git clone https://github.com/mo0hamed-shoaib/loom-portfolio.git
@@ -131,6 +146,7 @@ pnpm dev
 ```
 
 ### **Environment Setup**
+
 ```bash
 # Create .env.local (if needed)
 cp .env.example .env.local
@@ -167,6 +183,7 @@ loom-portfolio/
 ## 🎨 **Customization Guide**
 
 ### **Update Personal Information**
+
 ```typescript
 // data/profile.ts
 export const profile: Profile = {
@@ -174,10 +191,11 @@ export const profile: Profile = {
   title: "Your Title",
   bio: "Your bio...",
   // ... other fields
-}
+};
 ```
 
 ### **Add New Projects**
+
 ```typescript
 // data/projects.ts
 export const projects: Project[] = [
@@ -187,11 +205,12 @@ export const projects: Project[] = [
     summary: "Project description...",
     stack: ["react", "typescript"],
     // ... other fields
-  }
-]
+  },
+];
 ```
 
 ### **Modify Tech Stack**
+
 ```typescript
 // data/profile.ts - techStack array
 {
@@ -204,12 +223,14 @@ export const projects: Project[] = [
 ## 🌐 **Deployment**
 
 ### **Vercel (Recommended)**
+
 ```bash
 # Connect your GitHub repo to Vercel
 # Automatic deployments on push to main
 ```
 
 ### **Other Platforms**
+
 ```bash
 # Build for production
 pnpm build
