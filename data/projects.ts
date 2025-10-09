@@ -9,7 +9,14 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary:
       "Elegant, data-driven learning tracker that centralizes note-taking, course organization, progress tracking, and active recall through structured review sessions with performance analytics.",
-    stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
+    stack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "supabase",
+      "tailwind",
+      "shadcn/ui",
+    ],
     media: [
       {
         src: "/projects/rootly/rootly-0.png",
@@ -188,7 +195,14 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary:
       "A modern, intuitive mindmap creation and editing application that transforms your ideas into beautiful visual mindmaps.",
-    stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
+    stack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "supabase",
+      "tailwind",
+      "shadcn/ui",
+    ],
     media: [
       {
         src: "/projects/marky/marky-1.png",
@@ -247,7 +261,14 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary:
       "A Pomodoro concept timer with tasks, statistics, and Google or guest modes for authentication.",
-    stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
+    stack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "supabase",
+      "tailwind",
+      "shadcn/ui",
+    ],
     media: [
       {
         src: "/projects/pomotide/pomotide-1.png",
@@ -302,7 +323,14 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary:
       "Comprehensive portfolio management platform with animated canvas backgrounds, interactive setup guides, drag-and-drop reordering, and real-time synchronization between dashboard and public views.",
-    stack: ["nextjs", "react", "typescript", "supabase", "tailwind"],
+    stack: [
+      "nextjs",
+      "react",
+      "typescript",
+      "supabase",
+      "tailwind",
+      "shadcn/ui",
+    ],
     media: [
       {
         src: "/projects/noirkit/noirkit-1.png",

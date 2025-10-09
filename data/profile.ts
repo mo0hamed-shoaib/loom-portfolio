@@ -73,7 +73,7 @@ export const profile: Profile = {
     { name: "CSS3", category: "Frontend", icon: "css" },
     { name: "Tailwind CSS", category: "Frontend", icon: "tailwind" },
     { name: "Bootstrap", category: "Frontend", icon: "bootstrap" },
-    { name: "Shadcn/ui", category: "Frontend", icon: "nextjs" },
+    { name: "Shadcn/ui", category: "Frontend", icon: "shadcnui" },
 
     // Backend
     { name: "Node.js", category: "Backend", icon: "nodejs" },
